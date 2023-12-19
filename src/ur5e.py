@@ -8,18 +8,16 @@ from omni.isaac.core.utils.types import ArticulationAction
 import roboticstoolbox as rbt
 
 class Ur5e(Robot):
-    def __init__(self, name, translation, world, prim_path=None):
+    def __init__(self, name, world, translation=[0,0,0], prim_path=None):
         self.gripper_status = np.array([0, 0])
         self.gripper_open = np.array([0, 0])
         self.gripper_closed = np.array([0.4, 0.4])
         self.world = world
 
-        manipulator_usd_path = os.getcwd() + "/thesis/props/ur5e_gripper.usd" 
         if prim_path is None:
-            prim_path = "/World/manipulator"
-        add_reference_to_stage(usd_path=manipulator_usd_path, prim_path=prim_path)
+            prim_path = "/World/" + name
 
-        super().__init__(prim_path=prim_path, name=name, translation=translation)
+        super().__init__(prim_path=prim_path, name=name)
         self.manipulator_controller = self.get_articulation_controller()
         
         rmp_config_dir = "/home/gu/.local/share/ov/pkg/isaac_sim-2023.1.0-hotfix.1/exts/omni.isaac.motion_generation/motion_policy_configs"
@@ -57,6 +55,7 @@ class Ur5e(Robot):
             q (np.array): joint values
             t (int, optional): step in the traj. Defaults to 100.
         """
+        q = np.array(q)
         if q.shape[0] == 6:
             q = np.hstack((q, self.gripper_status))
         traj = rbt.jtraj(self.get_joint_positions(), q, t)
