@@ -1,0 +1,143 @@
+\usepackage[total={6.5in,8.75in},top=3cm, bottom=3cm, left=2.5cm, right=3.5cm, includefoot]{geometry}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{graphicx}
+
+% include pdf filer
+\usepackage{pdfpages}
+
+% Bruges til at lave subFigures
+\usepackage{mwe}
+
+\usepackage[export]{adjustbox}
+\usepackage{float}
+
+% Formler og græske symboler
+\usepackage[euler]{textgreek}
+\usepackage{amsmath}
+
+% At \par flytter den rigtige længde
+\usepackage{parskip}
+    % \setlength{\parindent}{20pt}
+    \setlength{\parskip}{1 em}
+
+% 1,5 linjeafstand, skrifttypen New Century Schoolbook og ingen højre allignment
+\renewcommand{\baselinestretch}{1.3}
+\usepackage{newcent}
+%\usepackage[document]{ragged2e}
+
+
+%Gør at referencer og navne på figurer og tabeller er på engelsk.
+\usepackage[english]{babel}
+
+% Links bliver blå, fx mails, og man kan klikke på det.
+\usepackage{hyperref}
+\hypersetup{
+					colorlinks, 
+					linkcolor={black},
+					citecolor={black},
+					urlcolor={blue}
+					}
+					
+
+\usepackage{imakeidx}
+\makeindex
+%Gør at man kan få tekst til at gå rundt om billeder.
+\usepackage{wrapfig}
+
+%Giver mulighed for flere linjer i captions mm.
+\usepackage{caption}
+
+%Gør det muligt at få subfigures, flere forskellige billeder i en figur
+\usepackage{subcaption}
+
+%giver mulighed for at bruge \textdegree{}
+\usepackage{textcomp}
+%giver mulighed for \degree i mathmode
+\usepackage{gensymb}
+%sætter sidetal til x af y
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy} 
+\cfoot{\thepage\ of \pageref{LastPage}}
+
+%pakke til at lave tables
+\usepackage{array}
+    \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+% giver mulighed for at lave C++ code snippets.
+\usepackage{listings}
+\usepackage{xcolor}
+    % \definecolor{codegreen}{rgb}{0,0.6,0}
+    % \definecolor{codegray}{rgb}{0.5,0.5,0.5}
+    % \definecolor{codepurple}{rgb}{0.58,0,0.82}
+    % \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+    % \newcommand{\mc}[2]{\multicolumn{#1}{c}{#2}}
+    % \definecolor{Gray}{gray}{0.85}
+    % \definecolor{toprow}{rgb}{0.52, 0.52, 0.51}
+    % \definecolor{emerald}{rgb}{0.31, 0.78, 0.47}
+    % \definecolor{gold(web)(golden)}{rgb}{1.0, 0.84, 0.0}
+    % \definecolor{persianred}{rgb}{0.8, 0.2, 0.2}
+    % \definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+    % \newcolumntype{a}{>{\columncolor{Gray}}c}
+    % \newcolumntype{b}{>{\columncolor{white}}c}
+    % \newcolumntype{?}[1]{!{\vrule width #1}}
+    % \definecolor{Red}{rgb}{1,0,0}
+
+%\definecolor{backcolour}{rgb}{0.67,0.74,0.73}
+\lstdefinestyle{mystyle}{
+    language=C++,
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstdefinestyle{base}{
+  language=C,
+  emptylines=1,
+  breaklines=true,
+  basicstyle=\ttfamily\color{black},
+  moredelim=**[is][\color{red}]{@}{@},
+}
+
+\lstset{style=mystyle}
+
+% Kan tilføje farver til tabeller
+\usepackage{colortbl}
+\usepackage{titlesec}
+\setcounter{secnumdepth}{4}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+%Kan bruges til at indsætte quotes.
+\usepackage{csquotes}
+
+%Centrerer titler i tabeller.
+\usepackage{booktabs}
+
+%bruges til at gøre alle kolonner samme størrelse
+\usepackage{tabularx}
+
+%For at få nummer på references afsnit
+\usepackage[numbib]{tocbibind}
+
+\usepackage{hhline}
+
+%For at kunne lave pseudocode i latex
+\usepackage{algorithm}
+\usepackage{algorithmic}

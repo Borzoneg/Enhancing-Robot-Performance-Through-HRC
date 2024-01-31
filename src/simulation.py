@@ -96,7 +96,11 @@ class Thesis(Node):
             self.world.step(render=True)
             rclpy.spin_once(self, timeout_sec=0.0)
             if self.world.is_playing():
-                self.robot.move_to_joint_position([0, 0, 0, 0, 0, 0])
+                # self.robot.open_gripper()
+                self.robot.hold_object([np.array([2, 2, 1]), 
+                                        np.array([0, 0, 0, 1])],
+                                       [np.array([1.5, 2.5, 0.8]), 
+                                        np.array([0, 1, 0, 1])])
         self.timeline.stop()
         self.destroy_node()
         simulation_app.close()

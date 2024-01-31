@@ -1,0 +1,44 @@
+\documentclass[]{report}
+
+\usepackage{graphicx}
+% \usepackage{subfig} 
+\usepackage{subcaption} 
+\usepackage{float} 
+\usepackage{subfloat} 
+
+\usepackage[margin=3cm]{geometry}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{makeidx}
+
+
+
+\pagestyle{plain} % 'plain' page style includes page numbers in the footer
+\bibliographystyle{plain}
+
+\pagenumbering{roman}
+
+\title{My First LaTeX Document}
+\author{Your Name}
+\date{\today}
+
+\makeindex
+
+\begin{document}
+    \pagenumbering{arabic}
+    \maketitle
+    \tableofcontents
+    \printindex
+    \input{chapters/abstract}
+    \input{chapters/introduction}
+    \input{chapters/literature_review}
+    \input{chapters/methods}
+    \input{chapters/results}
+    \input{chapters/discussion}
+    \input{chapters/conclusions}
+
+    
+    \nocite{*}
+    \bibliography{bibliography.bib}
+
+\end{document}
