@@ -100,7 +100,7 @@ class Thesis(Node):
                 self.robot.hold_object([np.array([2, 2, 1]), 
                                         np.array([0, 0, 0, 1])],
                                        [np.array([1.5, 2.5, 0.8]), 
-                                        np.array([0, 1, 0, 1])])
+                                        np.array([0, 0, 0, 1])])
         self.timeline.stop()
         self.destroy_node()
         simulation_app.close()
