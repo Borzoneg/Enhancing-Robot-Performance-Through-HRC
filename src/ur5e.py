@@ -24,8 +24,7 @@ class Ur5e(Robot):
 
         super().__init__(prim_path=prim_path, name=name)
         self.manipulator_controller = self.get_articulation_controller()
-        
-        rmp_config_dir = "/home/gu/.local/share/ov/pkg/isaac_sim-2023.1.0-hotfix.1/exts/omni.isaac.motion_generation/motion_policy_configs"
+        rmp_config_dir = "./exts/omni.isaac.motion_generation/motion_policy_configs"
         self.rmpflow = RmpFlow(
                         robot_description_path=rmp_config_dir + "/universal_robots/ur5e/rmpflow/ur5e_robot_description.yaml",
                         urdf_path=rmp_config_dir + "/universal_robots/ur5e/ur5e.urdf",
@@ -87,6 +86,12 @@ class Ur5e(Robot):
                                                                     )
         if reachable:
             self.move_to_joint_position(np.hstack((joint_pos, self.gripper_options[self.gripper_status])))
+        return reachable
+
+    def move_to_target(self, frame):
+        target_pos = frame.get_world_pose()[0]
+        target_orient = frame.get_world_pose()[1]
+        self.move_to_cart_position(target_pos, target_orient)
 
     def grab_object(self, obj_pose):
         self.open_gripper()

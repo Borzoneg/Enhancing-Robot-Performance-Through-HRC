@@ -14,7 +14,7 @@ parser.add_argument(
 )
 args, unknown = parser.parse_known_args()
 simulation_app = SimulationApp({"renderer": "RayTracedLighting", "headless": False, "window_width": 2000, "window_height":1500})
-omni.usd.get_context().open_stage("thesis/props/scene.usd")
+omni.usd.get_context().open_stage("./Enhancing-Robot-Performance-Through-HRC/props/flat_scene.usd")
 simulation_app.update()
 
 print("Loading stage...")
@@ -84,6 +84,7 @@ class Thesis(Node):
         self.stage = omni.usd.get_context().get_stage()
         
         self.robot = Ur5e("ur5e", self.world)
+        self.target_pose = self.world.scene.add(VisualSphere(prim_path="/World/target", name="target", translation=np.array([0.2, 0, 1]), scale=np.array([0.01, 0.01, 0.01]), color=np.array([0, 0, 1]), visible=True))
         self.world.scene.add(self.robot)
 
     # ---------------- MAIN SIMULATION ---------------- #
@@ -96,11 +97,8 @@ class Thesis(Node):
             self.world.step(render=True)
             rclpy.spin_once(self, timeout_sec=0.0)
             if self.world.is_playing():
-                # self.robot.open_gripper()
-                self.robot.hold_object([np.array([2, 2, 1]), 
-                                        np.array([0, 0, 0, 1])],
-                                       [np.array([1.5, 2.5, 0.8]), 
-                                        np.array([0, 0, 0, 1])])
+                print(self.robot.get_tcp_pose())
+                self.robot.move_to_target(self.target_pose)
         self.timeline.stop()
         self.destroy_node()
         simulation_app.close()
