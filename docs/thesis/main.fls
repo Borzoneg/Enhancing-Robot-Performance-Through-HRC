@@ -259,6 +259,8 @@ INPUT chapters/introduction.tex
 INPUT ./chapters/introduction.tex
 INPUT ./chapters/introduction.tex
 INPUT chapters/introduction.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT ./figs/quack.jpg
 INPUT ./figs/quack.jpg
 INPUT figs/quack.jpg
