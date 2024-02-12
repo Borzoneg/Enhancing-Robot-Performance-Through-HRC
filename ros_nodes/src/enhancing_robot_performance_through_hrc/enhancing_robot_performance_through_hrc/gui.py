@@ -24,10 +24,10 @@ class Gui(Node):
         self.window.mainloop()
 
     def configure_window(self):
-        self.window.columnconfigure(0, weight=1, minsize=200)
-        self.window.columnconfigure(1, weight=1, minsize=200)
-        self.window.columnconfigure(2, weight=1, minsize=200)
-        self.window.rowconfigure(0, weight=1)
+        self.window.columnconfigure(0, weight=4, minsize=400)
+        self.window.columnconfigure(1, weight=3, minsize=300)
+        self.window.columnconfigure(2, weight=4, minsize=400)
+        self.window.rowconfigure(0, weight=1, minsize=20)
         self.window.rowconfigure(1, weight=10, minsize=300)
 
     def configure_frames(self):
@@ -55,78 +55,95 @@ class Gui(Node):
         self.mid_window.rowconfigure(1, weight=3, minsize=100)
         self.mid_window.rowconfigure(2, weight=1, minsize=100)
         # self.mid_window.columnconfigure(0, weight=1)
-        self.mid_window.columnconfigure(1, weight=3)
+        self.mid_window.columnconfigure(1, weight=1)
         # self.mid_window.columnconfigure(2, weight=1)
 
     def configure_buttons(self):
-        self.hold_left_button = tk.Button(self.left_window, text="Hold left",
+        self.reset_button = tk.Button(self.window, text="Reset task", font=("Times New Roman", 15), bg="light yellow", 
+                                      command=lambda: self.on_click('reset_task')) 
+        self.reset_button.grid(row=0, column=0, sticky=tk.N+tk.S+tk.E+tk.W)
+
+        self.left_button = tk.Button(self.left_window, text="Hold left",
                                      command=lambda: self.on_click('hold_left'),
                                      font=("Times New Roman", 20), state="active")
-        self.hold_joint_button = tk.Button(self.mid_window, text="Hold joint", 
+        self.joint_button = tk.Button(self.mid_window, text="Hold joint", 
                                       command=lambda: self.on_click('hold_joint'),
                                       font=("Times New Roman", 20), state="disabled")
-        self.hold_right_button = tk.Button(self.right_window, text="Hold right",
+        self.right_button = tk.Button(self.right_window, text="Hold right",
                                       command=lambda: self.on_click('hold_right'),
                                       font=("Times New Roman", 20), state="active")
         
-        self.hold_left_button.grid(row=1, column=1, sticky=tk.N+tk.S+tk.E+tk.W)
-        self.hold_joint_button.grid(sticky=tk.N+tk.S+tk.E+tk.W, row=1, column=1)
-        self.hold_right_button.grid(row=1, column=0, sticky=tk.N+tk.S+tk.E+tk.W) 
+        self.left_button.grid(row=1, column=1, sticky=tk.N+tk.S+tk.E+tk.W)
+        self.joint_button.grid(sticky=tk.N+tk.S+tk.E+tk.W, row=1, column=1)
+        self.right_button.grid(row=1, column=0, sticky=tk.N+tk.S+tk.E+tk.W) 
 
     def configure_labels(self):
-        label_str = f"X: {self.x:05.2f}, Y: {self.x:05.2f}, Z: {self.x:05.2f}, Roll: {self.x:05.2f}, Pitch: {self.x:05.2f}, Yaw: {self.x:05.2f}"
-        self.label = tk.Label(self.window, text=label_str, font=("Times New Roman", 15))
-        self.label.grid(row=0, column=0, columnspan=3)
+        label_str = f"X: {self.x:05.2f}, Y: {self.x:05.2f}, Z: {self.x:05.2f}\nRoll: {self.x:05.2f}, Pitch: {self.x:05.2f}, Yaw: {self.x:05.2f}"
+        self.label = tk.Label(self.window, text=label_str, font=("Times New Roman", 15), bg="light yellow")
+        self.label.grid(row=0, column=1, sticky=tk.N+tk.S+tk.E+tk.W)
+        
+        self.label = tk.Label(self.window, text="", font=("Times New Roman", 15), bg="light yellow")
+        self.label.grid(row=0, column=2, sticky=tk.N+tk.S+tk.E+tk.W)
 
     def on_click(self, button_label):
         # self.send_button_clt.send_request(self.buttons_dict[button_label])
+
         if button_label == 'hold_left':
             self.left_window.configure(bg="light blue")
-            self.hold_left_button.configure(text="Piece placed", command=lambda: self.on_click('left_placed'))
+            self.left_button.configure(text="Piece placed", command=lambda: self.on_click('left_placed'))
         elif button_label == 'hold_right':
             self.right_window.configure(bg="light blue")
-            self.hold_right_button.configure(text="Piece placed", command=lambda: self.on_click('right_placed'))
+            self.right_button.configure(text="Piece placed", command=lambda: self.on_click('right_placed'))
         
         elif button_label == 'left_placed':
             self.left_window.configure(bg="light green")
-            self.hold_left_button.configure(text="Reset", command=lambda: self.on_click('left_reset'))
+            self.left_button.configure(text="Reset", command=lambda: self.on_click('left_reset'))
             self.left_placed = True
             if self.right_placed and self.left_placed:
-                self.hold_joint_button.configure(state='active')
-                self.hold_right_button.configure(state='disabled')
-                self.hold_left_button.configure(state='disabled')
+                self.joint_button.configure(state='active')
+                self.right_button.configure(state='disabled')
+                self.left_button.configure(state='disabled')
         elif button_label == 'right_placed':
             self.right_window.configure(bg="light green")
-            self.hold_right_button.configure(text="Reset", command=lambda: self.on_click('right_reset'))
+            self.right_button.configure(text="Reset", command=lambda: self.on_click('right_reset'))
             self.right_placed = True
             if self.right_placed and self.left_placed:
-                self.hold_joint_button.configure(state='active')
-                self.hold_right_button.configure(state='disabled')
-                self.hold_left_button.configure(state='disabled')
+                self.joint_button.configure(state='active')
+                self.right_button.configure(state='disabled')
+                self.left_button.configure(state='disabled')
 
         elif button_label == 'left_reset':
             self.left_window.configure(bg="grey")
-            self.hold_left_button.configure(text="Hold left", command=lambda: self.on_click('hold_left'))
+            self.left_button.configure(text="Hold left", command=lambda: self.on_click('hold_left'))
             self.left_placed = False
         elif button_label == 'right_reset':
             self.right_window.configure(bg="grey")
-            self.hold_right_button.configure(text="Hold right", command=lambda: self.on_click('hold_right'))
+            self.right_button.configure(text="Hold right", command=lambda: self.on_click('hold_right'))
             self.right_placed = False
 
         elif button_label == 'hold_joint':
             self.mid_window.configure(bg="light blue")
-            self.hold_joint_button.configure(text="Complete task", command=lambda: self.on_click('task_completed'))
+            self.joint_button.configure(text="Complete task", command=lambda: self.on_click('task_completed'))
 
         elif button_label == 'task_completed':
             self.left_window.configure(bg="grey")
             self.right_window.configure(bg="grey")
             self.mid_window.configure(bg="grey")
-            self.hold_left_button.configure(text="Hold left", command=lambda: self.on_click('hold_left'), state="active")
-            self.hold_right_button.configure(text="Hold right", command=lambda: self.on_click('hold_right'), state="active")
-            self.hold_joint_button.configure(text="Hold joint", command=lambda: self.on_click('hold_joint'), state="disabled")
+            self.left_button.configure(text="Hold left", command=lambda: self.on_click('hold_left'), state="active")
+            self.right_button.configure(text="Hold right", command=lambda: self.on_click('hold_right'), state="active")
+            self.joint_button.configure(text="Hold joint", command=lambda: self.on_click('hold_joint'), state="disabled")
             self.right_placed = False
             self.left_placed = False
-
+        
+        elif button_label == 'reset_task':
+            self.left_window.configure(bg="grey")
+            self.right_window.configure(bg="grey")
+            self.mid_window.configure(bg="grey")
+            self.left_button.configure(text="Hold left", command=lambda: self.on_click('hold_left'), state="active")
+            self.right_button.configure(text="Hold right", command=lambda: self.on_click('hold_right'), state="active")
+            self.joint_button.configure(text="Hold joint", command=lambda: self.on_click('hold_joint'), state="disabled")
+            self.right_placed = False
+            self.left_placed = False
 
 def main(args=None):
     rclpy.init(args=args)
