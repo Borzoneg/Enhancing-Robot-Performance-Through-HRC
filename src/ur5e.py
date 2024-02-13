@@ -54,7 +54,7 @@ class Ur5e(Robot):
         self.move_to_joint_position(np.hstack((self.get_joint_positions()[:6], 
                                                self.gripper_options[self.gripper_status])))
 
-    def move_to_joint_position(self, q, t=100):
+    def move_to_joint_position(self, q, t=200):
         """
         Move the robot to the specified joint position, by creating a 100 step long trajectory
         q must be 8 joint, the last two represents the gripper status, if you want to mantain the current one 
@@ -66,7 +66,7 @@ class Ur5e(Robot):
         """
         q = np.array(q)
         if q.shape[0] == 6:
-            q = np.hstack((q, self.gripper_status))
+            q = np.hstack((q, self.gripper_options[self.gripper_status]))
         traj = rbt.jtraj(self.get_joint_positions(), q, t)
         for q in traj.q:
             # q = np.hstack((q, self.gripper_options[self.gripper_status]))
@@ -76,6 +76,7 @@ class Ur5e(Robot):
 
     def move_to_cart_position(self, target_pos, target_orient=None):
         joint_tool = self.get_joint_positions()[:6]
+        target_pos += np.array([0, 0, 0.12])
         if target_orient is None:
             target_orient = rot_utils.rot_matrices_to_quats(self.rmpflow.get_end_effector_pose(joint_tool)[1])
         joint_pos, reachable = self.lula_solver.compute_inverse_kinematics(
@@ -93,14 +94,21 @@ class Ur5e(Robot):
         target_orient = frame.get_world_pose()[1]
         self.move_to_cart_position(target_pos, target_orient)
 
-    def grab_object(self, obj_pose):
+    def grab_object(self, obj_pose, use_jspace=False):
         self.open_gripper()
-        self.move_to_cart_position(obj_pose[0], obj_pose[1])
+        if not use_jspace:
+            self.move_to_cart_position(obj_pose[0], obj_pose[1])
+        else:
+            self.move_to_joint_position(obj_pose)
+        print(self.get_joint_positions())
         self.close_gripper()
         current_pose = self.get_tcp_pose()
         self.move_to_cart_position(current_pose[0] + np.array([0, 0, 0.1]), current_pose[1])
     
-    def hold_object(self, obj_pose, hold_pose):
-        self.grab_object(obj_pose)
-        self.move_to_cart_position(hold_pose[0], hold_pose[1])
+    def hold_object(self, obj_pose, hold_pose, use_jspace=False):
+        self.grab_object(obj_pose, use_jspace=use_jspace)
+        if not use_jspace:
+            self.move_to_cart_position(hold_pose[0], hold_pose[1])
+        else:
+            self.move_to_joint_position(hold_pose)
 
