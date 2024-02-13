@@ -14,7 +14,7 @@ parser.add_argument(
 )
 args, unknown = parser.parse_known_args()
 simulation_app = SimulationApp({"renderer": "RayTracedLighting", "headless": False, "window_width": 2000, "window_height":1500})
-omni.usd.get_context().open_stage("./Enhancing-Robot-Performance-Through-HRC/props/flat_scene.usd")
+omni.usd.get_context().open_stage("./Enhancing-Robot-Performance-Through-HRC/props/flat_scene2.usd")
 simulation_app.update()
 
 print("Loading stage...")
@@ -72,7 +72,8 @@ class Thesis(Node):
         
         self.setup_world()
         self.world.reset()
-
+    # cloesest part to robot [array([-0.02495248,  0.45746576,  0.98969998]), array([-1.10622863e-03,  9.99998467e-01,  5.44925846e-04, -1.24342641e-03])]
+    # over left [array([ 0.22879327, -0.23200678,  1.08989936]), array([-3.03280679e-03,  9.99994477e-01,  2.28049964e-04, -1.34053906e-03])]
     # ---------------- ISAAC ---------------- #
     def setup_world(self):
         """
