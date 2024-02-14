@@ -13,7 +13,7 @@ parser.add_argument(
     choices=["omni.isaac.ros2_bridge", "omni.isaac.ros2_bridge-humble"],
 )
 args, unknown = parser.parse_known_args()
-simulation_app = SimulationApp({"renderer": "RayTracedLighting", "headless": False, "window_width": 2000, "window_height":1500})
+simulation_app = SimulationApp({"headless": False, "window_width": 2000, "window_height":1500, "active_gpu":0, "physics_gpu":0})
 omni.usd.get_context().open_stage("./Enhancing-Robot-Performance-Through-HRC/props/flat_scene.usd")
 simulation_app.update()
 
@@ -80,9 +80,6 @@ class Thesis(Node):
         done = False
         self.timeline.play()
         self.robot.move_to_joint_position(self.part1_pose)
-        self.robot.move_to_joint_position(self.part2_pose)
-        self.robot.move_to_joint_position(self.part3_pose)
-        self.robot.move_to_joint_position(self.part4_pose)
         while simulation_app.is_running():
             self.world.step(render=True)
             rclpy.spin_once(self, timeout_sec=0.0)
