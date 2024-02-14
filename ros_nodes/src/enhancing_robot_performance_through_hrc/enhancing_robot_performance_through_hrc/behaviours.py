@@ -1,9 +1,12 @@
 import py_trees
+import rclpy 
+from send_str_clt import SendStrClient
 
 class HoldFirst(py_trees.behaviour.Behaviour):
     def __init__(self, name):
         super(HoldFirst, self).__init__(name)
-    
+        self.ros_client = SendStrClient("hold_first")
+
     def setup(self):
         """
         When is this called?
@@ -56,7 +59,7 @@ class HoldFirst(py_trees.behaviour.Behaviour):
           - Set a feedback message
           - return a py_trees.common.Status.[RUNNING, SUCCESS, FAILURE]
         """
-        pass
+        self.ros_client.send_request("")
 
     def terminate(self, new_status):
         """
