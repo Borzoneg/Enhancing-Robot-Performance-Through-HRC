@@ -2,13 +2,13 @@ import tkinter as tk
 from tkinter import ttk
 import rclpy
 from rclpy.node import Node
-from send_int_clt import SendIntClient
+from .send_str_clt import SendStrClient
 
 class Gui(Node):
     def __init__(self):
         super().__init__('dmp_node')
 
-        # self.send_button_clt = SendIntClient("send_button_code")
+        # self.send_button_clt = SendStrClient("send_button_code")
         self.buttons_dict = {'hold_left': 0, 'hold_right': 1, 'hold_joint': 2}
         self.x, self.y, self.z = 0, 0, 0
         self.roll , self.pitch, self.yaw = 0, 0, 0
@@ -86,7 +86,7 @@ class Gui(Node):
         self.label.grid(row=0, column=2, sticky=tk.N+tk.S+tk.E+tk.W)
 
     def on_click(self, button_label):
-        # self.send_button_clt.send_request(self.buttons_dict[button_label])
+        # self.send_button_clt.send_request(button_label)
 
         if button_label == 'hold_left':
             self.left_window.configure(bg="light blue")

@@ -25,7 +25,7 @@ The robot and the human collaborate to join together two part through a plaque t
 - Holding an object: boolean
 - TCP pose: nparray((4, 4))
 - Gripper status: boolean
-### Actions
+### Skills
 #### Public
 - Grab object (pick location)
 - Hold object in place (pick location, hold location): Grab obj + Move TCP 
