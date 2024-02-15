@@ -34,10 +34,11 @@ from ur5e import Ur5e
 enable_extension(args.ros2_bridge)
 import rclpy
 from rclpy.node import Node
+from custom_interfaces.srv import String
 
 data_path = os.getcwd() + "./Enhancing-Robot-Performance-Through-HRC/data/"
 
-class Thesis(Node):
+class ThesisSim(Node):
     def __init__(self):
         super().__init__("case")
 
@@ -46,15 +47,15 @@ class Thesis(Node):
         
         self.setup_world()
         self.world.reset()
-        # closest part to robot [array([-0.02495248,  0.45746576,  0.98969998]), array([-1.10622863e-03,  9.99998467e-01,  5.44925846e-04, -1.24342641e-03])]
+
         self.part1_pose = np.array([7.6579368e-01, -2.1491818e+00, 2.6174536e+00, -2.0349963e+00, 4.7113948e+00, -5.07814e+00])
         self.part2_pose = np.array([9.0818042e-01, -1.7856942e+00,  2.4241664e+00, -2.2065356e+00, 4.7122583e+00, -4.9737353e+00])
         self.part3_pose = np.array([9.7115588e-01, -1.5063242e+00, 2.1745589e+00, -2.2362220e+00, 4.7119045e+00, -4.9111395e+00])
         self.part4_pose = np.array([1.0079454e+00, -1.2859949e+00,  1.9041189e+00, -2.1859901e+00, 4.7121520e+00, -4.8737068e+00])
 
-
-        # over left [array([ 0.22879327, -0.23200678,  1.08989936]), array([-3.03280679e-03,  9.99994477e-01,  2.28049964e-04, -1.34053906e-03])]
         self.left_hold_pose = np.array([6.1565105e-02, -7.8946501e-01,  1.0186660e+00, -1.7937291e+00, 4.7132058e+00, -5.8202195e+00])
+
+        self.perform_traj_srv = self.create_service(JointPoses, 'perform_traj', self.perform_traj)
     # ---------------- ISAAC ---------------- #
     def setup_world(self):
         """
@@ -93,5 +94,5 @@ class Thesis(Node):
 
 if __name__ == "__main__":
     rclpy.init()
-    demo = Thesis()
+    demo = ThesisSim()
     demo.run_simulation()

@@ -1,13 +1,3 @@
-# This software contains source code provided by NVIDIA Corporation.
-# Copyright (c) 2022-2023, NVIDIA CORPORATION.  All rights reserved.
-#
-# NVIDIA CORPORATION and its licensors retain all intellectual property
-# and proprietary rights in and to this software, related documentation
-# and any modifications thereto.  Any use, reproduction, disclosure or
-# distribution of this software and related documentation without an express
-# license agreement from NVIDIA CORPORATION is strictly prohibited.
-#
-
 import numpy as np
 import omni.timeline
 import omni.ui as ui
@@ -23,8 +13,10 @@ from omni.isaac.ui.element_wrappers.core_connectors import LoadButton, ResetButt
 from omni.isaac.ui.ui_utils import get_style
 from omni.usd import StageEventType
 from pxr import Sdf, UsdLux
-
 from .scenario import ExampleScenario
+
+from ERPTHRC_python.thesis_sim import ThesisSim
+
 
 
 class UIBuilder:
@@ -39,6 +31,7 @@ class UIBuilder:
 
         # Run initialization for the provided example
         self._on_init()
+        self.simulation = ThesisSim()
 
     ###################################################################################
     #           The Functions Below Are Called Automatically By extension.py
@@ -158,10 +151,7 @@ class UIBuilder:
         and avoid loading anything if they are.  In this case, the user would still need to add
         their assets to the World (which has low overhead).  See commented code section in this function.
         """
-        # Load the UR10e
-        robot_prim_path = "/ur10e"
-        path_to_robot_usd = get_assets_root_path() + "/Isaac/Robots/UniversalRobots/ur10e/ur10e.usd"
-
+        self.simulation.setup_world()
         # Do not reload assets when hot reloading.  This should only be done while extension is under development.
         # if not is_prim_path_valid(robot_prim_path):
         #     create_new_stage()
@@ -169,21 +159,6 @@ class UIBuilder:
         # else:
         #     print("Robot already on Stage")
 
-        create_new_stage()
-        self._add_light_to_stage()
-        add_reference_to_stage(path_to_robot_usd, robot_prim_path)
-
-        # Create a cuboid
-        self._cuboid = FixedCuboid(
-            "/Scenario/cuboid", position=np.array([0.3, 0.3, 0.5]), size=0.05, color=np.array([255, 0, 0])
-        )
-
-        self._articulation = Articulation(robot_prim_path)
-
-        # Add user-loaded objects to the World
-        world = World.instance()
-        world.scene.add(self._articulation)
-        world.scene.add(self._cuboid)
 
     def _setup_scenario(self):
         """

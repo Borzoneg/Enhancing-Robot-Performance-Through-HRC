@@ -20,6 +20,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'gui = enhancing_robot_performance_through_hrc.gui:main',
+            'tree = enhancing_robot_performance_through_hrc.behaviour_tree:main',
+            'srvs = enhancing_robot_performance_through_hrc.services_placeholder:main',
         ],
     },
 )
