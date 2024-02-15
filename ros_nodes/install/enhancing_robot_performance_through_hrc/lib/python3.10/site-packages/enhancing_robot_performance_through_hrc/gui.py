@@ -8,7 +8,6 @@ class Gui(Node):
     def __init__(self):
         super().__init__('dmp_node')
         self.send_button_clt = SendStrClient("send_button_code")
-        self.buttons_dict = {'hold_left': 0, 'hold_right': 1, 'hold_joint': 2}
         self.x, self.y, self.z = 0, 0, 0
         self.roll , self.pitch, self.yaw = 0, 0, 0
         self.left_placed, self.right_placed = False, False
@@ -63,13 +62,13 @@ class Gui(Node):
         self.reset_button.grid(row=0, column=0, sticky=tk.N+tk.S+tk.E+tk.W)
 
         self.left_button = tk.Button(self.left_window, text="Hold left",
-                                     command=lambda: self.on_click('hold_left'),
+                                     command=lambda: self.on_click('hold_left_sim'),
                                      font=("Times New Roman", 20), state="active")
         self.joint_button = tk.Button(self.mid_window, text="Hold joint", 
                                       command=lambda: self.on_click('hold_joint'),
                                       font=("Times New Roman", 20), state="disabled")
         self.right_button = tk.Button(self.right_window, text="Hold right",
-                                      command=lambda: self.on_click('hold_right'),
+                                      command=lambda: self.on_click('hold_right_sim'),
                                       font=("Times New Roman", 20), state="active")
         
         self.left_button.grid(row=1, column=1, sticky=tk.N+tk.S+tk.E+tk.W)
@@ -87,27 +86,27 @@ class Gui(Node):
     def on_click(self, button_label):
         self.send_button_clt.send_request(button_label)
 
-        if button_label == 'hold_left':
+        if button_label == 'hold_left_sim':
             self.left_window.configure(bg="light blue")
-            self.left_button.configure(text="Piece placed", command=lambda: self.on_click('left_placed'))
+            self.left_button.configure(text="Piece placed", command=lambda: self.on_click('place_left'))
             self.right_button.configure(state='disabled')
-        elif button_label == 'hold_right':
+        elif button_label == 'hold_right_sim':
             self.right_window.configure(bg="light blue")
-            self.right_button.configure(text="Piece placed", command=lambda: self.on_click('right_placed'))
+            self.right_button.configure(text="Piece placed", command=lambda: self.on_click('place_right'))
             self.left_button.configure(state='disabled')
         
-        elif button_label == 'left_placed':
+        elif button_label == 'place_left':
             self.left_window.configure(bg="light green")
-            self.left_button.configure(text="Reset", command=lambda: self.on_click('left_reset'))
+            self.left_button.configure(text="Reset", command=lambda: self.on_click('reset_left'))
             self.right_button.configure(state='active')
             self.left_placed = True
             if self.right_placed and self.left_placed:
                 self.joint_button.configure(state='active')
                 self.right_button.configure(state='disabled')
                 self.left_button.configure(state='disabled')
-        elif button_label == 'right_placed':
+        elif button_label == 'place_right':
             self.right_window.configure(bg="light green")
-            self.right_button.configure(text="Reset", command=lambda: self.on_click('right_reset'))
+            self.right_button.configure(text="Reset", command=lambda: self.on_click('reset_right'))
             self.left_button.configure(state='active')
             self.right_placed = True
             if self.right_placed and self.left_placed:
@@ -115,25 +114,25 @@ class Gui(Node):
                 self.right_button.configure(state='disabled')
                 self.left_button.configure(state='disabled')
 
-        elif button_label == 'left_reset':
+        elif button_label == 'reset_left':
             self.left_window.configure(bg="grey")
-            self.left_button.configure(text="Hold left", command=lambda: self.on_click('hold_left'))
+            self.left_button.configure(text="Hold left", command=lambda: self.on_click('hold_left_sim'))
             self.left_placed = False
-        elif button_label == 'right_reset':
+        elif button_label == 'reset_right':
             self.right_window.configure(bg="grey")
-            self.right_button.configure(text="Hold right", command=lambda: self.on_click('hold_right'))
+            self.right_button.configure(text="Hold right", command=lambda: self.on_click('hold_right_sim'))
             self.right_placed = False
 
         elif button_label == 'hold_joint':
             self.mid_window.configure(bg="light blue")
-            self.joint_button.configure(text="Complete task", command=lambda: self.on_click('task_completed'))
+            self.joint_button.configure(text="Complete task", command=lambda: self.on_click('complete_task'))
 
-        elif button_label == 'task_completed':
+        elif button_label == 'complete_task':
             self.left_window.configure(bg="grey")
             self.right_window.configure(bg="grey")
             self.mid_window.configure(bg="grey")
-            self.left_button.configure(text="Hold left", command=lambda: self.on_click('hold_left'), state="active")
-            self.right_button.configure(text="Hold right", command=lambda: self.on_click('hold_right'), state="active")
+            self.left_button.configure(text="Hold left", command=lambda: self.on_click('hold_left_sim'), state="active")
+            self.right_button.configure(text="Hold right", command=lambda: self.on_click('hold_right_sim'), state="active")
             self.joint_button.configure(text="Hold joint", command=lambda: self.on_click('hold_joint'), state="disabled")
             self.right_placed = False
             self.left_placed = False
@@ -142,8 +141,8 @@ class Gui(Node):
             self.left_window.configure(bg="grey")
             self.right_window.configure(bg="grey")
             self.mid_window.configure(bg="grey")
-            self.left_button.configure(text="Hold left", command=lambda: self.on_click('hold_left'), state="active")
-            self.right_button.configure(text="Hold right", command=lambda: self.on_click('hold_right'), state="active")
+            self.left_button.configure(text="Hold left", command=lambda: self.on_click('hold_left_sim'), state="active")
+            self.right_button.configure(text="Hold right", command=lambda: self.on_click('hold_right_sim'), state="active")
             self.joint_button.configure(text="Hold joint", command=lambda: self.on_click('hold_joint'), state="disabled")
             self.right_placed = False
             self.left_placed = False

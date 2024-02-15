@@ -13,6 +13,9 @@ class GenericBehaviour(py_trees.behaviour.Behaviour):
         self.ros_client = SendStrClient(name)
 
     def update(self):
+        if self.blackboard.get(self.name) != "requested":
+            print("Not supposed to run")
+            return py_trees.common.Status.INVALID
         response = self.ros_client.send_request("_")
         print(self.name, response)
         if response.ans == "success":
@@ -22,6 +25,6 @@ class GenericBehaviour(py_trees.behaviour.Behaviour):
         
     def terminate(self, new_status):
         if new_status == py_trees.common.Status.SUCCESS:
-            self.blackboard.hold_first_sim = "success" 
+            self.blackboard.set(self.name, "success")
         elif new_status == py_trees.common.Status.FAILURE:
-            self.blackboard.hold_first_sim = "failure" 
+            self.blackboard.set(self.name, "failure" )

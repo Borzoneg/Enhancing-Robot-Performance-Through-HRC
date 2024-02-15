@@ -9,29 +9,43 @@ class BehaviourTree(pt.trees.BehaviourTree):
         self.updating_bb_node = rclpy.create_node("updating_bb_node")
         self.updating_bb_node.create_service(String, "send_button_code", self.update_bb)
         
-        self.behaviours_names = ["hold_first_sim", "hold_first_real", "hold_second_sim", "hold_second_real", "placed_first", 
-                           "placed_second", "hold_joint_sim", "hold_joint_real", "task_done"]
+        self.behaviours_names = ["hold_left_sim", "hold_left_real", "reset_left", "place_left", 
+                                 "hold_right_sim", "hold_right_real", "reset_right", "place_right",
+                                 "hold_joint_sim", "hold_joint_real", "complete_task", "reset_task"]
         
         self.blackboard = py_trees.blackboard.Client(name="Blackboard_client")
         for behaviour in self.behaviours_names:
             self.blackboard.register_key(key=behaviour, access=py_trees.common.Access.WRITE)
             self.blackboard.set(behaviour, "not_done")
+        print(self.blackboard)
 
         self.behaviours = []
         for behaviour in self.behaviours_names:
             self.behaviours.append(GenericBehaviour(behaviour, self.blackboard))
 
+        self.left_placed = False
+        self.right_placed = False
+
         root = pt.composites.Sequence(name = "Main sequence", memory=False)       
         root.add_children(self.behaviours)
-        
         super(BehaviourTree, self).__init__(root)
 
     def update_bb(self, request, response):
-        # made placeholders for services
-        # need to update bb correctly 
-        # print(request.data)
-        # print(self.blackboard)
-        response.ans = "Answer"
+        # possible request string: 
+        #                         hold_left_sim
+        #                         hold_left_real
+        #                         place_left
+        #                         reset_left
+        #                         hold_right_sim
+        #                         hold_right_real
+        #                         place_right
+        #                         reset_right
+        #                         hold_joint_sim
+        #                         hold_joint_real
+        #                         reset_task
+        #                         complete_task
+        self.blackboard.set(request.data, "requested")
+        response.ans = ""
         return response
 
 def main(args=None):
