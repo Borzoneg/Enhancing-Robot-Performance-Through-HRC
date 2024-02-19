@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk
+from tkinter import messagebox
 import rclpy
 from rclpy.node import Node
 from .send_str_clt import SendStrClient
@@ -18,7 +18,9 @@ class Gui(Node):
         self.configure_frames()
         self.configure_labels()
         self.configure_buttons()
-    
+
+        self.to_close = False
+        self.window.protocol("WM_DELETE_WINDOW", self.on_closing)
         self.window.mainloop()
 
     def configure_window(self):
@@ -62,13 +64,13 @@ class Gui(Node):
         self.reset_button.grid(row=0, column=0, sticky=tk.N+tk.S+tk.E+tk.W)
 
         self.left_button = tk.Button(self.left_window, text="Hold left",
-                                     command=lambda: self.on_click('hold_left_sim'),
+                                     command=lambda: self.on_click('hold_left_real'),
                                      font=("Times New Roman", 20), state="active")
         self.joint_button = tk.Button(self.mid_window, text="Hold joint", 
                                       command=lambda: self.on_click('hold_joint'),
                                       font=("Times New Roman", 20), state="disabled")
         self.right_button = tk.Button(self.right_window, text="Hold right",
-                                      command=lambda: self.on_click('hold_right_sim'),
+                                      command=lambda: self.on_click('hold_right_real'),
                                       font=("Times New Roman", 20), state="active")
         
         self.left_button.grid(row=1, column=1, sticky=tk.N+tk.S+tk.E+tk.W)
@@ -86,11 +88,11 @@ class Gui(Node):
     def on_click(self, button_label):
         self.send_button_clt.send_request(button_label)
 
-        if button_label == 'hold_left_sim':
+        if button_label == 'hold_left_real':
             self.left_window.configure(bg="light blue")
             self.left_button.configure(text="Piece placed", command=lambda: self.on_click('place_left'))
             self.right_button.configure(state='disabled')
-        elif button_label == 'hold_right_sim':
+        elif button_label == 'hold_right_real':
             self.right_window.configure(bg="light blue")
             self.right_button.configure(text="Piece placed", command=lambda: self.on_click('place_right'))
             self.left_button.configure(state='disabled')
@@ -116,11 +118,11 @@ class Gui(Node):
 
         elif button_label == 'reset_left':
             self.left_window.configure(bg="grey")
-            self.left_button.configure(text="Hold left", command=lambda: self.on_click('hold_left_sim'))
+            self.left_button.configure(text="Hold left", command=lambda: self.on_click('hold_left_real'))
             self.left_placed = False
         elif button_label == 'reset_right':
             self.right_window.configure(bg="grey")
-            self.right_button.configure(text="Hold right", command=lambda: self.on_click('hold_right_sim'))
+            self.right_button.configure(text="Hold right", command=lambda: self.on_click('hold_right_real'))
             self.right_placed = False
 
         elif button_label == 'hold_joint':
@@ -131,9 +133,9 @@ class Gui(Node):
             self.left_window.configure(bg="grey")
             self.right_window.configure(bg="grey")
             self.mid_window.configure(bg="grey")
-            self.left_button.configure(text="Hold left", command=lambda: self.on_click('hold_left_sim'), state="active")
-            self.right_button.configure(text="Hold right", command=lambda: self.on_click('hold_right_sim'), state="active")
-            self.joint_button.configure(text="Hold joint", command=lambda: self.on_click('hold_joint'), state="disabled")
+            self.left_button.configure(text="Hold left", command=lambda: self.on_click('hold_left_real'), state="active")
+            self.right_button.configure(text="Hold right", command=lambda: self.on_click('hold_right_real'), state="active")
+            self.joint_button.configure(text="Hold joint", command=lambda: self.on_click('hold_joint_sim'), state="disabled")
             self.right_placed = False
             self.left_placed = False
         
@@ -141,18 +143,27 @@ class Gui(Node):
             self.left_window.configure(bg="grey")
             self.right_window.configure(bg="grey")
             self.mid_window.configure(bg="grey")
-            self.left_button.configure(text="Hold left", command=lambda: self.on_click('hold_left_sim'), state="active")
-            self.right_button.configure(text="Hold right", command=lambda: self.on_click('hold_right_sim'), state="active")
-            self.joint_button.configure(text="Hold joint", command=lambda: self.on_click('hold_joint'), state="disabled")
+            self.left_button.configure(text="Hold left", command=lambda: self.on_click('hold_left_real'), state="active")
+            self.right_button.configure(text="Hold right", command=lambda: self.on_click('hold_right_real'), state="active")
+            self.joint_button.configure(text="Hold joint", command=lambda: self.on_click('hold_joint_sim'), state="disabled")
             self.right_placed = False
             self.left_placed = False
+
+    def on_closing(self):
+        self.send_button_clt.send_request("quit")
+        self.window.destroy()
+        self.to_close = True
+        self.destroy_node()
+        rclpy.shutdown()
 
 def main(args=None):
     rclpy.init(args=args)
     gui = Gui()
-    rclpy.spin(gui)
-    gui.destroy_node()
-    rclpy.shutdown()
+    # while not gui.to_close:
+    #     rclpy.spin_once(gui)
+    #     gui.window.mainloop()
+    # gui.destroy_node()
+    # rclpy.shutdown()
 
 if __name__ == '__main__':
     main()

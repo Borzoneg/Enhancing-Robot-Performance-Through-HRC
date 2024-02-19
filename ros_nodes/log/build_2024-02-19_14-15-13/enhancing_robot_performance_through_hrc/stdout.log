@@ -1,0 +1,27 @@
+running egg_info
+writing ../../build/enhancing_robot_performance_through_hrc/enhancing_robot_performance_through_hrc.egg-info/PKG-INFO
+writing dependency_links to ../../build/enhancing_robot_performance_through_hrc/enhancing_robot_performance_through_hrc.egg-info/dependency_links.txt
+writing entry points to ../../build/enhancing_robot_performance_through_hrc/enhancing_robot_performance_through_hrc.egg-info/entry_points.txt
+writing requirements to ../../build/enhancing_robot_performance_through_hrc/enhancing_robot_performance_through_hrc.egg-info/requires.txt
+writing top-level names to ../../build/enhancing_robot_performance_through_hrc/enhancing_robot_performance_through_hrc.egg-info/top_level.txt
+reading manifest file '../../build/enhancing_robot_performance_through_hrc/enhancing_robot_performance_through_hrc.egg-info/SOURCES.txt'
+writing manifest file '../../build/enhancing_robot_performance_through_hrc/enhancing_robot_performance_through_hrc.egg-info/SOURCES.txt'
+running build
+running build_py
+copying enhancing_robot_performance_through_hrc/launcher.py -> /home/fluently/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/ros_nodes/build/enhancing_robot_performance_through_hrc/build/lib/enhancing_robot_performance_through_hrc
+copying enhancing_robot_performance_through_hrc/gui.py -> /home/fluently/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/ros_nodes/build/enhancing_robot_performance_through_hrc/build/lib/enhancing_robot_performance_through_hrc
+running install
+running install_lib
+copying /home/fluently/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/ros_nodes/build/enhancing_robot_performance_through_hrc/build/lib/enhancing_robot_performance_through_hrc/launcher.py -> /home/fluently/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/ros_nodes/install/enhancing_robot_performance_through_hrc/lib/python3.10/site-packages/enhancing_robot_performance_through_hrc
+copying /home/fluently/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/ros_nodes/build/enhancing_robot_performance_through_hrc/build/lib/enhancing_robot_performance_through_hrc/gui.py -> /home/fluently/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/ros_nodes/install/enhancing_robot_performance_through_hrc/lib/python3.10/site-packages/enhancing_robot_performance_through_hrc
+byte-compiling /home/fluently/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/ros_nodes/install/enhancing_robot_performance_through_hrc/lib/python3.10/site-packages/enhancing_robot_performance_through_hrc/launcher.py to launcher.cpython-310.pyc
+byte-compiling /home/fluently/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/ros_nodes/install/enhancing_robot_performance_through_hrc/lib/python3.10/site-packages/enhancing_robot_performance_through_hrc/gui.py to gui.cpython-310.pyc
+running install_data
+running install_egg_info
+removing '/home/fluently/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/ros_nodes/install/enhancing_robot_performance_through_hrc/lib/python3.10/site-packages/enhancing_robot_performance_through_hrc-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/enhancing_robot_performance_through_hrc/enhancing_robot_performance_through_hrc.egg-info to /home/fluently/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/ros_nodes/install/enhancing_robot_performance_through_hrc/lib/python3.10/site-packages/enhancing_robot_performance_through_hrc-0.0.0-py3.10.egg-info
+running install_scripts
+Installing gui script to /home/fluently/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/ros_nodes/install/enhancing_robot_performance_through_hrc/lib/enhancing_robot_performance_through_hrc
+Installing srvs script to /home/fluently/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/ros_nodes/install/enhancing_robot_performance_through_hrc/lib/enhancing_robot_performance_through_hrc
+Installing tree script to /home/fluently/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/ros_nodes/install/enhancing_robot_performance_through_hrc/lib/enhancing_robot_performance_through_hrc
+writing list of installed files to '/home/fluently/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/ros_nodes/build/enhancing_robot_performance_through_hrc/install.log'
