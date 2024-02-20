@@ -2,7 +2,7 @@ import logging
 import os
 
 class CustomLogger(logging.Logger):
-    def __init__(self, name, filename, level=logging.NOTSET): 
+    def __init__(self, name, filename, level=logging.NOTSET, overwrite=False): 
         
         super().__init__(name, level)
         self.filename = filename
@@ -14,7 +14,8 @@ class CustomLogger(logging.Logger):
         if os.path.exists(self.filename):
             if os.path.getsize(self.filename) > 100e3: # the size is in B
                 os.remove(self.filename)
-        file_handler = logging.FileHandler(self.filename, encoding='utf-8')
+        mode = 'a' if not overwrite else 'w'
+        file_handler = logging.FileHandler(self.filename, mode=mode, encoding='utf-8')
         file_handler.setLevel(logging.DEBUG)
 
         # Create formatter and add it to the handlers

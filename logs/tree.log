@@ -1,1580 +1,653 @@
-2024-02-19 15:48:54,916 - INFO - NEW RUN
-2024-02-19 15:48:54,916 - INFO - Starting init behavior tree
-2024-02-19 15:48:54,931 - INFO - Created service send_button_code
-2024-02-19 15:48:54,931 - INFO - Created blackboard:
-2024-02-19 15:48:54,931 - INFO - [32mBlackboard Client[0m
-[37m  Client Data[0m
-[36m    write             [0m: [33m{'/place_left', '/reset_task', '/hold_right_sim', '/place_right', '/hold_joint_sim', '/hold_left_sim', '/reset_right', '/complete_task', '/reset_left', '/hold_joint_real', '/hold_left_real', '/hold_right_real'}
-[0m[36m    name              [0m: [33mBlackboard_client
-[0m[36m    unique_identifier [0m: [33m5b5ea91c-b8a2-4678-8279-3ea7cfe3f3a3
-[0m[36m    namespace         [0m: [33m/
-[0m[36m    read              [0m: [33mset()
-[0m[36m    exclusive         [0m: [33mset()
-[0m[0m[37m  Variables[0m
-[36m    /hold_left_sim   [0m: [33mnot_done
-[0m[36m    /hold_left_real  [0m: [33mnot_done
-[0m[36m    /reset_left      [0m: [33mnot_done
-[0m[36m    /place_left      [0m: [33mnot_done
-[0m[36m    /hold_right_sim  [0m: [33mnot_done
-[0m[36m    /hold_right_real [0m: [33mnot_done
-[0m[36m    /reset_right     [0m: [33mnot_done
-[0m[36m    /place_right     [0m: [33mnot_done
-[0m[36m    /hold_joint_sim  [0m: [33mnot_done
-[0m[36m    /hold_joint_real [0m: [33mnot_done
-[0m[36m    /complete_task   [0m: [33mnot_done
-[0m[36m    /reset_task      [0m: [33mnot_done
-[0m[0m
-2024-02-19 15:48:55,182 - INFO - Created behavior: hold_left_sim
-2024-02-19 15:48:55,184 - INFO - Created behavior: hold_left_real
-2024-02-19 15:48:55,185 - INFO - Created behavior: reset_left
-2024-02-19 15:48:55,186 - INFO - Created behavior: place_left
-2024-02-19 15:48:55,187 - INFO - Created behavior: hold_right_sim
-2024-02-19 15:48:55,188 - INFO - Created behavior: hold_right_real
-2024-02-19 15:48:55,189 - INFO - Created behavior: reset_right
-2024-02-19 15:48:55,190 - INFO - Created behavior: place_right
-2024-02-19 15:48:55,191 - INFO - Created behavior: hold_joint_sim
-2024-02-19 15:48:55,192 - INFO - Created behavior: hold_joint_real
-2024-02-19 15:48:55,193 - INFO - Created behavior: complete_task
-2024-02-19 15:48:55,194 - INFO - Created behavior: reset_task
-2024-02-19 15:48:55,195 - INFO - Created tree
-2024-02-19 15:48:55,195 - INFO - Ending tree init
-2024-02-19 15:50:12,291 - INFO - NEW RUN
-2024-02-19 15:50:12,291 - INFO - Starting init behavior tree
-2024-02-19 15:50:12,306 - INFO - Created service send_button_code
-2024-02-19 15:50:12,306 - INFO - Created blackboard:
-2024-02-19 15:50:12,306 - INFO - [32mBlackboard Client[0m
-[37m  Client Data[0m
-[36m    namespace         [0m: [33m/
-[0m[36m    name              [0m: [33mBlackboard_client
-[0m[36m    write             [0m: [33m{'/hold_right_real', '/place_left', '/hold_joint_real', '/complete_task', '/reset_left', '/hold_right_sim', '/reset_right', '/hold_left_real', '/place_right', '/hold_left_sim', '/reset_task', '/hold_joint_sim'}
-[0m[36m    exclusive         [0m: [33mset()
-[0m[36m    unique_identifier [0m: [33m12972b50-3a90-4f80-8fcf-5eb8e11cb687
-[0m[36m    read              [0m: [33mset()
-[0m[0m[37m  Variables[0m
-[36m    /hold_left_sim   [0m: [33mnot_done
-[0m[36m    /hold_left_real  [0m: [33mnot_done
-[0m[36m    /reset_left      [0m: [33mnot_done
-[0m[36m    /place_left      [0m: [33mnot_done
-[0m[36m    /hold_right_sim  [0m: [33mnot_done
-[0m[36m    /hold_right_real [0m: [33mnot_done
-[0m[36m    /reset_right     [0m: [33mnot_done
-[0m[36m    /place_right     [0m: [33mnot_done
-[0m[36m    /hold_joint_sim  [0m: [33mnot_done
-[0m[36m    /hold_joint_real [0m: [33mnot_done
-[0m[36m    /complete_task   [0m: [33mnot_done
-[0m[36m    /reset_task      [0m: [33mnot_done
-[0m[0m
-2024-02-19 15:50:12,307 - INFO - Created behavior: hold_left_sim
-2024-02-19 15:50:12,308 - INFO - Created behavior: hold_left_real
-2024-02-19 15:50:12,309 - INFO - Created behavior: reset_left
-2024-02-19 15:50:12,310 - INFO - Created behavior: place_left
-2024-02-19 15:50:12,311 - INFO - Created behavior: hold_right_sim
-2024-02-19 15:50:12,312 - INFO - Created behavior: hold_right_real
-2024-02-19 15:50:12,313 - INFO - Created behavior: reset_right
-2024-02-19 15:50:12,314 - INFO - Created behavior: place_right
-2024-02-19 15:50:12,316 - INFO - Created behavior: hold_joint_sim
-2024-02-19 15:50:12,317 - INFO - Created behavior: hold_joint_real
-2024-02-19 15:50:12,318 - INFO - Created behavior: complete_task
-2024-02-19 15:50:12,319 - INFO - Created behavior: reset_task
-2024-02-19 15:50:12,319 - INFO - Created tree
-2024-02-19 15:50:12,319 - INFO - Ending tree init
-2024-02-19 15:50:42,235 - INFO - NEW RUN
-2024-02-19 15:50:42,235 - INFO - Starting init behavior tree
-2024-02-19 15:50:42,251 - INFO - Created service send_button_code
-2024-02-19 15:50:42,251 - INFO - Created blackboard:
-2024-02-19 15:50:42,251 - INFO - [32mBlackboard Client[0m
-[37m  Client Data[0m
-[36m    name              [0m: [33mBlackboard_client
-[0m[36m    unique_identifier [0m: [33m6c6d325a-94f6-4a57-9316-2eba56b2589c
-[0m[36m    write             [0m: [33m{'/complete_task', '/hold_left_sim', '/hold_joint_sim', '/reset_task', '/hold_right_real', '/place_right', '/reset_right', '/reset_left', '/place_left', '/hold_right_sim', '/hold_joint_real', '/hold_left_real'}
-[0m[36m    read              [0m: [33mset()
-[0m[36m    namespace         [0m: [33m/
-[0m[36m    exclusive         [0m: [33mset()
-[0m[0m[37m  Variables[0m
-[36m    /hold_left_sim   [0m: [33mnot_done
-[0m[36m    /hold_left_real  [0m: [33mnot_done
-[0m[36m    /reset_left      [0m: [33mnot_done
-[0m[36m    /place_left      [0m: [33mnot_done
-[0m[36m    /hold_right_sim  [0m: [33mnot_done
-[0m[36m    /hold_right_real [0m: [33mnot_done
-[0m[36m    /reset_right     [0m: [33mnot_done
-[0m[36m    /place_right     [0m: [33mnot_done
-[0m[36m    /hold_joint_sim  [0m: [33mnot_done
-[0m[36m    /hold_joint_real [0m: [33mnot_done
-[0m[36m    /complete_task   [0m: [33mnot_done
-[0m[36m    /reset_task      [0m: [33mnot_done
-[0m[0m
-NoneType: None
-2024-02-19 15:50:42,252 - INFO - Created behavior: hold_left_sim
-2024-02-19 15:50:42,253 - INFO - Created behavior: hold_left_real
-2024-02-19 15:50:42,254 - INFO - Created behavior: reset_left
-2024-02-19 15:50:42,255 - INFO - Created behavior: place_left
-2024-02-19 15:50:42,256 - INFO - Created behavior: hold_right_sim
-2024-02-19 15:50:42,257 - INFO - Created behavior: hold_right_real
-2024-02-19 15:50:42,258 - INFO - Created behavior: reset_right
-2024-02-19 15:50:42,259 - INFO - Created behavior: place_right
-2024-02-19 15:50:42,261 - INFO - Created behavior: hold_joint_sim
-2024-02-19 15:50:42,262 - INFO - Created behavior: hold_joint_real
-2024-02-19 15:50:42,263 - INFO - Created behavior: complete_task
-2024-02-19 15:50:42,264 - INFO - Created behavior: reset_task
-2024-02-19 15:50:42,264 - INFO - Created tree
-2024-02-19 15:50:42,264 - INFO - Ending tree init
-2024-02-19 15:52:46,191 - INFO - NEW RUN
-2024-02-19 15:52:46,191 - INFO - Starting init behavior tree
-2024-02-19 15:52:46,206 - INFO - Created service send_button_code
-2024-02-19 15:52:46,206 - INFO - Created blackboard:
-2024-02-19 15:52:46,206 - INFO - <bound method Client._stringify_key_value_pairs of <py_trees.blackboard.Client object at 0x7f6a012efdf0>>
-2024-02-19 15:52:46,207 - INFO - Created behavior: hold_left_sim
-2024-02-19 15:52:46,208 - INFO - Created behavior: hold_left_real
-2024-02-19 15:52:46,209 - INFO - Created behavior: reset_left
-2024-02-19 15:52:46,210 - INFO - Created behavior: place_left
-2024-02-19 15:52:46,211 - INFO - Created behavior: hold_right_sim
-2024-02-19 15:52:46,212 - INFO - Created behavior: hold_right_real
-2024-02-19 15:52:46,213 - INFO - Created behavior: reset_right
-2024-02-19 15:52:46,214 - INFO - Created behavior: place_right
-2024-02-19 15:52:46,216 - INFO - Created behavior: hold_joint_sim
-2024-02-19 15:52:46,217 - INFO - Created behavior: hold_joint_real
-2024-02-19 15:52:46,218 - INFO - Created behavior: complete_task
-2024-02-19 15:52:46,219 - INFO - Created behavior: reset_task
-2024-02-19 15:52:46,219 - INFO - Created tree
-2024-02-19 15:52:46,219 - INFO - Ending tree init
-2024-02-19 15:53:03,599 - INFO - NEW RUN
-2024-02-19 15:53:03,599 - INFO - Starting init behavior tree
-2024-02-19 15:53:03,613 - INFO - Created service send_button_code
-2024-02-19 15:53:03,613 - INFO - Created blackboard:
-2024-02-19 15:53:15,496 - INFO - NEW RUN
-2024-02-19 15:53:15,497 - INFO - Starting init behavior tree
-2024-02-19 15:53:15,846 - INFO - Created service send_button_code
-2024-02-19 15:53:15,846 - INFO - Created blackboard:
-2024-02-19 15:53:50,093 - INFO - NEW RUN
-2024-02-19 15:53:50,093 - INFO - Starting init behavior tree
-2024-02-19 15:53:50,109 - INFO - Created service send_button_code
-2024-02-19 15:53:50,109 - INFO - Created blackboard:
-2024-02-19 15:53:50,109 - INFO - {'unique_identifier': UUID('f7b12b1a-2b52-41aa-8262-e302f8cffe98'), 'name': 'Blackboard_client', 'namespace': '/', 'namespaces': set(), 'read': set(), 'write': {'/hold_left_real', '/complete_task', '/hold_left_sim', '/place_left', '/hold_right_sim', '/hold_right_real', '/place_right', '/reset_left', '/reset_right', '/hold_joint_real', '/reset_task', '/hold_joint_sim'}, 'exclusive': set(), 'required': set(), 'remappings': {'/hold_left_sim': '/hold_left_sim', '/hold_left_real': '/hold_left_real', '/reset_left': '/reset_left', '/place_left': '/place_left', '/hold_right_sim': '/hold_right_sim', '/hold_right_real': '/hold_right_real', '/reset_right': '/reset_right', '/place_right': '/place_right', '/hold_joint_sim': '/hold_joint_sim', '/hold_joint_real': '/hold_joint_real', '/complete_task': '/complete_task', '/reset_task': '/reset_task'}}
-2024-02-19 15:53:50,110 - INFO - Created behavior: hold_left_sim
-2024-02-19 15:53:50,111 - INFO - Created behavior: hold_left_real
-2024-02-19 15:53:50,112 - INFO - Created behavior: reset_left
-2024-02-19 15:53:50,113 - INFO - Created behavior: place_left
-2024-02-19 15:53:50,114 - INFO - Created behavior: hold_right_sim
-2024-02-19 15:53:50,115 - INFO - Created behavior: hold_right_real
-2024-02-19 15:53:50,116 - INFO - Created behavior: reset_right
-2024-02-19 15:53:50,117 - INFO - Created behavior: place_right
-2024-02-19 15:53:50,118 - INFO - Created behavior: hold_joint_sim
-2024-02-19 15:53:50,119 - INFO - Created behavior: hold_joint_real
-2024-02-19 15:53:50,121 - INFO - Created behavior: complete_task
-2024-02-19 15:53:50,122 - INFO - Created behavior: reset_task
-2024-02-19 15:53:50,122 - INFO - Created tree
-2024-02-19 15:53:50,122 - INFO - Ending tree init
-2024-02-19 15:54:56,106 - INFO - NEW RUN
-2024-02-19 15:54:56,106 - INFO - Starting init behavior tree
-2024-02-19 15:54:56,121 - INFO - Created service send_button_code
-2024-02-19 15:54:56,122 - INFO - Created blackboard:
-2024-02-19 15:54:56,122 - INFO - [32mBlackboard Client[0m
-[37m  Client Data[0m
-[36m    namespace         [0m: [33m/
-[0m[36m    exclusive         [0m: [33mset()
-[0m[36m    unique_identifier [0m: [33m1397f0a1-eea1-4809-a93f-0be80e1b0734
-[0m[36m    name              [0m: [33mBlackboard_client
-[0m[36m    write             [0m: [33m{'/hold_left_real', '/hold_right_sim', '/hold_left_sim', '/reset_right', '/complete_task', '/hold_joint_real', '/reset_left', '/place_right', '/hold_right_real', '/place_left', '/hold_joint_sim', '/reset_task'}
-[0m[36m    read              [0m: [33mset()
-[0m[0m[37m  Variables[0m
-[36m    /hold_left_sim   [0m: [33mnot_done
-[0m[36m    /hold_left_real  [0m: [33mnot_done
-[0m[36m    /reset_left      [0m: [33mnot_done
-[0m[36m    /place_left      [0m: [33mnot_done
-[0m[36m    /hold_right_sim  [0m: [33mnot_done
-[0m[36m    /hold_right_real [0m: [33mnot_done
-[0m[36m    /reset_right     [0m: [33mnot_done
-[0m[36m    /place_right     [0m: [33mnot_done
-[0m[36m    /hold_joint_sim  [0m: [33mnot_done
-[0m[36m    /hold_joint_real [0m: [33mnot_done
-[0m[36m    /complete_task   [0m: [33mnot_done
-[0m[36m    /reset_task      [0m: [33mnot_done
-[0m[0m
-2024-02-19 15:54:56,373 - INFO - Created behavior: hold_left_sim
-2024-02-19 15:54:56,374 - INFO - Created behavior: hold_left_real
-2024-02-19 15:54:56,375 - INFO - Created behavior: reset_left
-2024-02-19 15:54:56,376 - INFO - Created behavior: place_left
-2024-02-19 15:54:56,377 - INFO - Created behavior: hold_right_sim
-2024-02-19 15:54:56,379 - INFO - Created behavior: hold_right_real
-2024-02-19 15:54:56,380 - INFO - Created behavior: reset_right
-2024-02-19 15:54:56,381 - INFO - Created behavior: place_right
-2024-02-19 15:54:56,382 - INFO - Created behavior: hold_joint_sim
-2024-02-19 15:54:56,384 - INFO - Created behavior: hold_joint_real
-2024-02-19 15:54:56,385 - INFO - Created behavior: complete_task
-2024-02-19 15:54:56,386 - INFO - Created behavior: reset_task
-2024-02-19 15:54:56,386 - INFO - Created tree
-2024-02-19 15:54:56,386 - INFO - Ending tree init
-2024-02-19 16:02:55,502 - INFO - NEW RUN
-2024-02-19 16:02:55,503 - INFO - Starting init behavior tree
-2024-02-19 16:02:55,517 - INFO - Created service send_button_code
-2024-02-19 16:02:55,517 - INFO - Created blackboard:
-2024-02-19 16:02:55,518 - INFO - [32mBlackboard Client[0m
-[37m  Client Data[0m
-[36m    namespace         [0m: [33m/
-[0m[36m    unique_identifier [0m: [33mb61703d3-db31-45fe-bac3-6b47d6444833
-[0m[36m    read              [0m: [33mset()
-[0m[36m    name              [0m: [33mBlackboard_client
-[0m[36m    exclusive         [0m: [33mset()
-[0m[36m    write             [0m: [33m{'/reset_left', '/complete_task', '/hold_left_sim', '/reset_right', '/hold_joint_sim', '/hold_joint_real', '/place_left', '/hold_right_sim', '/hold_left_real', '/reset_task', '/place_right', '/hold_right_real'}
-[0m[0m[37m  Variables[0m
-[36m    /hold_left_sim   [0m: [33mnot_done
-[0m[36m    /hold_left_real  [0m: [33mnot_done
-[0m[36m    /reset_left      [0m: [33mnot_done
-[0m[36m    /place_left      [0m: [33mnot_done
-[0m[36m    /hold_right_sim  [0m: [33mnot_done
-[0m[36m    /hold_right_real [0m: [33mnot_done
-[0m[36m    /reset_right     [0m: [33mnot_done
-[0m[36m    /place_right     [0m: [33mnot_done
-[0m[36m    /hold_joint_sim  [0m: [33mnot_done
-[0m[36m    /hold_joint_real [0m: [33mnot_done
-[0m[36m    /complete_task   [0m: [33mnot_done
-[0m[36m    /reset_task      [0m: [33mnot_done
-[0m[0m
-2024-02-19 16:02:55,769 - INFO - Created behavior: hold_left_sim
-2024-02-19 16:02:55,770 - INFO - Created behavior: hold_left_real
-2024-02-19 16:02:55,771 - INFO - Created behavior: reset_left
-2024-02-19 16:02:55,772 - INFO - Created behavior: place_left
-2024-02-19 16:02:55,773 - INFO - Created behavior: hold_right_sim
-2024-02-19 16:02:55,774 - INFO - Created behavior: hold_right_real
-2024-02-19 16:02:55,775 - INFO - Created behavior: reset_right
-2024-02-19 16:02:55,777 - INFO - Created behavior: place_right
-2024-02-19 16:02:55,778 - INFO - Created behavior: hold_joint_sim
-2024-02-19 16:02:55,779 - INFO - Created behavior: hold_joint_real
-2024-02-19 16:02:55,780 - INFO - Created behavior: complete_task
-2024-02-19 16:02:55,781 - INFO - Created behavior: reset_task
-2024-02-19 16:02:55,781 - INFO - Created tree
-2024-02-19 16:02:55,781 - INFO - Ending tree init
-2024-02-19 16:02:55,781 - INFO - /_/ main [[33m-[0m]
-    {-} task [[33m-[0m]
-        /_/ placing_parts [[33m-[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
+2024-02-20 16:07:54,731 - INFO - NEW RUN
+2024-02-20 16:07:54,731 - INFO - Starting init behavior tree
+2024-02-20 16:07:54,751 - INFO - Created service send_button_code
+2024-02-20 16:07:54,751 - INFO - Created blackboard:
+2024-02-20 16:07:54,752 - INFO - Init behaviour: hold_left_sim
+2024-02-20 16:07:54,753 - INFO - Init behaviour: hold_left_real
+2024-02-20 16:07:54,755 - INFO - Init behaviour: place_left
+2024-02-20 16:07:54,756 - INFO - Init behaviour: hold_right_sim
+2024-02-20 16:07:54,758 - INFO - Init behaviour: hold_right_real
+2024-02-20 16:07:54,759 - INFO - Init behaviour: place_right
+2024-02-20 16:07:54,761 - INFO - Init behaviour: hold_joint_sim
+2024-02-20 16:07:54,762 - INFO - Init behaviour: hold_joint_real
+2024-02-20 16:07:54,764 - INFO - Init behaviour: complete_task
+2024-02-20 16:07:54,766 - INFO - Init behaviour: reset_left
+2024-02-20 16:07:54,767 - INFO - This behaviour reset: ['hold_left_sim', 'hold_left_real']
+2024-02-20 16:07:54,767 - INFO - Init behaviour: reset_right
+2024-02-20 16:07:54,769 - INFO - This behaviour reset: ['hold_right_sim', 'hold_right_real']
+2024-02-20 16:07:54,769 - INFO - Init behaviour: reset_task
+2024-02-20 16:07:54,771 - INFO - This behaviour reset: ['hold_left_sim', 'hold_left_real', 'place_left', 'hold_right_sim', 'hold_right_real', 'place_left', 'hold_joint_sim', 'hold_joint_real']
+2024-02-20 16:07:54,771 - INFO - Created tree
+2024-02-20 16:07:54,771 - INFO - Ending tree init
+2024-02-20 16:07:54,771 - INFO - Behaviour tree:
+/_/ main [-]
+    {-} task [-]
+        /_/ placing_parts [-]
+            {-} placing_left [-]
+                /_/ hold_left [-]
+                    --> hold_left_sim [-]
+                    --> hold_left_real [-]
+                --> place_left [-]
+            --> reset_left [-]
+            {-} placing_right [-]
+                /_/ hold_right [-]
+                    --> hold_right_sim [-]
+                    --> hold_right_real [-]
+                --> place_right [-]
+            --> reset_right [-]
+        {-} placing_joint [-]
+            --> hold_joint_sim [-]
+            --> hold_joint_real [-]
+            --> complete_task [-]
+    --> reset_task [-]
 
-2024-02-19 16:03:29,408 - INFO - Received new request from gui: hold_left_sim
-2024-02-19 16:03:29,408 - INFO - hold_left_sim satus changed to request
-2024-02-19 16:05:15,008 - INFO - NEW RUN
-2024-02-19 16:05:15,008 - INFO - Starting init behavior tree
-2024-02-19 16:05:15,357 - INFO - Created service send_button_code
-2024-02-19 16:05:15,357 - INFO - Created blackboard:
-2024-02-19 16:05:15,357 - INFO - [32mBlackboard Client[0m
-[37m  Client Data[0m
-[36m    unique_identifier [0m: [33m9311cfcc-cec7-4722-8a9a-4fe79e066fa5
-[0m[36m    name              [0m: [33mBlackboard_client
-[0m[36m    write             [0m: [33m{'/hold_right_real', '/hold_left_sim', '/hold_left_real', '/complete_task', '/reset_task', '/reset_right', '/place_left', '/reset_left', '/hold_joint_real', '/place_right', '/hold_right_sim', '/hold_joint_sim'}
-[0m[36m    read              [0m: [33mset()
-[0m[36m    exclusive         [0m: [33mset()
-[0m[36m    namespace         [0m: [33m/
-[0m[0m[37m  Variables[0m
-[36m    /hold_left_sim   [0m: [33mnot_done
-[0m[36m    /hold_left_real  [0m: [33mnot_done
-[0m[36m    /reset_left      [0m: [33mnot_done
-[0m[36m    /place_left      [0m: [33mnot_done
-[0m[36m    /hold_right_sim  [0m: [33mnot_done
-[0m[36m    /hold_right_real [0m: [33mnot_done
-[0m[36m    /reset_right     [0m: [33mnot_done
-[0m[36m    /place_right     [0m: [33mnot_done
-[0m[36m    /hold_joint_sim  [0m: [33mnot_done
-[0m[36m    /hold_joint_real [0m: [33mnot_done
-[0m[36m    /complete_task   [0m: [33mnot_done
-[0m[36m    /reset_task      [0m: [33mnot_done
-[0m[0m
-2024-02-19 16:05:15,358 - INFO - Created behavior: hold_left_sim
-2024-02-19 16:05:15,359 - INFO - Created behavior: hold_left_real
-2024-02-19 16:05:15,361 - INFO - Created behavior: reset_left
-2024-02-19 16:05:15,362 - INFO - Created behavior: place_left
-2024-02-19 16:05:15,363 - INFO - Created behavior: hold_right_sim
-2024-02-19 16:05:15,364 - INFO - Created behavior: hold_right_real
-2024-02-19 16:05:15,365 - INFO - Created behavior: reset_right
-2024-02-19 16:05:15,366 - INFO - Created behavior: place_right
-2024-02-19 16:05:15,367 - INFO - Created behavior: hold_joint_sim
-2024-02-19 16:05:15,369 - INFO - Created behavior: hold_joint_real
-2024-02-19 16:05:15,370 - INFO - Created behavior: complete_task
-2024-02-19 16:05:15,371 - INFO - Created behavior: reset_task
-2024-02-19 16:05:15,371 - INFO - Created tree
-2024-02-19 16:05:15,371 - INFO - Ending tree init
-2024-02-19 16:05:15,371 - INFO - /_/ main [[33m-[0m]
-    {-} task [[33m-[0m]
-        /_/ placing_parts [[33m-[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
+2024-02-20 16:07:54,771 - INFO - Behaviour tree blackboard:
+Blackboard Client
+  Client Data
+    read              : set()
+    namespace         : /
+    unique_identifier : e321c067-b0ab-4f9e-a8b9-b6ca4dc9452d
+    write             : {'/reset_task', '/place_right', '/reset_right', '/hold_left_sim', '/hold_joint_sim', '/hold_right_sim', '/place_left', '/hold_joint_real', '/complete_task', '/hold_right_real', '/hold_left_real', '/reset_left'}
+    name              : Blackboard_client
+    exclusive         : set()
+  Variables
+    /hold_left_sim   : not_done
+    /hold_left_real  : not_done
+    /place_left      : not_done
+    /hold_right_sim  : not_done
+    /hold_right_real : not_done
+    /place_right     : not_done
+    /hold_joint_sim  : not_done
+    /hold_joint_real : not_done
+    /complete_task   : not_done
+    /reset_left      : not_done
+    /reset_right     : not_done
+    /reset_task      : not_done
 
-2024-02-19 16:05:20,753 - INFO - Received new request from gui: hold_left_sim
-2024-02-19 16:05:20,753 - INFO - hold_left_sim satus changed to request
-2024-02-19 16:05:45,509 - INFO - NEW RUN
-2024-02-19 16:05:45,509 - INFO - Starting init behavior tree
-2024-02-19 16:05:45,525 - INFO - Created service send_button_code
-2024-02-19 16:05:45,525 - INFO - Created blackboard:
-2024-02-19 16:05:45,525 - INFO - [32mBlackboard Client[0m
-[37m  Client Data[0m
-[36m    exclusive         [0m: [33mset()
-[0m[36m    read              [0m: [33mset()
-[0m[36m    namespace         [0m: [33m/
-[0m[36m    unique_identifier [0m: [33md912830b-1fc6-4ec0-8075-3bd456983391
-[0m[36m    write             [0m: [33m{'/hold_joint_real', '/hold_right_real', '/hold_left_real', '/hold_left_sim', '/hold_joint_sim', '/place_left', '/complete_task', '/reset_task', '/hold_right_sim', '/place_right', '/reset_right', '/reset_left'}
-[0m[36m    name              [0m: [33mBlackboard_client
-[0m[0m[37m  Variables[0m
-[36m    /hold_left_sim   [0m: [33mnot_done
-[0m[36m    /hold_left_real  [0m: [33mnot_done
-[0m[36m    /reset_left      [0m: [33mnot_done
-[0m[36m    /place_left      [0m: [33mnot_done
-[0m[36m    /hold_right_sim  [0m: [33mnot_done
-[0m[36m    /hold_right_real [0m: [33mnot_done
-[0m[36m    /reset_right     [0m: [33mnot_done
-[0m[36m    /place_right     [0m: [33mnot_done
-[0m[36m    /hold_joint_sim  [0m: [33mnot_done
-[0m[36m    /hold_joint_real [0m: [33mnot_done
-[0m[36m    /complete_task   [0m: [33mnot_done
-[0m[36m    /reset_task      [0m: [33mnot_done
-[0m[0m
-2024-02-19 16:05:45,776 - INFO - Created behavior: hold_left_sim
-2024-02-19 16:05:45,778 - INFO - Created behavior: hold_left_real
-2024-02-19 16:05:45,779 - INFO - Created behavior: reset_left
-2024-02-19 16:05:45,780 - INFO - Created behavior: place_left
-2024-02-19 16:05:45,781 - INFO - Created behavior: hold_right_sim
-2024-02-19 16:05:45,782 - INFO - Created behavior: hold_right_real
-2024-02-19 16:05:45,783 - INFO - Created behavior: reset_right
-2024-02-19 16:05:45,784 - INFO - Created behavior: place_right
-2024-02-19 16:05:45,785 - INFO - Created behavior: hold_joint_sim
-2024-02-19 16:05:45,786 - INFO - Created behavior: hold_joint_real
-2024-02-19 16:05:45,787 - INFO - Created behavior: complete_task
-2024-02-19 16:05:45,789 - INFO - Created behavior: reset_task
-2024-02-19 16:05:45,789 - INFO - Created tree
-2024-02-19 16:05:45,789 - INFO - Ending tree init
-2024-02-19 16:05:45,789 - INFO - /_/ main [[33m-[0m]
-    {-} task [[33m-[0m]
-        /_/ placing_parts [[33m-[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
+2024-02-20 16:07:54,771 - INFO - Entering main loop main tree
+2024-02-20 16:07:54,771 - INFO - Before spinning ros node
+2024-02-20 16:08:00,322 - INFO - Received new request from gui: hold_left_real
+2024-02-20 16:08:00,322 - INFO - hold_left_real satus changed to request
+2024-02-20 16:08:00,322 - INFO - Before tree tick
+2024-02-20 16:08:00,323 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:00,323 - INFO - Update step for behaviour: hold_left_sim
+2024-02-20 16:08:00,323 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_left_sim]
+2024-02-20 16:08:00,323 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:00,323 - INFO - Terminating: hold_left_sim with status: Status.INVALID
+2024-02-20 16:08:00,323 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:00,323 - INFO - Update step for behaviour: hold_left_real
+2024-02-20 16:08:01,327 - INFO - hold_left_real response: success
+2024-02-20 16:08:01,328 - DEBUG - GenericBehaviour.stop(Status.INVALID->Status.SUCCESS)
+2024-02-20 16:08:01,328 - INFO - Terminating: hold_left_real with status: Status.SUCCESS
+2024-02-20 16:08:01,328 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:01,328 - INFO - Update step for behaviour: place_left
+2024-02-20 16:08:01,328 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][place_left]
+2024-02-20 16:08:01,328 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:01,329 - INFO - Terminating: place_left with status: Status.INVALID
+2024-02-20 16:08:01,329 - DEBUG - ResetBehaviour.tick()
+2024-02-20 16:08:01,329 - INFO - Update step for behaviour: reset_left
+2024-02-20 16:08:01,329 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:01,329 - INFO - Terminating: reset_left with status: Status.INVALID
+2024-02-20 16:08:01,329 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:01,329 - INFO - Update step for behaviour: hold_right_sim
+2024-02-20 16:08:01,329 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_right_sim]
+2024-02-20 16:08:01,329 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:01,329 - INFO - Terminating: hold_right_sim with status: Status.INVALID
+2024-02-20 16:08:01,329 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:01,329 - INFO - Update step for behaviour: hold_right_real
+2024-02-20 16:08:01,329 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_right_real]
+2024-02-20 16:08:01,329 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:01,329 - INFO - Terminating: hold_right_real with status: Status.INVALID
+2024-02-20 16:08:01,330 - DEBUG - ResetBehaviour.tick()
+2024-02-20 16:08:01,330 - INFO - Update step for behaviour: reset_right
+2024-02-20 16:08:01,330 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:01,330 - INFO - Terminating: reset_right with status: Status.INVALID
+2024-02-20 16:08:01,330 - DEBUG - ResetBehaviour.tick()
+2024-02-20 16:08:01,330 - INFO - Update step for behaviour: reset_task
+2024-02-20 16:08:01,330 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:01,330 - INFO - Terminating: reset_task with status: Status.INVALID
+2024-02-20 16:08:01,330 - INFO - Tree tip: None
+2024-02-20 16:08:01,330 - INFO - Behaviour tree:
+/_/ main [*]
+    {-} task [*]
+        /_/ placing_parts [*]
+            {-} placing_left [-]
+                /_/ hold_left [✓]
+                    --> hold_left_sim [-]
+                    --> hold_left_real [✓]
+                --> place_left [-]
+            --> reset_left [-]
+            {-} placing_right [*]
+                /_/ hold_right [*]
+                    --> hold_right_sim [-]
+                    --> hold_right_real [-]
+                --> place_right [-]
+            --> reset_right [-]
+        {-} placing_joint [-]
+            --> hold_joint_sim [-]
+            --> hold_joint_real [-]
+            --> complete_task [-]
+    --> reset_task [-]
 
-2024-02-19 16:05:50,297 - INFO - Received new request from gui: hold_left_sim
-2024-02-19 16:05:50,298 - INFO - hold_left_sim satus changed to request
-2024-02-19 16:11:00,381 - INFO - NEW RUN
-2024-02-19 16:11:00,381 - INFO - Starting init behavior tree
-2024-02-19 16:11:00,396 - INFO - Created service send_button_code
-2024-02-19 16:11:00,396 - INFO - Created blackboard:
-2024-02-19 16:11:00,396 - INFO - [32mBlackboard Client[0m
-[37m  Client Data[0m
-[36m    name              [0m: [33mBlackboard_client
-[0m[36m    read              [0m: [33mset()
-[0m[36m    namespace         [0m: [33m/
-[0m[36m    unique_identifier [0m: [33ma7e2ed87-f523-4f72-a709-684dbe7e9062
-[0m[36m    write             [0m: [33m{'/reset_left', '/hold_left_sim', '/reset_right', '/hold_joint_real', '/hold_right_real', '/reset_task', '/place_right', '/hold_joint_sim', '/hold_left_real', '/hold_right_sim', '/complete_task', '/place_left'}
-[0m[36m    exclusive         [0m: [33mset()
-[0m[0m[37m  Variables[0m
-[36m    /hold_left_sim   [0m: [33mnot_done
-[0m[36m    /hold_left_real  [0m: [33mnot_done
-[0m[36m    /reset_left      [0m: [33mnot_done
-[0m[36m    /place_left      [0m: [33mnot_done
-[0m[36m    /hold_right_sim  [0m: [33mnot_done
-[0m[36m    /hold_right_real [0m: [33mnot_done
-[0m[36m    /reset_right     [0m: [33mnot_done
-[0m[36m    /place_right     [0m: [33mnot_done
-[0m[36m    /hold_joint_sim  [0m: [33mnot_done
-[0m[36m    /hold_joint_real [0m: [33mnot_done
-[0m[36m    /complete_task   [0m: [33mnot_done
-[0m[36m    /reset_task      [0m: [33mnot_done
-[0m[0m
-2024-02-19 16:11:00,398 - INFO - Created behavior: hold_left_sim
-2024-02-19 16:11:00,399 - INFO - Created behavior: hold_left_real
-2024-02-19 16:11:00,400 - INFO - Created behavior: reset_left
-2024-02-19 16:11:00,401 - INFO - Created behavior: place_left
-2024-02-19 16:11:00,402 - INFO - Created behavior: hold_right_sim
-2024-02-19 16:11:00,404 - INFO - Created behavior: hold_right_real
-2024-02-19 16:11:00,405 - INFO - Created behavior: reset_right
-2024-02-19 16:11:00,406 - INFO - Created behavior: place_right
-2024-02-19 16:11:00,407 - INFO - Created behavior: hold_joint_sim
-2024-02-19 16:11:00,408 - INFO - Created behavior: hold_joint_real
-2024-02-19 16:11:00,410 - INFO - Created behavior: complete_task
-2024-02-19 16:11:00,411 - INFO - Created behavior: reset_task
-2024-02-19 16:11:00,411 - INFO - Created tree
-2024-02-19 16:11:00,411 - INFO - Ending tree init
-2024-02-19 16:11:00,411 - INFO - /_/ main [[33m-[0m]
-    {-} task [[33m-[0m]
-        /_/ placing_parts [[33m-[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
+2024-02-20 16:08:01,331 - INFO - Behaviour tree blackboard:
+Blackboard Client
+  Client Data
+    read              : set()
+    namespace         : /
+    unique_identifier : e321c067-b0ab-4f9e-a8b9-b6ca4dc9452d
+    write             : {'/reset_task', '/place_right', '/reset_right', '/hold_left_sim', '/hold_joint_sim', '/hold_right_sim', '/place_left', '/hold_joint_real', '/complete_task', '/hold_right_real', '/hold_left_real', '/reset_left'}
+    name              : Blackboard_client
+    exclusive         : set()
+  Variables
+    /hold_left_sim   : not_done
+    /hold_left_real  : success
+    /place_left      : not_done
+    /hold_right_sim  : not_done
+    /hold_right_real : not_done
+    /place_right     : not_done
+    /hold_joint_sim  : not_done
+    /hold_joint_real : not_done
+    /complete_task   : not_done
+    /reset_left      : not_done
+    /reset_right     : not_done
+    /reset_task      : not_done
 
-2024-02-19 16:11:08,468 - INFO - Received new request from gui: hold_left_sim
-2024-02-19 16:11:08,468 - INFO - hold_left_sim satus changed to request
-2024-02-19 16:14:54,779 - INFO - NEW RUN
-2024-02-19 16:14:54,780 - INFO - Starting init behavior tree
-2024-02-19 16:14:54,795 - INFO - Created service send_button_code
-2024-02-19 16:14:54,795 - INFO - Created blackboard:
-2024-02-19 16:14:54,795 - INFO - [32mBlackboard Client[0m
-[37m  Client Data[0m
-[36m    read              [0m: [33mset()
-[0m[36m    exclusive         [0m: [33mset()
-[0m[36m    write             [0m: [33m{'/place_left', '/hold_left_sim', '/reset_task', '/reset_left', '/reset_right', '/hold_right_sim', '/place_right', '/complete_task', '/hold_joint_real', '/hold_left_real', '/hold_joint_sim', '/hold_right_real'}
-[0m[36m    unique_identifier [0m: [33m547d1156-cded-40ea-be4e-63ec6a407c8f
-[0m[36m    namespace         [0m: [33m/
-[0m[36m    name              [0m: [33mBlackboard_client
-[0m[0m[37m  Variables[0m
-[36m    /hold_left_sim   [0m: [33mnot_done
-[0m[36m    /hold_left_real  [0m: [33mnot_done
-[0m[36m    /reset_left      [0m: [33mnot_done
-[0m[36m    /place_left      [0m: [33mnot_done
-[0m[36m    /hold_right_sim  [0m: [33mnot_done
-[0m[36m    /hold_right_real [0m: [33mnot_done
-[0m[36m    /reset_right     [0m: [33mnot_done
-[0m[36m    /place_right     [0m: [33mnot_done
-[0m[36m    /hold_joint_sim  [0m: [33mnot_done
-[0m[36m    /hold_joint_real [0m: [33mnot_done
-[0m[36m    /complete_task   [0m: [33mnot_done
-[0m[36m    /reset_task      [0m: [33mnot_done
-[0m[0m
-2024-02-19 16:14:54,796 - INFO - Created behavior: hold_left_sim
-2024-02-19 16:14:54,797 - INFO - Created behavior: hold_left_real
-2024-02-19 16:14:54,798 - INFO - Created behavior: reset_left
-2024-02-19 16:14:54,799 - INFO - Created behavior: place_left
-2024-02-19 16:14:54,800 - INFO - Created behavior: hold_right_sim
-2024-02-19 16:14:54,801 - INFO - Created behavior: hold_right_real
-2024-02-19 16:14:54,802 - INFO - Created behavior: reset_right
-2024-02-19 16:14:54,803 - INFO - Created behavior: place_right
-2024-02-19 16:14:54,804 - INFO - Created behavior: hold_joint_sim
-2024-02-19 16:14:54,805 - INFO - Created behavior: hold_joint_real
-2024-02-19 16:14:54,806 - INFO - Created behavior: complete_task
-2024-02-19 16:14:54,808 - INFO - Created behavior: reset_task
-2024-02-19 16:14:54,808 - INFO - Created tree
-2024-02-19 16:14:54,808 - INFO - Ending tree init
-2024-02-19 16:14:54,808 - INFO - /_/ main [[33m-[0m]
-    {-} task [[33m-[0m]
-        /_/ placing_parts [[33m-[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
+2024-02-20 16:08:01,331 - INFO - Before spinning ros node
+2024-02-20 16:08:01,331 - INFO - Before tree tick
+2024-02-20 16:08:01,331 - DEBUG - GenericBehaviour.stop(Status.SUCCESS->Status.INVALID)
+2024-02-20 16:08:01,331 - INFO - Terminating: hold_left_real with status: Status.INVALID
+2024-02-20 16:08:01,331 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:01,331 - INFO - Update step for behaviour: hold_left_sim
+2024-02-20 16:08:01,331 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_left_sim]
+2024-02-20 16:08:01,331 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:01,331 - INFO - Terminating: hold_left_sim with status: Status.INVALID
+2024-02-20 16:08:01,332 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:01,332 - INFO - Update step for behaviour: hold_left_real
+2024-02-20 16:08:01,332 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_left_real]
+2024-02-20 16:08:01,332 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:01,332 - INFO - Terminating: hold_left_real with status: Status.INVALID
+2024-02-20 16:08:01,332 - DEBUG - ResetBehaviour.tick()
+2024-02-20 16:08:01,332 - INFO - Update step for behaviour: reset_left
+2024-02-20 16:08:01,332 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:01,332 - INFO - Terminating: reset_left with status: Status.INVALID
+2024-02-20 16:08:01,332 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:01,332 - INFO - Update step for behaviour: hold_right_sim
+2024-02-20 16:08:01,332 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_right_sim]
+2024-02-20 16:08:01,332 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:01,332 - INFO - Terminating: hold_right_sim with status: Status.INVALID
+2024-02-20 16:08:01,332 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:01,332 - INFO - Update step for behaviour: hold_right_real
+2024-02-20 16:08:01,332 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_right_real]
+2024-02-20 16:08:01,332 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:01,332 - INFO - Terminating: hold_right_real with status: Status.INVALID
+2024-02-20 16:08:01,332 - DEBUG - ResetBehaviour.tick()
+2024-02-20 16:08:01,332 - INFO - Update step for behaviour: reset_right
+2024-02-20 16:08:01,333 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:01,333 - INFO - Terminating: reset_right with status: Status.INVALID
+2024-02-20 16:08:01,333 - DEBUG - ResetBehaviour.tick()
+2024-02-20 16:08:01,333 - INFO - Update step for behaviour: reset_task
+2024-02-20 16:08:01,333 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:01,333 - INFO - Terminating: reset_task with status: Status.INVALID
+2024-02-20 16:08:01,333 - INFO - Tree tip: None
+2024-02-20 16:08:01,333 - INFO - Behaviour tree:
+/_/ main [*]
+    {-} task [*]
+        /_/ placing_parts [*]
+            {-} placing_left [*]
+                /_/ hold_left [*]
+                    --> hold_left_sim [-]
+                    --> hold_left_real [-]
+                --> place_left [-]
+            --> reset_left [-]
+            {-} placing_right [*]
+                /_/ hold_right [*]
+                    --> hold_right_sim [-]
+                    --> hold_right_real [-]
+                --> place_right [-]
+            --> reset_right [-]
+        {-} placing_joint [-]
+            --> hold_joint_sim [-]
+            --> hold_joint_real [-]
+            --> complete_task [-]
+    --> reset_task [-]
 
-2024-02-19 16:14:58,734 - INFO - Received new request from gui: hold_left_sim
-2024-02-19 16:14:58,734 - INFO - hold_left_sim satus changed to request
-2024-02-19 16:14:58,734 - INFO - Tree tip: None
-2024-02-19 16:14:58,734 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
+2024-02-20 16:08:01,333 - INFO - Behaviour tree blackboard:
+Blackboard Client
+  Client Data
+    read              : set()
+    namespace         : /
+    unique_identifier : e321c067-b0ab-4f9e-a8b9-b6ca4dc9452d
+    write             : {'/reset_task', '/place_right', '/reset_right', '/hold_left_sim', '/hold_joint_sim', '/hold_right_sim', '/place_left', '/hold_joint_real', '/complete_task', '/hold_right_real', '/hold_left_real', '/reset_left'}
+    name              : Blackboard_client
+    exclusive         : set()
+  Variables
+    /hold_left_sim   : not_done
+    /hold_left_real  : success
+    /place_left      : not_done
+    /hold_right_sim  : not_done
+    /hold_right_real : not_done
+    /place_right     : not_done
+    /hold_joint_sim  : not_done
+    /hold_joint_real : not_done
+    /complete_task   : not_done
+    /reset_left      : not_done
+    /reset_right     : not_done
+    /reset_task      : not_done
 
-2024-02-19 16:15:41,535 - INFO - NEW RUN
-2024-02-19 16:15:41,535 - INFO - Starting init behavior tree
-2024-02-19 16:15:41,551 - INFO - Created service send_button_code
-2024-02-19 16:15:41,551 - INFO - Created blackboard:
-2024-02-19 16:15:41,551 - INFO - [32mBlackboard Client[0m
-[37m  Client Data[0m
-[36m    write             [0m: [33m{'/reset_task', '/place_left', '/hold_joint_real', '/hold_joint_sim', '/complete_task', '/place_right', '/reset_left', '/hold_left_real', '/hold_right_sim', '/hold_right_real', '/hold_left_sim', '/reset_right'}
-[0m[36m    namespace         [0m: [33m/
-[0m[36m    exclusive         [0m: [33mset()
-[0m[36m    name              [0m: [33mBlackboard_client
-[0m[36m    read              [0m: [33mset()
-[0m[36m    unique_identifier [0m: [33m329b9328-6758-47a1-8c2b-f88adef12ac5
-[0m[0m[37m  Variables[0m
-[36m    /hold_left_sim   [0m: [33mnot_done
-[0m[36m    /hold_left_real  [0m: [33mnot_done
-[0m[36m    /reset_left      [0m: [33mnot_done
-[0m[36m    /place_left      [0m: [33mnot_done
-[0m[36m    /hold_right_sim  [0m: [33mnot_done
-[0m[36m    /hold_right_real [0m: [33mnot_done
-[0m[36m    /reset_right     [0m: [33mnot_done
-[0m[36m    /place_right     [0m: [33mnot_done
-[0m[36m    /hold_joint_sim  [0m: [33mnot_done
-[0m[36m    /hold_joint_real [0m: [33mnot_done
-[0m[36m    /complete_task   [0m: [33mnot_done
-[0m[36m    /reset_task      [0m: [33mnot_done
-[0m[0m
-2024-02-19 16:15:41,803 - INFO - Created behavior: hold_left_sim
-2024-02-19 16:15:41,804 - INFO - Created behavior: hold_left_real
-2024-02-19 16:15:41,805 - INFO - Created behavior: reset_left
-2024-02-19 16:15:41,806 - INFO - Created behavior: place_left
-2024-02-19 16:15:41,808 - INFO - Created behavior: hold_right_sim
-2024-02-19 16:15:41,809 - INFO - Created behavior: hold_right_real
-2024-02-19 16:15:41,810 - INFO - Created behavior: reset_right
-2024-02-19 16:15:41,811 - INFO - Created behavior: place_right
-2024-02-19 16:15:41,812 - INFO - Created behavior: hold_joint_sim
-2024-02-19 16:15:41,813 - INFO - Created behavior: hold_joint_real
-2024-02-19 16:15:41,814 - INFO - Created behavior: complete_task
-2024-02-19 16:15:41,816 - INFO - Created behavior: reset_task
-2024-02-19 16:15:41,816 - INFO - Created tree
-2024-02-19 16:15:41,816 - INFO - Ending tree init
-2024-02-19 16:15:41,816 - INFO - /_/ main [[33m-[0m]
-    {-} task [[33m-[0m]
-        /_/ placing_parts [[33m-[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
+2024-02-20 16:08:01,333 - INFO - Before spinning ros node
+2024-02-20 16:08:01,333 - INFO - Before tree tick
+2024-02-20 16:08:01,334 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:01,334 - INFO - Update step for behaviour: hold_left_sim
+2024-02-20 16:08:01,334 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_left_sim]
+2024-02-20 16:08:01,334 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:01,334 - INFO - Terminating: hold_left_sim with status: Status.INVALID
+2024-02-20 16:08:01,334 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:01,334 - INFO - Update step for behaviour: hold_left_real
+2024-02-20 16:08:01,334 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_left_real]
+2024-02-20 16:08:01,334 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:01,334 - INFO - Terminating: hold_left_real with status: Status.INVALID
+2024-02-20 16:08:01,334 - DEBUG - ResetBehaviour.tick()
+2024-02-20 16:08:01,334 - INFO - Update step for behaviour: reset_left
+2024-02-20 16:08:01,334 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:01,334 - INFO - Terminating: reset_left with status: Status.INVALID
+2024-02-20 16:08:01,334 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:01,334 - INFO - Update step for behaviour: hold_right_sim
+2024-02-20 16:08:01,334 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_right_sim]
+2024-02-20 16:08:01,334 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:01,334 - INFO - Terminating: hold_right_sim with status: Status.INVALID
+2024-02-20 16:08:01,334 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:01,334 - INFO - Update step for behaviour: hold_right_real
+2024-02-20 16:08:01,334 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_right_real]
+2024-02-20 16:08:01,334 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:01,334 - INFO - Terminating: hold_right_real with status: Status.INVALID
+2024-02-20 16:08:01,334 - DEBUG - ResetBehaviour.tick()
+2024-02-20 16:08:01,335 - INFO - Update step for behaviour: reset_right
+2024-02-20 16:08:01,335 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:01,335 - INFO - Terminating: reset_right with status: Status.INVALID
+2024-02-20 16:08:01,335 - DEBUG - ResetBehaviour.tick()
+2024-02-20 16:08:01,335 - INFO - Update step for behaviour: reset_task
+2024-02-20 16:08:01,335 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:01,335 - INFO - Terminating: reset_task with status: Status.INVALID
+2024-02-20 16:08:01,335 - INFO - Tree tip: None
+2024-02-20 16:08:01,335 - INFO - Behaviour tree:
+/_/ main [*]
+    {-} task [*]
+        /_/ placing_parts [*]
+            {-} placing_left [*]
+                /_/ hold_left [*]
+                    --> hold_left_sim [-]
+                    --> hold_left_real [-]
+                --> place_left [-]
+            --> reset_left [-]
+            {-} placing_right [*]
+                /_/ hold_right [*]
+                    --> hold_right_sim [-]
+                    --> hold_right_real [-]
+                --> place_right [-]
+            --> reset_right [-]
+        {-} placing_joint [-]
+            --> hold_joint_sim [-]
+            --> hold_joint_real [-]
+            --> complete_task [-]
+    --> reset_task [-]
 
-2024-02-19 16:15:47,134 - INFO - Received new request from gui: hold_left_sim
-2024-02-19 16:15:47,134 - INFO - hold_left_sim satus changed to request
-2024-02-19 16:15:47,135 - INFO - Tree tip: None
-2024-02-19 16:15:47,135 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
+2024-02-20 16:08:01,335 - INFO - Behaviour tree blackboard:
+Blackboard Client
+  Client Data
+    read              : set()
+    namespace         : /
+    unique_identifier : e321c067-b0ab-4f9e-a8b9-b6ca4dc9452d
+    write             : {'/reset_task', '/place_right', '/reset_right', '/hold_left_sim', '/hold_joint_sim', '/hold_right_sim', '/place_left', '/hold_joint_real', '/complete_task', '/hold_right_real', '/hold_left_real', '/reset_left'}
+    name              : Blackboard_client
+    exclusive         : set()
+  Variables
+    /hold_left_sim   : not_done
+    /hold_left_real  : success
+    /place_left      : not_done
+    /hold_right_sim  : not_done
+    /hold_right_real : not_done
+    /place_right     : not_done
+    /hold_joint_sim  : not_done
+    /hold_joint_real : not_done
+    /complete_task   : not_done
+    /reset_left      : not_done
+    /reset_right     : not_done
+    /reset_task      : not_done
 
-2024-02-19 16:21:04,541 - INFO - NEW RUN
-2024-02-19 16:21:04,541 - INFO - Starting init behavior tree
-2024-02-19 16:21:04,556 - INFO - Created service send_button_code
-2024-02-19 16:21:04,557 - INFO - Created blackboard:
-2024-02-19 16:21:04,557 - INFO - [32mBlackboard Client[0m
-[37m  Client Data[0m
-[36m    name              [0m: [33mBlackboard_client
-[0m[36m    unique_identifier [0m: [33m0fbc6b33-cd70-4bc5-bbf1-cadb92e0c02c
-[0m[36m    read              [0m: [33mset()
-[0m[36m    write             [0m: [33m{'/place_left', '/complete_task', '/hold_left_real', '/reset_task', '/hold_joint_real', '/hold_left_sim', '/place_right', '/hold_joint_sim', '/reset_left', '/reset_right', '/hold_right_sim', '/hold_right_real'}
-[0m[36m    namespace         [0m: [33m/
-[0m[36m    exclusive         [0m: [33mset()
-[0m[0m[37m  Variables[0m
-[36m    /hold_left_sim   [0m: [33mnot_done
-[0m[36m    /hold_left_real  [0m: [33mnot_done
-[0m[36m    /reset_left      [0m: [33mnot_done
-[0m[36m    /place_left      [0m: [33mnot_done
-[0m[36m    /hold_right_sim  [0m: [33mnot_done
-[0m[36m    /hold_right_real [0m: [33mnot_done
-[0m[36m    /reset_right     [0m: [33mnot_done
-[0m[36m    /place_right     [0m: [33mnot_done
-[0m[36m    /hold_joint_sim  [0m: [33mnot_done
-[0m[36m    /hold_joint_real [0m: [33mnot_done
-[0m[36m    /complete_task   [0m: [33mnot_done
-[0m[36m    /reset_task      [0m: [33mnot_done
-[0m[0m
-2024-02-19 16:21:04,558 - INFO - Created behavior: hold_left_sim
-2024-02-19 16:21:04,559 - INFO - Created behavior: hold_left_real
-2024-02-19 16:21:04,559 - INFO - Created behavior: reset_left
-2024-02-19 16:21:04,560 - INFO - Created behavior: place_left
-2024-02-19 16:21:04,561 - INFO - Created behavior: hold_right_sim
-2024-02-19 16:21:04,563 - INFO - Created behavior: hold_right_real
-2024-02-19 16:21:04,564 - INFO - Created behavior: reset_right
-2024-02-19 16:21:04,565 - INFO - Created behavior: place_right
-2024-02-19 16:21:04,566 - INFO - Created behavior: hold_joint_sim
-2024-02-19 16:21:04,567 - INFO - Created behavior: hold_joint_real
-2024-02-19 16:21:04,568 - INFO - Created behavior: complete_task
-2024-02-19 16:21:04,569 - INFO - Created behavior: reset_task
-2024-02-19 16:21:04,569 - INFO - Created tree
-2024-02-19 16:21:04,569 - INFO - Ending tree init
-2024-02-19 16:21:04,569 - INFO - /_/ main [[33m-[0m]
-    {-} task [[33m-[0m]
-        /_/ placing_parts [[33m-[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
+2024-02-20 16:08:01,335 - INFO - Before spinning ros node
+2024-02-20 16:08:05,577 - INFO - Received new request from gui: place_left
+2024-02-20 16:08:05,578 - INFO - place_left satus changed to request
+2024-02-20 16:08:05,580 - INFO - Before tree tick
+2024-02-20 16:08:05,581 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:05,581 - INFO - Update step for behaviour: hold_left_sim
+2024-02-20 16:08:05,581 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_left_sim]
+2024-02-20 16:08:05,581 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:05,581 - INFO - Terminating: hold_left_sim with status: Status.INVALID
+2024-02-20 16:08:05,581 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:05,581 - INFO - Update step for behaviour: hold_left_real
+2024-02-20 16:08:05,581 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_left_real]
+2024-02-20 16:08:05,581 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:05,581 - INFO - Terminating: hold_left_real with status: Status.INVALID
+2024-02-20 16:08:05,581 - DEBUG - ResetBehaviour.tick()
+2024-02-20 16:08:05,582 - INFO - Update step for behaviour: reset_left
+2024-02-20 16:08:05,582 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:05,582 - INFO - Terminating: reset_left with status: Status.INVALID
+2024-02-20 16:08:05,582 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:05,582 - INFO - Update step for behaviour: hold_right_sim
+2024-02-20 16:08:05,582 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_right_sim]
+2024-02-20 16:08:05,582 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:05,582 - INFO - Terminating: hold_right_sim with status: Status.INVALID
+2024-02-20 16:08:05,582 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:05,582 - INFO - Update step for behaviour: hold_right_real
+2024-02-20 16:08:05,582 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_right_real]
+2024-02-20 16:08:05,582 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:05,582 - INFO - Terminating: hold_right_real with status: Status.INVALID
+2024-02-20 16:08:05,582 - DEBUG - ResetBehaviour.tick()
+2024-02-20 16:08:05,582 - INFO - Update step for behaviour: reset_right
+2024-02-20 16:08:05,582 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:05,582 - INFO - Terminating: reset_right with status: Status.INVALID
+2024-02-20 16:08:05,582 - DEBUG - ResetBehaviour.tick()
+2024-02-20 16:08:05,582 - INFO - Update step for behaviour: reset_task
+2024-02-20 16:08:05,582 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:05,582 - INFO - Terminating: reset_task with status: Status.INVALID
+2024-02-20 16:08:05,583 - INFO - Tree tip: None
+2024-02-20 16:08:05,583 - INFO - Behaviour tree:
+/_/ main [*]
+    {-} task [*]
+        /_/ placing_parts [*]
+            {-} placing_left [*]
+                /_/ hold_left [*]
+                    --> hold_left_sim [-]
+                    --> hold_left_real [-]
+                --> place_left [-]
+            --> reset_left [-]
+            {-} placing_right [*]
+                /_/ hold_right [*]
+                    --> hold_right_sim [-]
+                    --> hold_right_real [-]
+                --> place_right [-]
+            --> reset_right [-]
+        {-} placing_joint [-]
+            --> hold_joint_sim [-]
+            --> hold_joint_real [-]
+            --> complete_task [-]
+    --> reset_task [-]
 
-2024-02-19 16:21:09,736 - INFO - Received new request from gui: hold_right_sim
-2024-02-19 16:21:09,736 - INFO - hold_right_sim satus changed to request
-2024-02-19 16:21:09,737 - INFO - Tree tip: None
-2024-02-19 16:21:09,737 - INFO - <code>
-<text style="color:green;">/_/</text> main [<text style="color:blue;">*</text>]<br/>
-<text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>{-}</text> task [<text style="color:blue;">*</text>]<br/>
-<text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text style="color:green;">/_/</text> placing_parts [<text style="color:blue;">*</text>]<br/>
-<text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>{-}</text> placing_left [<text style="color:darkgoldenrod;">-</text>]<br/>
-<text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>--></text> hold_left_sim [<text style="color:darkgoldenrod;">-</text>]<br/>
-<text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>--></text> hold_left_real [<text style="color:darkgoldenrod;">-</text>]<br/>
-<text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>--></text> place_left [<text style="color:darkgoldenrod;">-</text>]<br/>
-<text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>--></text> reset_left [<text style="color:darkgoldenrod;">-</text>]<br/>
-<text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>{-}</text> placing_right [<text style="color:darkgoldenrod;">-</text>]<br/>
-<text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>--></text> hold_right_sim [<text style="color:darkgoldenrod;">-</text>]<br/>
-<text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>--></text> hold_right_real [<text style="color:darkgoldenrod;">-</text>]<br/>
-<text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>--></text> place_right [<text style="color:darkgoldenrod;">-</text>]<br/>
-<text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>--></text> reset_right [<text style="color:darkgoldenrod;">-</text>]<br/>
-<text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>{-}</text> placing_joint [<text style="color:darkgoldenrod;">-</text>]<br/>
-<text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>--></text> hold_joint_sim [<text style="color:darkgoldenrod;">-</text>]<br/>
-<text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>--></text> hold_joint_real [<text style="color:darkgoldenrod;">-</text>]<br/>
-<text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>--></text> complete_task [<text style="color:darkgoldenrod;">-</text>]<br/>
-<text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>&#xa0;</text><text>--></text> reset_task [<text style="color:darkgoldenrod;">-</text>]<br/>
-</code>
-2024-02-19 16:21:20,091 - INFO - NEW RUN
-2024-02-19 16:21:20,092 - INFO - Starting init behavior tree
-2024-02-19 16:21:20,107 - INFO - Created service send_button_code
-2024-02-19 16:21:20,107 - INFO - Created blackboard:
-2024-02-19 16:21:20,107 - INFO - [32mBlackboard Client[0m
-[37m  Client Data[0m
-[36m    name              [0m: [33mBlackboard_client
-[0m[36m    read              [0m: [33mset()
-[0m[36m    exclusive         [0m: [33mset()
-[0m[36m    write             [0m: [33m{'/hold_joint_real', '/hold_left_sim', '/place_left', '/hold_left_real', '/reset_right', '/place_right', '/hold_right_sim', '/hold_right_real', '/complete_task', '/hold_joint_sim', '/reset_left', '/reset_task'}
-[0m[36m    unique_identifier [0m: [33mcb016b6c-35fc-438c-bd89-f0764ae43570
-[0m[36m    namespace         [0m: [33m/
-[0m[0m[37m  Variables[0m
-[36m    /hold_left_sim   [0m: [33mnot_done
-[0m[36m    /hold_left_real  [0m: [33mnot_done
-[0m[36m    /reset_left      [0m: [33mnot_done
-[0m[36m    /place_left      [0m: [33mnot_done
-[0m[36m    /hold_right_sim  [0m: [33mnot_done
-[0m[36m    /hold_right_real [0m: [33mnot_done
-[0m[36m    /reset_right     [0m: [33mnot_done
-[0m[36m    /place_right     [0m: [33mnot_done
-[0m[36m    /hold_joint_sim  [0m: [33mnot_done
-[0m[36m    /hold_joint_real [0m: [33mnot_done
-[0m[36m    /complete_task   [0m: [33mnot_done
-[0m[36m    /reset_task      [0m: [33mnot_done
-[0m[0m
-2024-02-19 16:21:20,108 - INFO - Created behavior: hold_left_sim
-2024-02-19 16:21:20,109 - INFO - Created behavior: hold_left_real
-2024-02-19 16:21:20,110 - INFO - Created behavior: reset_left
-2024-02-19 16:21:20,111 - INFO - Created behavior: place_left
-2024-02-19 16:21:20,112 - INFO - Created behavior: hold_right_sim
-2024-02-19 16:21:20,113 - INFO - Created behavior: hold_right_real
-2024-02-19 16:21:20,115 - INFO - Created behavior: reset_right
-2024-02-19 16:21:20,116 - INFO - Created behavior: place_right
-2024-02-19 16:21:20,117 - INFO - Created behavior: hold_joint_sim
-2024-02-19 16:21:20,118 - INFO - Created behavior: hold_joint_real
-2024-02-19 16:21:20,119 - INFO - Created behavior: complete_task
-2024-02-19 16:21:20,121 - INFO - Created behavior: reset_task
-2024-02-19 16:21:20,121 - INFO - Created tree
-2024-02-19 16:21:20,121 - INFO - Ending tree init
-2024-02-19 16:21:20,121 - INFO - /_/ main [[33m-[0m]
-    {-} task [[33m-[0m]
-        /_/ placing_parts [[33m-[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
+2024-02-20 16:08:05,583 - INFO - Behaviour tree blackboard:
+Blackboard Client
+  Client Data
+    read              : set()
+    namespace         : /
+    unique_identifier : e321c067-b0ab-4f9e-a8b9-b6ca4dc9452d
+    write             : {'/reset_task', '/place_right', '/reset_right', '/hold_left_sim', '/hold_joint_sim', '/hold_right_sim', '/place_left', '/hold_joint_real', '/complete_task', '/hold_right_real', '/hold_left_real', '/reset_left'}
+    name              : Blackboard_client
+    exclusive         : set()
+  Variables
+    /hold_left_sim   : not_done
+    /hold_left_real  : success
+    /place_left      : requested
+    /hold_right_sim  : not_done
+    /hold_right_real : not_done
+    /place_right     : not_done
+    /hold_joint_sim  : not_done
+    /hold_joint_real : not_done
+    /complete_task   : not_done
+    /reset_left      : not_done
+    /reset_right     : not_done
+    /reset_task      : not_done
 
-2024-02-19 16:23:58,298 - INFO - NEW RUN
-2024-02-19 16:23:58,298 - INFO - Starting init behavior tree
-2024-02-19 16:23:58,313 - INFO - Created service send_button_code
-2024-02-19 16:23:58,314 - INFO - Created blackboard:
-2024-02-19 16:23:58,314 - INFO - [32mBlackboard Client[0m
-[37m  Client Data[0m
-[36m    read              [0m: [33mset()
-[0m[36m    namespace         [0m: [33m/
-[0m[36m    name              [0m: [33mBlackboard_client
-[0m[36m    write             [0m: [33m{'/hold_joint_real', '/complete_task', '/reset_task', '/hold_right_real', '/place_left', '/reset_right', '/hold_left_real', '/reset_left', '/place_right', '/hold_joint_sim', '/hold_right_sim', '/hold_left_sim'}
-[0m[36m    unique_identifier [0m: [33mefd8f93d-b446-4984-8565-99aa36644c62
-[0m[36m    exclusive         [0m: [33mset()
-[0m[0m[37m  Variables[0m
-[36m    /hold_left_sim   [0m: [33mnot_done
-[0m[36m    /hold_left_real  [0m: [33mnot_done
-[0m[36m    /reset_left      [0m: [33mnot_done
-[0m[36m    /place_left      [0m: [33mnot_done
-[0m[36m    /hold_right_sim  [0m: [33mnot_done
-[0m[36m    /hold_right_real [0m: [33mnot_done
-[0m[36m    /reset_right     [0m: [33mnot_done
-[0m[36m    /place_right     [0m: [33mnot_done
-[0m[36m    /hold_joint_sim  [0m: [33mnot_done
-[0m[36m    /hold_joint_real [0m: [33mnot_done
-[0m[36m    /complete_task   [0m: [33mnot_done
-[0m[36m    /reset_task      [0m: [33mnot_done
-[0m[0m
-2024-02-19 16:23:58,315 - INFO - Created behavior: hold_left_sim
-2024-02-19 16:23:58,316 - INFO - Created behavior: hold_left_real
-2024-02-19 16:23:58,317 - INFO - Created behavior: reset_left
-2024-02-19 16:23:58,318 - INFO - Created behavior: place_left
-2024-02-19 16:23:58,319 - INFO - Created behavior: hold_right_sim
-2024-02-19 16:23:58,320 - INFO - Created behavior: hold_right_real
-2024-02-19 16:23:58,321 - INFO - Created behavior: reset_right
-2024-02-19 16:23:58,322 - INFO - Created behavior: place_right
-2024-02-19 16:23:58,323 - INFO - Created behavior: hold_joint_sim
-2024-02-19 16:23:58,324 - INFO - Created behavior: hold_joint_real
-2024-02-19 16:23:58,325 - INFO - Created behavior: complete_task
-2024-02-19 16:23:58,326 - INFO - Created behavior: reset_task
-2024-02-19 16:23:58,326 - INFO - Created tree
-2024-02-19 16:23:58,326 - INFO - Ending tree init
-2024-02-19 16:23:58,327 - INFO - /_/ main [[33m-[0m]
-    {-} task [[33m-[0m]
-        /_/ placing_parts [[33m-[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
+2024-02-20 16:08:05,583 - INFO - Before spinning ros node
+2024-02-20 16:08:07,507 - INFO - Received new request from gui: reset_left
+2024-02-20 16:08:07,507 - INFO - reset_left satus changed to request
+2024-02-20 16:08:07,508 - INFO - Before tree tick
+2024-02-20 16:08:07,508 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:07,508 - INFO - Update step for behaviour: hold_left_sim
+2024-02-20 16:08:07,508 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_left_sim]
+2024-02-20 16:08:07,508 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:07,508 - INFO - Terminating: hold_left_sim with status: Status.INVALID
+2024-02-20 16:08:07,508 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:07,508 - INFO - Update step for behaviour: hold_left_real
+2024-02-20 16:08:07,508 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_left_real]
+2024-02-20 16:08:07,508 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:07,508 - INFO - Terminating: hold_left_real with status: Status.INVALID
+2024-02-20 16:08:07,508 - DEBUG - ResetBehaviour.tick()
+2024-02-20 16:08:07,508 - INFO - Update step for behaviour: reset_left
+2024-02-20 16:08:08,512 - INFO - reset_left response: success
+2024-02-20 16:08:08,513 - INFO - Reseting: hold_left_sim
+2024-02-20 16:08:08,513 - INFO - Reseting: hold_left_real
+2024-02-20 16:08:08,513 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:08,513 - INFO - Terminating: reset_left with status: Status.INVALID
+2024-02-20 16:08:08,513 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:08,513 - INFO - Update step for behaviour: hold_right_sim
+2024-02-20 16:08:08,514 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_right_sim]
+2024-02-20 16:08:08,514 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:08,514 - INFO - Terminating: hold_right_sim with status: Status.INVALID
+2024-02-20 16:08:08,514 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:08,514 - INFO - Update step for behaviour: hold_right_real
+2024-02-20 16:08:08,514 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_right_real]
+2024-02-20 16:08:08,514 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:08,514 - INFO - Terminating: hold_right_real with status: Status.INVALID
+2024-02-20 16:08:08,514 - DEBUG - ResetBehaviour.tick()
+2024-02-20 16:08:08,514 - INFO - Update step for behaviour: reset_right
+2024-02-20 16:08:08,514 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:08,514 - INFO - Terminating: reset_right with status: Status.INVALID
+2024-02-20 16:08:08,514 - DEBUG - ResetBehaviour.tick()
+2024-02-20 16:08:08,514 - INFO - Update step for behaviour: reset_task
+2024-02-20 16:08:08,515 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:08,515 - INFO - Terminating: reset_task with status: Status.INVALID
+2024-02-20 16:08:08,515 - INFO - Tree tip: None
+2024-02-20 16:08:08,515 - INFO - Behaviour tree:
+/_/ main [*]
+    {-} task [*]
+        /_/ placing_parts [*]
+            {-} placing_left [*]
+                /_/ hold_left [*]
+                    --> hold_left_sim [-]
+                    --> hold_left_real [-]
+                --> place_left [-]
+            --> reset_left [-]
+            {-} placing_right [*]
+                /_/ hold_right [*]
+                    --> hold_right_sim [-]
+                    --> hold_right_real [-]
+                --> place_right [-]
+            --> reset_right [-]
+        {-} placing_joint [-]
+            --> hold_joint_sim [-]
+            --> hold_joint_real [-]
+            --> complete_task [-]
+    --> reset_task [-]
 
-2024-02-19 16:24:02,826 - INFO - Received new request from gui: hold_left_sim
-2024-02-19 16:24:02,826 - INFO - hold_left_sim satus changed to request
-2024-02-19 16:24:02,826 - INFO - Tree tip: None
-2024-02-19 16:24:02,826 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
+2024-02-20 16:08:08,515 - INFO - Behaviour tree blackboard:
+Blackboard Client
+  Client Data
+    read              : set()
+    namespace         : /
+    unique_identifier : e321c067-b0ab-4f9e-a8b9-b6ca4dc9452d
+    write             : {'/reset_task', '/place_right', '/reset_right', '/hold_left_sim', '/hold_joint_sim', '/hold_right_sim', '/place_left', '/hold_joint_real', '/complete_task', '/hold_right_real', '/hold_left_real', '/reset_left'}
+    name              : Blackboard_client
+    exclusive         : set()
+  Variables
+    /hold_left_sim   : not_done
+    /hold_left_real  : not_done
+    /place_left      : requested
+    /hold_right_sim  : not_done
+    /hold_right_real : not_done
+    /place_right     : not_done
+    /hold_joint_sim  : not_done
+    /hold_joint_real : not_done
+    /complete_task   : not_done
+    /reset_left      : requested
+    /reset_right     : not_done
+    /reset_task      : not_done
 
-2024-02-19 16:24:09,090 - INFO - Received new request from gui: place_left
-2024-02-19 16:24:09,090 - INFO - place_left satus changed to request
-2024-02-19 16:24:09,090 - INFO - Tree tip: None
-2024-02-19 16:24:09,090 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
+2024-02-20 16:08:08,516 - INFO - Before spinning ros node
+2024-02-20 16:08:08,516 - INFO - Before tree tick
+2024-02-20 16:08:08,516 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:08,516 - INFO - Update step for behaviour: hold_left_sim
+2024-02-20 16:08:08,516 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_left_sim]
+2024-02-20 16:08:08,516 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:08,516 - INFO - Terminating: hold_left_sim with status: Status.INVALID
+2024-02-20 16:08:08,516 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:08,516 - INFO - Update step for behaviour: hold_left_real
+2024-02-20 16:08:08,516 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_left_real]
+2024-02-20 16:08:08,516 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:08,516 - INFO - Terminating: hold_left_real with status: Status.INVALID
+2024-02-20 16:08:08,516 - DEBUG - ResetBehaviour.tick()
+2024-02-20 16:08:08,516 - INFO - Update step for behaviour: reset_left
+2024-02-20 16:08:09,520 - INFO - reset_left response: success
+2024-02-20 16:08:09,520 - INFO - Reseting: hold_left_sim
+2024-02-20 16:08:09,521 - INFO - Reseting: hold_left_real
+2024-02-20 16:08:09,521 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:09,521 - INFO - Terminating: reset_left with status: Status.INVALID
+2024-02-20 16:08:09,521 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:09,521 - INFO - Update step for behaviour: hold_right_sim
+2024-02-20 16:08:09,521 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_right_sim]
+2024-02-20 16:08:09,521 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:09,521 - INFO - Terminating: hold_right_sim with status: Status.INVALID
+2024-02-20 16:08:09,521 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:09,521 - INFO - Update step for behaviour: hold_right_real
+2024-02-20 16:08:09,521 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_right_real]
+2024-02-20 16:08:09,522 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:09,522 - INFO - Terminating: hold_right_real with status: Status.INVALID
+2024-02-20 16:08:09,522 - DEBUG - ResetBehaviour.tick()
+2024-02-20 16:08:09,522 - INFO - Update step for behaviour: reset_right
+2024-02-20 16:08:09,522 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:09,522 - INFO - Terminating: reset_right with status: Status.INVALID
+2024-02-20 16:08:09,522 - DEBUG - ResetBehaviour.tick()
+2024-02-20 16:08:09,522 - INFO - Update step for behaviour: reset_task
+2024-02-20 16:08:09,522 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:09,522 - INFO - Terminating: reset_task with status: Status.INVALID
+2024-02-20 16:08:09,522 - INFO - Tree tip: None
+2024-02-20 16:08:09,523 - INFO - Behaviour tree:
+/_/ main [*]
+    {-} task [*]
+        /_/ placing_parts [*]
+            {-} placing_left [*]
+                /_/ hold_left [*]
+                    --> hold_left_sim [-]
+                    --> hold_left_real [-]
+                --> place_left [-]
+            --> reset_left [-]
+            {-} placing_right [*]
+                /_/ hold_right [*]
+                    --> hold_right_sim [-]
+                    --> hold_right_real [-]
+                --> place_right [-]
+            --> reset_right [-]
+        {-} placing_joint [-]
+            --> hold_joint_sim [-]
+            --> hold_joint_real [-]
+            --> complete_task [-]
+    --> reset_task [-]
 
-2024-02-19 16:24:12,002 - INFO - Received new request from gui: reset_left
-2024-02-19 16:24:12,002 - INFO - reset_left satus changed to request
-2024-02-19 16:24:12,002 - INFO - Tree tip: None
-2024-02-19 16:24:12,002 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
+2024-02-20 16:08:09,523 - INFO - Behaviour tree blackboard:
+Blackboard Client
+  Client Data
+    read              : set()
+    namespace         : /
+    unique_identifier : e321c067-b0ab-4f9e-a8b9-b6ca4dc9452d
+    write             : {'/reset_task', '/place_right', '/reset_right', '/hold_left_sim', '/hold_joint_sim', '/hold_right_sim', '/place_left', '/hold_joint_real', '/complete_task', '/hold_right_real', '/hold_left_real', '/reset_left'}
+    name              : Blackboard_client
+    exclusive         : set()
+  Variables
+    /hold_left_sim   : not_done
+    /hold_left_real  : not_done
+    /place_left      : requested
+    /hold_right_sim  : not_done
+    /hold_right_real : not_done
+    /place_right     : not_done
+    /hold_joint_sim  : not_done
+    /hold_joint_real : not_done
+    /complete_task   : not_done
+    /reset_left      : requested
+    /reset_right     : not_done
+    /reset_task      : not_done
 
-2024-02-19 16:24:29,786 - INFO - Received new request from gui: reset_task
-2024-02-19 16:24:29,786 - INFO - reset_task satus changed to request
-2024-02-19 16:24:29,786 - INFO - Tree tip: None
-2024-02-19 16:24:29,786 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
+2024-02-20 16:08:09,523 - INFO - Before spinning ros node
+2024-02-20 16:08:09,523 - INFO - Before tree tick
+2024-02-20 16:08:09,523 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:09,523 - INFO - Update step for behaviour: hold_left_sim
+2024-02-20 16:08:09,524 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_left_sim]
+2024-02-20 16:08:09,524 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:09,524 - INFO - Terminating: hold_left_sim with status: Status.INVALID
+2024-02-20 16:08:09,524 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:09,524 - INFO - Update step for behaviour: hold_left_real
+2024-02-20 16:08:09,524 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_left_real]
+2024-02-20 16:08:09,524 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:09,524 - INFO - Terminating: hold_left_real with status: Status.INVALID
+2024-02-20 16:08:09,524 - DEBUG - ResetBehaviour.tick()
+2024-02-20 16:08:09,524 - INFO - Update step for behaviour: reset_left
+2024-02-20 16:08:09,525 - INFO - Received new request from gui: quit
+2024-02-20 16:08:09,525 - INFO - Quit request: True
+2024-02-20 16:08:10,527 - INFO - reset_left response: success
+2024-02-20 16:08:10,527 - INFO - Reseting: hold_left_sim
+2024-02-20 16:08:10,528 - INFO - Reseting: hold_left_real
+2024-02-20 16:08:10,528 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:10,528 - INFO - Terminating: reset_left with status: Status.INVALID
+2024-02-20 16:08:10,528 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:10,528 - INFO - Update step for behaviour: hold_right_sim
+2024-02-20 16:08:10,528 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_right_sim]
+2024-02-20 16:08:10,528 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:10,528 - INFO - Terminating: hold_right_sim with status: Status.INVALID
+2024-02-20 16:08:10,528 - DEBUG - GenericBehaviour.tick()
+2024-02-20 16:08:10,528 - INFO - Update step for behaviour: hold_right_real
+2024-02-20 16:08:10,528 - ERROR - A behaviour returned an invalid status, setting to INVALID [None][hold_right_real]
+2024-02-20 16:08:10,528 - DEBUG - GenericBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:10,528 - INFO - Terminating: hold_right_real with status: Status.INVALID
+2024-02-20 16:08:10,528 - DEBUG - ResetBehaviour.tick()
+2024-02-20 16:08:10,528 - INFO - Update step for behaviour: reset_right
+2024-02-20 16:08:10,528 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:10,528 - INFO - Terminating: reset_right with status: Status.INVALID
+2024-02-20 16:08:10,528 - DEBUG - ResetBehaviour.tick()
+2024-02-20 16:08:10,528 - INFO - Update step for behaviour: reset_task
+2024-02-20 16:08:10,529 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-20 16:08:10,529 - INFO - Terminating: reset_task with status: Status.INVALID
+2024-02-20 16:08:10,529 - INFO - Tree tip: None
+2024-02-20 16:08:10,529 - INFO - Behaviour tree:
+/_/ main [*]
+    {-} task [*]
+        /_/ placing_parts [*]
+            {-} placing_left [*]
+                /_/ hold_left [*]
+                    --> hold_left_sim [-]
+                    --> hold_left_real [-]
+                --> place_left [-]
+            --> reset_left [-]
+            {-} placing_right [*]
+                /_/ hold_right [*]
+                    --> hold_right_sim [-]
+                    --> hold_right_real [-]
+                --> place_right [-]
+            --> reset_right [-]
+        {-} placing_joint [-]
+            --> hold_joint_sim [-]
+            --> hold_joint_real [-]
+            --> complete_task [-]
+    --> reset_task [-]
 
-2024-02-19 16:24:32,082 - INFO - Received new request from gui: hold_left_sim
-2024-02-19 16:24:32,082 - INFO - hold_left_sim satus changed to request
-2024-02-19 16:24:32,083 - INFO - Tree tip: None
-2024-02-19 16:24:32,083 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
+2024-02-20 16:08:10,529 - INFO - Behaviour tree blackboard:
+Blackboard Client
+  Client Data
+    read              : set()
+    namespace         : /
+    unique_identifier : e321c067-b0ab-4f9e-a8b9-b6ca4dc9452d
+    write             : {'/reset_task', '/place_right', '/reset_right', '/hold_left_sim', '/hold_joint_sim', '/hold_right_sim', '/place_left', '/hold_joint_real', '/complete_task', '/hold_right_real', '/hold_left_real', '/reset_left'}
+    name              : Blackboard_client
+    exclusive         : set()
+  Variables
+    /hold_left_sim   : not_done
+    /hold_left_real  : not_done
+    /place_left      : requested
+    /hold_right_sim  : not_done
+    /hold_right_real : not_done
+    /place_right     : not_done
+    /hold_joint_sim  : not_done
+    /hold_joint_real : not_done
+    /complete_task   : not_done
+    /reset_left      : requested
+    /reset_right     : not_done
+    /reset_task      : not_done
 
-2024-02-19 16:24:32,594 - INFO - Received new request from gui: place_left
-2024-02-19 16:24:32,594 - INFO - place_left satus changed to request
-2024-02-19 16:24:32,595 - INFO - Tree tip: None
-2024-02-19 16:24:32,595 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 16:24:33,050 - INFO - Received new request from gui: reset_left
-2024-02-19 16:24:33,050 - INFO - reset_left satus changed to request
-2024-02-19 16:24:33,051 - INFO - Tree tip: None
-2024-02-19 16:24:33,051 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 16:24:34,162 - INFO - Received new request from gui: hold_right_sim
-2024-02-19 16:24:34,162 - INFO - hold_right_sim satus changed to request
-2024-02-19 16:24:34,163 - INFO - Tree tip: None
-2024-02-19 16:24:34,163 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 16:24:34,394 - INFO - Received new request from gui: place_right
-2024-02-19 16:24:34,394 - INFO - place_right satus changed to request
-2024-02-19 16:24:34,395 - INFO - Tree tip: None
-2024-02-19 16:24:34,395 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 16:24:34,858 - INFO - Received new request from gui: reset_right
-2024-02-19 16:24:34,858 - INFO - reset_right satus changed to request
-2024-02-19 16:24:34,859 - INFO - Tree tip: None
-2024-02-19 16:24:34,859 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 16:24:35,682 - INFO - Received new request from gui: hold_left_sim
-2024-02-19 16:24:35,682 - INFO - hold_left_sim satus changed to request
-2024-02-19 16:24:35,683 - INFO - Tree tip: None
-2024-02-19 16:24:35,683 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 16:24:35,850 - INFO - Received new request from gui: place_left
-2024-02-19 16:24:35,850 - INFO - place_left satus changed to request
-2024-02-19 16:24:35,851 - INFO - Tree tip: None
-2024-02-19 16:24:35,851 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 16:24:36,370 - INFO - Received new request from gui: hold_right_sim
-2024-02-19 16:24:36,370 - INFO - hold_right_sim satus changed to request
-2024-02-19 16:24:36,371 - INFO - Tree tip: None
-2024-02-19 16:24:36,371 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 16:24:36,530 - INFO - Received new request from gui: place_right
-2024-02-19 16:24:36,530 - INFO - place_right satus changed to request
-2024-02-19 16:24:36,530 - INFO - Tree tip: None
-2024-02-19 16:24:36,530 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 16:24:44,594 - INFO - Received new request from gui: hold_joint_sim
-2024-02-19 16:24:44,594 - INFO - hold_joint_sim satus changed to request
-2024-02-19 16:24:44,594 - INFO - Tree tip: None
-2024-02-19 16:24:44,594 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 16:24:45,210 - INFO - Received new request from gui: hold_joint_sim
-2024-02-19 16:24:45,210 - INFO - hold_joint_sim satus changed to request
-2024-02-19 16:24:45,210 - INFO - Tree tip: None
-2024-02-19 16:24:45,210 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 16:24:45,370 - INFO - Received new request from gui: hold_joint_sim
-2024-02-19 16:24:45,370 - INFO - hold_joint_sim satus changed to request
-2024-02-19 16:24:45,370 - INFO - Tree tip: None
-2024-02-19 16:24:45,370 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 16:24:45,530 - INFO - Received new request from gui: hold_joint_sim
-2024-02-19 16:24:45,530 - INFO - hold_joint_sim satus changed to request
-2024-02-19 16:24:45,530 - INFO - Tree tip: None
-2024-02-19 16:24:45,530 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 16:24:45,691 - INFO - Received new request from gui: hold_joint_sim
-2024-02-19 16:24:45,691 - INFO - hold_joint_sim satus changed to request
-2024-02-19 16:24:45,691 - INFO - Tree tip: None
-2024-02-19 16:24:45,691 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 16:24:46,194 - INFO - Received new request from gui: reset_task
-2024-02-19 16:24:46,194 - INFO - reset_task satus changed to request
-2024-02-19 16:24:46,194 - INFO - Tree tip: None
-2024-02-19 16:24:46,194 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 16:24:47,452 - INFO - Received new request from gui: quit
-2024-02-19 16:24:47,452 - INFO - Quit request: True
-2024-02-19 16:24:47,452 - INFO - Tree tip: None
-2024-02-19 16:24:47,452 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 16:24:47,452 - INFO - Come out of main loop
-2024-02-19 16:24:47,455 - INFO - Turning off
-2024-02-19 16:24:57,598 - INFO - NEW RUN
-2024-02-19 16:24:57,598 - INFO - Starting init behavior tree
-2024-02-19 16:24:57,614 - INFO - Created service send_button_code
-2024-02-19 16:24:57,614 - INFO - Created blackboard:
-2024-02-19 16:24:57,614 - INFO - [32mBlackboard Client[0m
-[37m  Client Data[0m
-[36m    name              [0m: [33mBlackboard_client
-[0m[36m    read              [0m: [33mset()
-[0m[36m    write             [0m: [33m{'/reset_right', '/hold_left_real', '/hold_right_real', '/hold_joint_real', '/complete_task', '/place_right', '/hold_joint_sim', '/hold_left_sim', '/hold_right_sim', '/reset_task', '/reset_left', '/place_left'}
-[0m[36m    exclusive         [0m: [33mset()
-[0m[36m    unique_identifier [0m: [33m72ece04e-db14-4da3-b4fa-fb5dd9d6e273
-[0m[36m    namespace         [0m: [33m/
-[0m[0m[37m  Variables[0m
-[36m    /hold_left_sim   [0m: [33mnot_done
-[0m[36m    /hold_left_real  [0m: [33mnot_done
-[0m[36m    /reset_left      [0m: [33mnot_done
-[0m[36m    /place_left      [0m: [33mnot_done
-[0m[36m    /hold_right_sim  [0m: [33mnot_done
-[0m[36m    /hold_right_real [0m: [33mnot_done
-[0m[36m    /reset_right     [0m: [33mnot_done
-[0m[36m    /place_right     [0m: [33mnot_done
-[0m[36m    /hold_joint_sim  [0m: [33mnot_done
-[0m[36m    /hold_joint_real [0m: [33mnot_done
-[0m[36m    /complete_task   [0m: [33mnot_done
-[0m[36m    /reset_task      [0m: [33mnot_done
-[0m[0m
-2024-02-19 16:24:57,615 - INFO - Created behavior: hold_left_sim
-2024-02-19 16:24:57,616 - INFO - Created behavior: hold_left_real
-2024-02-19 16:24:57,617 - INFO - Created behavior: reset_left
-2024-02-19 16:24:57,618 - INFO - Created behavior: place_left
-2024-02-19 16:24:57,619 - INFO - Created behavior: hold_right_sim
-2024-02-19 16:24:57,620 - INFO - Created behavior: hold_right_real
-2024-02-19 16:24:57,621 - INFO - Created behavior: reset_right
-2024-02-19 16:24:57,622 - INFO - Created behavior: place_right
-2024-02-19 16:24:57,623 - INFO - Created behavior: hold_joint_sim
-2024-02-19 16:24:57,624 - INFO - Created behavior: hold_joint_real
-2024-02-19 16:24:57,625 - INFO - Created behavior: complete_task
-2024-02-19 16:24:57,628 - INFO - Created behavior: reset_task
-2024-02-19 16:24:57,628 - INFO - Created tree
-2024-02-19 16:24:57,628 - INFO - Ending tree init
-2024-02-19 16:24:57,628 - INFO - /_/ main [[33m-[0m]
-    {-} task [[33m-[0m]
-        /_/ placing_parts [[33m-[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 16:25:02,342 - INFO - NEW RUN
-2024-02-19 16:25:02,342 - INFO - Starting init behavior tree
-2024-02-19 16:25:02,358 - INFO - Created service send_button_code
-2024-02-19 16:25:02,358 - INFO - Created blackboard:
-2024-02-19 16:25:02,358 - INFO - [32mBlackboard Client[0m
-[37m  Client Data[0m
-[36m    exclusive         [0m: [33mset()
-[0m[36m    name              [0m: [33mBlackboard_client
-[0m[36m    unique_identifier [0m: [33m351022f1-8982-4754-a52a-cb93caef0937
-[0m[36m    write             [0m: [33m{'/place_left', '/hold_right_real', '/hold_joint_sim', '/place_right', '/complete_task', '/reset_left', '/hold_joint_real', '/hold_left_real', '/hold_left_sim', '/reset_right', '/hold_right_sim', '/reset_task'}
-[0m[36m    namespace         [0m: [33m/
-[0m[36m    read              [0m: [33mset()
-[0m[0m[37m  Variables[0m
-[36m    /hold_left_sim   [0m: [33mnot_done
-[0m[36m    /hold_left_real  [0m: [33mnot_done
-[0m[36m    /reset_left      [0m: [33mnot_done
-[0m[36m    /place_left      [0m: [33mnot_done
-[0m[36m    /hold_right_sim  [0m: [33mnot_done
-[0m[36m    /hold_right_real [0m: [33mnot_done
-[0m[36m    /reset_right     [0m: [33mnot_done
-[0m[36m    /place_right     [0m: [33mnot_done
-[0m[36m    /hold_joint_sim  [0m: [33mnot_done
-[0m[36m    /hold_joint_real [0m: [33mnot_done
-[0m[36m    /complete_task   [0m: [33mnot_done
-[0m[36m    /reset_task      [0m: [33mnot_done
-[0m[0m
-2024-02-19 16:25:02,359 - INFO - Created behavior: hold_left_sim
-2024-02-19 16:25:02,360 - INFO - Created behavior: hold_left_real
-2024-02-19 16:25:02,361 - INFO - Created behavior: reset_left
-2024-02-19 16:25:02,362 - INFO - Created behavior: place_left
-2024-02-19 16:25:02,363 - INFO - Created behavior: hold_right_sim
-2024-02-19 16:25:02,364 - INFO - Created behavior: hold_right_real
-2024-02-19 16:25:02,365 - INFO - Created behavior: reset_right
-2024-02-19 16:25:02,366 - INFO - Created behavior: place_right
-2024-02-19 16:25:02,367 - INFO - Created behavior: hold_joint_sim
-2024-02-19 16:25:02,368 - INFO - Created behavior: hold_joint_real
-2024-02-19 16:25:02,369 - INFO - Created behavior: complete_task
-2024-02-19 16:25:02,370 - INFO - Created behavior: reset_task
-2024-02-19 16:25:02,371 - INFO - Created tree
-2024-02-19 16:25:02,371 - INFO - Ending tree init
-2024-02-19 16:25:02,371 - INFO - /_/ main [[33m-[0m]
-    {-} task [[33m-[0m]
-        /_/ placing_parts [[33m-[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 16:25:04,915 - INFO - Received new request from gui: quit
-2024-02-19 16:25:04,915 - INFO - Quit request: True
-2024-02-19 16:25:04,915 - INFO - Tree tip: None
-2024-02-19 16:25:04,915 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                --> hold_left_sim [[33m-[0m]
-                --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                --> hold_right_sim [[33m-[0m]
-                --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 16:25:04,915 - INFO - Come out of main loop
-2024-02-19 16:25:04,917 - INFO - Turning off
-2024-02-19 17:14:59,071 - INFO - NEW RUN
-2024-02-19 17:14:59,071 - INFO - Starting init behavior tree
-2024-02-19 17:14:59,421 - INFO - Created service send_button_code
-2024-02-19 17:15:37,394 - INFO - NEW RUN
-2024-02-19 17:15:37,394 - INFO - Starting init behavior tree
-2024-02-19 17:15:37,409 - INFO - Created service send_button_code
-2024-02-19 17:15:56,003 - INFO - NEW RUN
-2024-02-19 17:15:56,003 - INFO - Starting init behavior tree
-2024-02-19 17:15:56,019 - INFO - Created service send_button_code
-2024-02-19 17:15:56,019 - INFO - Created blackboard:
-2024-02-19 17:15:56,019 - INFO - [32mBlackboard Client[0m
-[37m  Client Data[0m
-[36m    write             [0m: [33m{'/hold_right_sim', '/reset_left', '/place_right', '/hold_joint_sim', '/complete_task', '/hold_left_sim', '/hold_joint_real', '/place_left', '/reset_task', '/hold_right_real', '/reset_right', '/hold_left_real'}
-[0m[36m    read              [0m: [33mset()
-[0m[36m    name              [0m: [33mBlackboard_client
-[0m[36m    exclusive         [0m: [33mset()
-[0m[36m    unique_identifier [0m: [33m57e8deab-8c99-4b80-bce2-00e6b52bd68a
-[0m[36m    namespace         [0m: [33m/
-[0m[0m[37m  Variables[0m
-[36m    /hold_left_sim   [0m: [33mnot_done
-[0m[36m    /hold_left_real  [0m: [33mnot_done
-[0m[36m    /place_left      [0m: [33mnot_done
-[0m[36m    /hold_right_sim  [0m: [33mnot_done
-[0m[36m    /hold_right_real [0m: [33mnot_done
-[0m[36m    /place_right     [0m: [33mnot_done
-[0m[36m    /hold_joint_sim  [0m: [33mnot_done
-[0m[36m    /hold_joint_real [0m: [33mnot_done
-[0m[36m    /complete_task   [0m: [33mnot_done
-[0m[36m    /reset_left      [0m: [33mnot_done
-[0m[36m    /reset_right     [0m: [33mnot_done
-[0m[36m    /reset_task      [0m: [33mnot_done
-[0m[0m
-2024-02-19 17:15:56,020 - INFO - Created behavior: hold_left_sim
-2024-02-19 17:15:56,021 - INFO - Created behavior: hold_left_real
-2024-02-19 17:15:56,022 - INFO - Created behavior: place_left
-2024-02-19 17:15:56,023 - INFO - Created behavior: hold_right_sim
-2024-02-19 17:15:56,024 - INFO - Created behavior: hold_right_real
-2024-02-19 17:15:56,025 - INFO - Created behavior: place_right
-2024-02-19 17:15:56,026 - INFO - Created behavior: hold_joint_sim
-2024-02-19 17:15:56,027 - INFO - Created behavior: hold_joint_real
-2024-02-19 17:15:56,028 - INFO - Created behavior: complete_task
-2024-02-19 17:15:56,029 - INFO - Created skipping behavior: reset_leftcan skip: ['hold_left_sim', 'hold_left_real']
-2024-02-19 17:15:56,030 - INFO - Created skipping behavior: reset_rightcan skip: ['hold_right_sim', 'hold_right_real']
-2024-02-19 17:15:56,031 - INFO - Created skipping behavior: reset_taskcan skip: ['hold_left_sim', 'hold_left_real', 'place_left', 'hold_right_sim', 'hold_right_real', 'place_left', 'hold_joint_sim', 'hold_joint_real']
-2024-02-19 17:15:56,032 - INFO - Created tree
-2024-02-19 17:15:56,032 - INFO - Ending tree init
-2024-02-19 17:15:56,032 - INFO - /_/ main [[33m-[0m]
-    {-} task [[33m-[0m]
-        /_/ placing_parts [[33m-[0m]
-            {-} placing_left [[33m-[0m]
-                /_/ hold_left [[33m-[0m]
-                    --> hold_left_sim [[33m-[0m]
-                    --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[33m-[0m]
-                /_/ hold_right [[33m-[0m]
-                    --> hold_right_sim [[33m-[0m]
-                    --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 17:16:04,122 - INFO - Received new request from gui: hold_left_real
-2024-02-19 17:16:04,122 - INFO - hold_left_real satus changed to request
-2024-02-19 17:16:05,125 - INFO - Tree tip: None
-2024-02-19 17:16:05,125 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[33m-[0m]
-                /_/ hold_left [[32m✓[0m]
-                    --> hold_left_sim [[33m-[0m]
-                    --> hold_left_real [[32m✓[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[34m*[0m]
-                /_/ hold_right [[34m*[0m]
-                    --> hold_right_sim [[33m-[0m]
-                    --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 17:16:05,125 - INFO - Tree tip: None
-2024-02-19 17:16:05,125 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[34m*[0m]
-                /_/ hold_left [[34m*[0m]
-                    --> hold_left_sim [[33m-[0m]
-                    --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[34m*[0m]
-                /_/ hold_right [[34m*[0m]
-                    --> hold_right_sim [[33m-[0m]
-                    --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 17:16:05,125 - INFO - Tree tip: None
-2024-02-19 17:16:05,125 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[34m*[0m]
-                /_/ hold_left [[34m*[0m]
-                    --> hold_left_sim [[33m-[0m]
-                    --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[34m*[0m]
-                /_/ hold_right [[34m*[0m]
-                    --> hold_right_sim [[33m-[0m]
-                    --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 17:16:09,899 - INFO - Received new request from gui: place_left
-2024-02-19 17:16:09,899 - INFO - place_left satus changed to request
-2024-02-19 17:16:09,899 - INFO - Tree tip: None
-2024-02-19 17:16:09,899 - INFO - /_/ main [[34m*[0m]
-    {-} task [[34m*[0m]
-        /_/ placing_parts [[34m*[0m]
-            {-} placing_left [[34m*[0m]
-                /_/ hold_left [[34m*[0m]
-                    --> hold_left_sim [[33m-[0m]
-                    --> hold_left_real [[33m-[0m]
-                --> place_left [[33m-[0m]
-            --> reset_left [[33m-[0m]
-            {-} placing_right [[34m*[0m]
-                /_/ hold_right [[34m*[0m]
-                    --> hold_right_sim [[33m-[0m]
-                    --> hold_right_real [[33m-[0m]
-                --> place_right [[33m-[0m]
-            --> reset_right [[33m-[0m]
-        {-} placing_joint [[33m-[0m]
-            --> hold_joint_sim [[33m-[0m]
-            --> hold_joint_real [[33m-[0m]
-            --> complete_task [[33m-[0m]
-    --> reset_task [[33m-[0m]
-
-2024-02-19 17:16:14,714 - INFO - Received new request from gui: reset_left
-2024-02-19 17:16:14,715 - INFO - reset_left satus changed to request
+2024-02-20 16:08:10,529 - INFO - Come out of main loop
+2024-02-20 16:08:10,534 - INFO - Turning off

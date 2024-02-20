@@ -67,7 +67,7 @@ class Gui(Node):
                                      command=lambda: self.on_click('hold_left_real'),
                                      font=("Times New Roman", 20), state="active")
         self.joint_button = tk.Button(self.mid_window, text="Hold joint", 
-                                      command=lambda: self.on_click('hold_joint'),
+                                      command=lambda: self.on_click('hold_joint_real'),
                                       font=("Times New Roman", 20), state="disabled")
         self.right_button = tk.Button(self.right_window, text="Hold right",
                                       command=lambda: self.on_click('hold_right_real'),
@@ -125,7 +125,7 @@ class Gui(Node):
             self.right_button.configure(text="Hold right", command=lambda: self.on_click('hold_right_real'))
             self.right_placed = False
 
-        elif button_label == 'hold_joint':
+        elif button_label == 'hold_joint_real':
             self.mid_window.configure(bg="light blue")
             self.joint_button.configure(text="Complete task", command=lambda: self.on_click('complete_task'))
 
@@ -135,7 +135,7 @@ class Gui(Node):
             self.mid_window.configure(bg="grey")
             self.left_button.configure(text="Hold left", command=lambda: self.on_click('hold_left_real'), state="active")
             self.right_button.configure(text="Hold right", command=lambda: self.on_click('hold_right_real'), state="active")
-            self.joint_button.configure(text="Hold joint", command=lambda: self.on_click('hold_joint_sim'), state="disabled")
+            self.joint_button.configure(text="Hold joint", command=lambda: self.on_click('hold_joint_real'), state="disabled")
             self.right_placed = False
             self.left_placed = False
         
@@ -145,7 +145,7 @@ class Gui(Node):
             self.mid_window.configure(bg="grey")
             self.left_button.configure(text="Hold left", command=lambda: self.on_click('hold_left_real'), state="active")
             self.right_button.configure(text="Hold right", command=lambda: self.on_click('hold_right_real'), state="active")
-            self.joint_button.configure(text="Hold joint", command=lambda: self.on_click('hold_joint_sim'), state="disabled")
+            self.joint_button.configure(text="Hold joint", command=lambda: self.on_click('hold_joint_real'), state="disabled")
             self.right_placed = False
             self.left_placed = False
 

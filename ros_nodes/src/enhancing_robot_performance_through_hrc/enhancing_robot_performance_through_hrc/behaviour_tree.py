@@ -4,11 +4,13 @@ from .behaviours import *
 from custom_interfaces.srv import String
 from .log_manager import CustomLogger
 import os
+import re
 
 class BehaviourTree(pt.trees.BehaviourTree):
     def __init__(self):
         self.logger = CustomLogger("Tree", os.path.expanduser('~') + 
-                                   "/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/logs/tree.log")
+                                   "/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/logs/tree.log",
+                                   overwrite=True)
     
         self.logger.info("Starting init behavior tree")
         self.updating_bb_node = rclpy.create_node("updating_bb_node")
@@ -28,17 +30,13 @@ class BehaviourTree(pt.trees.BehaviourTree):
             self.blackboard.register_key(key=behaviour_name, access=pt.common.Access.WRITE)
             self.blackboard.set(behaviour_name, "not_done")
         self.logger.info("Created blackboard:")
-        self.logger.info(str(self.blackboard))
 
         self.behaviours = {}
         for behaviour_name in self.generic_behaviours_names:
-            self.behaviours[behaviour_name] = GenericBehaviour(behaviour_name, self.blackboard)
-            self.logger.info("Created behavior: " + behaviour_name)
+            self.behaviours[behaviour_name] = GenericBehaviour(behaviour_name, self.blackboard, self.logger)
 
         for behaviour_name in self.reset_behaviours_name:
-            self.behaviours[behaviour_name] = ResetBehaviour(behaviour_name, self.blackboard, self.gen_list_behaviours(self.reset_behaviours_name[behaviour_name]))
-            self.logger.info("Created skipping behavior: " + behaviour_name + "can skip: " + str(self.reset_behaviours_name[behaviour_name]))
-        
+            self.behaviours[behaviour_name] = ResetBehaviour(behaviour_name, self.blackboard, self.logger, self.gen_list_behaviours(self.reset_behaviours_name[behaviour_name]))
         
         hold_left = pt.composites.Parallel(name="hold_left",
                                            policy=pt.common.ParallelPolicy.SuccessOnSelected([self.behaviours['hold_left_real']]),
@@ -99,20 +97,36 @@ class BehaviourTree(pt.trees.BehaviourTree):
         behaviour_list = []
         for behaviour_name in behaviour_names:
             behaviour_list.append(self.behaviours[behaviour_name])
+        return behaviour_list
+    
+    def get_clean_tree_string(self):
+        unicode_tree = pt.display.unicode_tree(root=self.root,show_status=True)
+        clean_tree = re.sub(r'.\[0m', '', unicode_tree)
+        clean_tree = re.sub(r'.\[\d\dm', '', clean_tree)
+        return clean_tree
+
+    def get_clean_blackboard_string(self):
+        black_board_str = str(self.blackboard)
+        clean_bb = re.sub(r'.\[0m', '', black_board_str)
+        clean_bb = re.sub(r'.\[\d\dm', '', clean_bb)
+        return clean_bb
+
 
 def main(args=None):
     rclpy.init(args=args)    
     tree = BehaviourTree()
-    tree.logger.info(pt.display.unicode_tree(root=tree.root,show_status=True))
-    
+    tree.logger.info("Behaviour tree:\n" + tree.get_clean_tree_string())
+    tree.logger.info("Behaviour tree blackboard:\n" + tree.get_clean_blackboard_string())
+    tree.logger.info("Entering main loop main tree")
     while not tree.quit_request:
+        tree.logger.info("Before spinning ros node")
         rclpy.spin_once(tree.updating_bb_node)
-        tree.tick()
-        
-        print("\n"+pt.display.unicode_tree(root=tree.root,show_status=True))
-        
+        tree.logger.info("Before tree tick")
+        tree.tick()    
         tree.logger.info("Tree tip: " + str(tree.tip()))
-        tree.logger.info(pt.display.unicode_tree(root=tree.root,show_status=True))
+        tree.logger.info("Behaviour tree:\n" + tree.get_clean_tree_string())
+        tree.logger.info("Behaviour tree blackboard:\n" + tree.get_clean_blackboard_string())
+
     tree.logger.info("Come out of main loop")
     rclpy.shutdown()
     tree.logger.info("Turning off")
