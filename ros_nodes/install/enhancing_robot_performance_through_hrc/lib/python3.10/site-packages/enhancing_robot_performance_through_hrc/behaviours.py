@@ -22,19 +22,22 @@ class GenericBehaviour(pt.behaviour.Behaviour):
         self.ros_client = SendStrClient(name)
 
     def update(self):
-        self.logger.info("Update step for behaviour: " + self.name)
-        if self.blackboard.get(self.name) == "requested":    
+        self.logger.info("Update step start for behaviour: " + self.name + " current status: " + str(self.status))
+        if self.blackboard.get(self.name) == "requested" or self.blackboard.get(self.name) == "running":    
             response = self.ros_client.send_request("")
             self.logger.info(self.name + " response: " + response.ans)
             if response.ans == "success":
-                return pt.common.Status.SUCCESS
+                new_status =  pt.common.Status.SUCCESS
+            elif response.ans == "running":
+                new_status =  pt.common.Status.RUNNING
             elif response.ans == "failure":
-                return pt.common.Status.FAILURE
+                new_status =  pt.common.Status.FAILURE
         else:
-            pass
             # self.logger.debug("Not supposed to run " + self.name)
-            # return self.status
-        
+            new_status = self.status
+        # self.logger.info("Update step for behaviour: " + self.name + " end with status: " + str(new_status))
+        return new_status
+
     def terminate(self, new_status):
         self.logger.info("Terminating: " + self.name + " with status: " + str(new_status))
         if new_status == pt.common.Status.SUCCESS:
@@ -59,27 +62,17 @@ class ResetBehaviour(GenericBehaviour):
             for behaviour in self.reset_behaviours:
                 self.logger.info("Reseting: " + behaviour.name)
                 self.blackboard.set(behaviour.name, 'not_done')
-        return pt.common.Status.INVALID
+        return pt.common.Status.INVALID # it may be ok to set it to success as well, it should reset auotmatically
     
 
 class HoldBehaviour(GenericBehaviour):
     def update(self):
-        self.logger.info("Update step for behaviour: " + self.name)
-        if self.blackboard.get(self.name) == "requested":    
-            response = self.ros_client.send_request("")
-            self.logger.info(self.name + " response: " + response.ans)
-            if response.ans == "success":
-                return pt.common.Status.RUNNING
-            elif response.ans == "failure":
-                return pt.common.Status.FAILURE
-        elif self.blackboard.get(self.name) == "running":
-            part_position_str = self.name.split('_')[1] # from the name we can find witch object are we using left or right
-            # if placing has been requested, the user does not want the robot to hold onto the part no more, the holdin action is complete
-            if self.blackboard.get("place_" + part_position_str) == "requested": 
-                return pt.common.Status.SUCCESS
-            else:
-                return pt.common.Status.RUNNING
-        else:
-            pass
-            # self.logger.debug("Not supposed to run " + self.name)
-            # return self.status
+        new_status = super().update()
+        # from the name we can find witch object are we using left or right
+        part_position_str = self.name.split('_')[1] 
+        # if placing has been requested, the user does not want the robot to hold onto the part no more, the holdin action is complete 
+        if new_status == pt.common.Status.RUNNING and self.blackboard.get("place_" + part_position_str) == "requested":
+            new_status =  pt.common.Status.SUCCESS
+        return new_status
+            
+        

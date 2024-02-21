@@ -17,23 +17,27 @@ class BehaviourTree(pt.trees.BehaviourTree):
         self.updating_bb_node.create_service(String, "send_button_code", self.update_bb)
         self.logger.info("Created service send_button_code")
         
-        self.generic_behaviours_names = ["hold_left_sim",   "hold_left_real",   "place_left", 
-                                         "hold_right_sim",  "hold_right_real",  "place_right",
-                                         "hold_joint_sim",  "hold_joint_real",  "complete_task"]
+        self.generic_behaviours_names = ["place_left", "place_right", "complete_task"]
+        self.hold_behaviours_names = ["hold_left_sim",   "hold_left_real",
+                                      "hold_right_sim",  "hold_right_real",
+                                      "hold_joint_sim",  "hold_joint_real"]
         self.reset_behaviours_name = {"reset_left": ["hold_left_sim", "hold_left_real",],
                                       "reset_right":["hold_right_sim", "hold_right_real"],
                                       "reset_task": ["hold_left_sim", "hold_left_real", "place_left", 
                                                      "hold_right_sim", "hold_right_real", "place_left", 
                                                      "hold_joint_sim", "hold_joint_real"]}
         self.blackboard = pt.blackboard.Client(name="Blackboard_client")
-        for behaviour_name in self.generic_behaviours_names + list(self.reset_behaviours_name.keys()):
+        self.logger.info("Creating blackboard")
+        for behaviour_name in self.generic_behaviours_names + self.hold_behaviours_names + list(self.reset_behaviours_name.keys()):
             self.blackboard.register_key(key=behaviour_name, access=pt.common.Access.WRITE)
             self.blackboard.set(behaviour_name, "not_done")
-        self.logger.info("Created blackboard:")
 
         self.behaviours = {}
         for behaviour_name in self.generic_behaviours_names:
             self.behaviours[behaviour_name] = GenericBehaviour(behaviour_name, self.blackboard, self.logger)
+        
+        for behaviour_name in self.hold_behaviours_names:
+            self.behaviours[behaviour_name] = HoldBehaviour(behaviour_name, self.blackboard, self.logger)
 
         for behaviour_name in self.reset_behaviours_name:
             self.behaviours[behaviour_name] = ResetBehaviour(behaviour_name, self.blackboard, self.logger, self.gen_list_behaviours(self.reset_behaviours_name[behaviour_name]))
@@ -41,19 +45,19 @@ class BehaviourTree(pt.trees.BehaviourTree):
         hold_left = pt.composites.Parallel(name="hold_left",
                                            policy=pt.common.ParallelPolicy.SuccessOnSelected([self.behaviours['hold_left_real']]),
                                            children=[self.behaviours['hold_left_sim'], self.behaviours['hold_left_real']])
-        placing_left = pt.composites.Sequence(name="placing_left", memory=True, 
+        placing_left = pt.composites.Sequence(name="placing_left", memory=False, 
                                               children=[hold_left, self.behaviours['place_left']])
         hold_right = pt.composites.Parallel(name="hold_right",
                                             policy=pt.common.ParallelPolicy.SuccessOnSelected([self.behaviours['hold_right_real']]),
                                             children=[self.behaviours['hold_right_sim'], self.behaviours['hold_right_real']])
-        placing_right = pt.composites.Sequence(name="placing_right", memory=True, 
+        placing_right = pt.composites.Sequence(name="placing_right", memory=False, 
                                               children=[hold_right, self.behaviours['place_right']])
         placing_parts = pt.composites.Parallel(name="placing_parts", 
                                                policy=pt.common.ParallelPolicy.SuccessOnSelected([placing_left, placing_right]),
                                                children=[placing_left, self.behaviours['reset_left'], placing_right, self.behaviours['reset_right']])
-        placing_joint = pt.composites.Sequence(name="placing_joint", memory=True,
+        placing_joint = pt.composites.Sequence(name="placing_joint", memory=False,
                                                children=[self.behaviours['hold_joint_sim'], self.behaviours['hold_joint_real'], self.behaviours['complete_task']])
-        task = pt.composites.Sequence(name="task", memory=True,
+        task = pt.composites.Sequence(name="task", memory=False,
                                       children=[placing_parts, placing_joint])
         root = pt.composites.Parallel(name = "main", 
                                       policy=pt.common.ParallelPolicy.SuccessOnSelected([task]),

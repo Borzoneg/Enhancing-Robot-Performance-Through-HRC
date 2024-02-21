@@ -6,10 +6,10 @@ import time
 class SendPoseServer(Node):
     def __init__(self):
         super().__init__('send_pose_server')        
-        self.hold_left_sim_srv = self.create_service(String, "hold_left_sim", self.string_callback)
-        self.hold_left_real_srv = self.create_service(String, "hold_left_real", self.string_callback)
-        self.hold_right_sim_srv = self.create_service(String, "hold_right_sim", self.string_callback)
-        self.hold_right_real_srv = self.create_service(String, "hold_right_real", self.string_callback)
+        self.hold_left_sim_srv = self.create_service(String, "hold_left_sim", self.string_callback_runnning)
+        self.hold_left_real_srv = self.create_service(String, "hold_left_real", self.string_callback_runnning)
+        self.hold_right_sim_srv = self.create_service(String, "hold_right_sim", self.string_callback_runnning)
+        self.hold_right_real_srv = self.create_service(String, "hold_right_real", self.string_callback_runnning)
         self.placed_left_srv = self.create_service(String, "place_left", self.string_callback)
         self.placed_left_srv = self.create_service(String, "reset_left", self.string_callback)
         self.placed_right_srv = self.create_service(String, "place_right", self.string_callback)
@@ -23,6 +23,12 @@ class SendPoseServer(Node):
         print("Request: ", request)
         time.sleep(1)
         response.ans = "success"   
+        return response
+    
+    def string_callback_runnning(self, request, response):
+        print("Request: ", request)
+        time.sleep(1)
+        response.ans = "running"   
         return response
 
 def main(args=None):
