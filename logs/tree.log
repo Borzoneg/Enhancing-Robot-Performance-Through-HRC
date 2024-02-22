@@ -1,25 +1,25 @@
-2024-02-22 15:43:15,460 - INFO - NEW RUN
-2024-02-22 15:43:15,460 - INFO - ==========Starting init behavior tree==========
-2024-02-22 15:43:15,480 - INFO - Created service send_button_code
-2024-02-22 15:43:15,480 - INFO - Creating blackboard
-2024-02-22 15:43:15,481 - INFO - Init behaviour: place_left
-2024-02-22 15:43:15,733 - INFO - Init behaviour: place_right
-2024-02-22 15:43:15,734 - INFO - Init behaviour: place_joint
-2024-02-22 15:43:15,736 - INFO - Init behaviour: hold_left_sim
-2024-02-22 15:43:15,737 - INFO - Init behaviour: hold_left_real
-2024-02-22 15:43:15,738 - INFO - Init behaviour: hold_right_sim
-2024-02-22 15:43:15,740 - INFO - Init behaviour: hold_right_real
-2024-02-22 15:43:15,741 - INFO - Init behaviour: hold_joint_sim
-2024-02-22 15:43:15,743 - INFO - Init behaviour: hold_joint_real
-2024-02-22 15:43:15,745 - INFO - Init behaviour: reset_left
-2024-02-22 15:43:15,746 - INFO - This behaviour reset: ['hold_left_sim', 'hold_left_real']
-2024-02-22 15:43:15,746 - INFO - Init behaviour: reset_right
-2024-02-22 15:43:15,748 - INFO - This behaviour reset: ['hold_right_sim', 'hold_right_real']
-2024-02-22 15:43:15,748 - INFO - Init behaviour: reset_task
-2024-02-22 15:43:15,750 - INFO - This behaviour reset: ['hold_left_sim', 'hold_left_real', 'place_left', 'hold_right_sim', 'hold_right_real', 'place_left', 'hold_joint_sim', 'hold_joint_real']
-2024-02-22 15:43:15,750 - INFO - Created tree
-2024-02-22 15:43:15,750 - INFO - ==========Ending tree init==========
-2024-02-22 15:43:15,750 - INFO - Behaviour tree:
+2024-02-22 18:01:06,737 - INFO - NEW RUN
+2024-02-22 18:01:06,737 - INFO - ==========Starting init behavior tree==========
+2024-02-22 18:01:06,760 - INFO - Created service send_button_code
+2024-02-22 18:01:06,760 - INFO - Creating blackboard
+2024-02-22 18:01:06,760 - INFO - Init behaviour: place_left
+2024-02-22 18:01:06,762 - INFO - Init behaviour: place_right
+2024-02-22 18:01:06,763 - INFO - Init behaviour: place_joint
+2024-02-22 18:01:06,765 - INFO - Init behaviour: hold_left_sim
+2024-02-22 18:01:06,766 - INFO - Init behaviour: hold_left_real
+2024-02-22 18:01:06,768 - INFO - Init behaviour: hold_right_sim
+2024-02-22 18:01:06,770 - INFO - Init behaviour: hold_right_real
+2024-02-22 18:01:06,771 - INFO - Init behaviour: hold_joint_sim
+2024-02-22 18:01:06,773 - INFO - Init behaviour: hold_joint_real
+2024-02-22 18:01:06,775 - INFO - Init behaviour: reset_left
+2024-02-22 18:01:06,777 - INFO - This behaviour reset: ['hold_left_sim', 'hold_left_real']
+2024-02-22 18:01:06,777 - INFO - Init behaviour: reset_right
+2024-02-22 18:01:06,779 - INFO - This behaviour reset: ['hold_right_sim', 'hold_right_real']
+2024-02-22 18:01:06,779 - INFO - Init behaviour: reset_task
+2024-02-22 18:01:06,780 - INFO - This behaviour reset: ['hold_left_sim', 'hold_left_real', 'place_left', 'hold_right_sim', 'hold_right_real', 'place_left', 'hold_joint_sim', 'hold_joint_real']
+2024-02-22 18:01:06,780 - INFO - Created tree
+2024-02-22 18:01:06,780 - INFO - ==========Ending tree init==========
+2024-02-22 18:01:06,781 - INFO - Behaviour tree:
 /_/ main [-]
     {-} task [-]
         /_/ placing_parts [-]
@@ -42,15 +42,15 @@
             --> place_joint [-]
     --> reset_task [-]
 
-2024-02-22 15:43:15,750 - INFO - Behaviour tree blackboard:
+2024-02-22 18:01:06,781 - INFO - Behaviour tree blackboard:
 Blackboard Client
   Client Data
-    unique_identifier : 24fa3b84-b96d-4896-8c45-0655d4eed1b6
-    write             : {'/place_right', '/reset_right', '/place_left', '/hold_right_sim', '/hold_left_real', '/hold_right_real', '/hold_joint_sim', '/place_joint', '/hold_joint_real', '/reset_left', '/reset_task', '/hold_left_sim'}
     exclusive         : set()
-    name              : Blackboard_client
-    namespace         : /
     read              : set()
+    write             : {'/hold_left_real', '/hold_joint_real', '/place_joint', '/hold_right_sim', '/reset_task', '/reset_right', '/hold_joint_sim', '/place_left', '/place_right', '/hold_left_sim', '/hold_right_real', '/reset_left'}
+    namespace         : /
+    name              : Blackboard_client
+    unique_identifier : f6b4b126-0a94-418d-ba7b-29bdb01c9ad7
   Variables
     /place_left      : not_done
     /place_right     : not_done
@@ -65,40 +65,40 @@ Blackboard Client
     /reset_right     : not_done
     /reset_task      : not_done
 
-2024-02-22 15:43:15,750 - INFO - Entering main loop main tree
-2024-02-22 15:43:15,750 - INFO - Before spinning ros node
-2024-02-22 15:43:19,699 - INFO - Received new request from gui: hold_left_real
-2024-02-22 15:43:19,699 - INFO - hold_left_real satus changed to request
-2024-02-22 15:43:19,699 - INFO - Before tree tick
-2024-02-22 15:43:19,699 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:19,699 - INFO - Update step start for behaviour: hold_left_sim current status: Status.INVALID
-2024-02-22 15:43:19,699 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:19,700 - INFO - Terminating: hold_left_sim with status: Status.INVALID
-2024-02-22 15:43:19,700 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:19,700 - INFO - Update step start for behaviour: hold_left_real current status: Status.INVALID
-2024-02-22 15:43:20,701 - INFO - hold_left_real response: running
-2024-02-22 15:43:20,701 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:20,701 - INFO - Update step start for behaviour: reset_left current status: Status.INVALID
-2024-02-22 15:43:20,702 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:20,702 - INFO - Terminating: reset_left with status: Status.INVALID
-2024-02-22 15:43:20,702 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:20,702 - INFO - Update step start for behaviour: hold_right_sim current status: Status.INVALID
-2024-02-22 15:43:20,702 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:20,702 - INFO - Terminating: hold_right_sim with status: Status.INVALID
-2024-02-22 15:43:20,702 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:20,702 - INFO - Update step start for behaviour: hold_right_real current status: Status.INVALID
-2024-02-22 15:43:20,702 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:20,702 - INFO - Terminating: hold_right_real with status: Status.INVALID
-2024-02-22 15:43:20,702 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:20,702 - INFO - Update step start for behaviour: reset_right current status: Status.INVALID
-2024-02-22 15:43:20,702 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:20,702 - INFO - Terminating: reset_right with status: Status.INVALID
-2024-02-22 15:43:20,702 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:20,702 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
-2024-02-22 15:43:20,702 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:20,702 - INFO - Terminating: reset_task with status: Status.INVALID
-2024-02-22 15:43:20,702 - INFO - Tree tip: None
-2024-02-22 15:43:20,702 - INFO - Behaviour tree:
+2024-02-22 18:01:06,781 - INFO - Entering main loop main tree
+2024-02-22 18:01:06,781 - INFO - Before spinning ros node
+2024-02-22 18:01:09,738 - INFO - Received new request from gui: hold_left_real
+2024-02-22 18:01:09,738 - INFO - hold_left_real satus changed to request
+2024-02-22 18:01:09,738 - INFO - Before tree tick
+2024-02-22 18:01:09,738 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:09,738 - INFO - Update step start for behaviour: hold_left_sim current status: Status.INVALID
+2024-02-22 18:01:09,738 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:09,738 - INFO - Terminating: hold_left_sim with status: Status.INVALID
+2024-02-22 18:01:09,738 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:09,738 - INFO - Update step start for behaviour: hold_left_real current status: Status.INVALID
+2024-02-22 18:01:10,740 - INFO - hold_left_real response: running
+2024-02-22 18:01:10,741 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:10,741 - INFO - Update step start for behaviour: reset_left current status: Status.INVALID
+2024-02-22 18:01:10,741 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:10,741 - INFO - Terminating: reset_left with status: Status.INVALID
+2024-02-22 18:01:10,741 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:10,741 - INFO - Update step start for behaviour: hold_right_sim current status: Status.INVALID
+2024-02-22 18:01:10,741 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:10,741 - INFO - Terminating: hold_right_sim with status: Status.INVALID
+2024-02-22 18:01:10,741 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:10,741 - INFO - Update step start for behaviour: hold_right_real current status: Status.INVALID
+2024-02-22 18:01:10,741 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:10,741 - INFO - Terminating: hold_right_real with status: Status.INVALID
+2024-02-22 18:01:10,741 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:10,741 - INFO - Update step start for behaviour: reset_right current status: Status.INVALID
+2024-02-22 18:01:10,741 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:10,741 - INFO - Terminating: reset_right with status: Status.INVALID
+2024-02-22 18:01:10,741 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:10,741 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
+2024-02-22 18:01:10,741 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:10,741 - INFO - Terminating: reset_task with status: Status.INVALID
+2024-02-22 18:01:10,741 - INFO - Tree tip: None
+2024-02-22 18:01:10,741 - INFO - Behaviour tree:
 /_/ main [*]
     {-} task [*]
         /_/ placing_parts [*]
@@ -121,15 +121,15 @@ Blackboard Client
             --> place_joint [-]
     --> reset_task [-]
 
-2024-02-22 15:43:20,702 - INFO - Behaviour tree blackboard:
+2024-02-22 18:01:10,741 - INFO - Behaviour tree blackboard:
 Blackboard Client
   Client Data
-    unique_identifier : 24fa3b84-b96d-4896-8c45-0655d4eed1b6
-    write             : {'/place_right', '/reset_right', '/place_left', '/hold_right_sim', '/hold_left_real', '/hold_right_real', '/hold_joint_sim', '/place_joint', '/hold_joint_real', '/reset_left', '/reset_task', '/hold_left_sim'}
     exclusive         : set()
-    name              : Blackboard_client
-    namespace         : /
     read              : set()
+    write             : {'/hold_left_real', '/hold_joint_real', '/place_joint', '/hold_right_sim', '/reset_task', '/reset_right', '/hold_joint_sim', '/place_left', '/place_right', '/hold_left_sim', '/hold_right_real', '/reset_left'}
+    namespace         : /
+    name              : Blackboard_client
+    unique_identifier : f6b4b126-0a94-418d-ba7b-29bdb01c9ad7
   Variables
     /place_left      : not_done
     /place_right     : not_done
@@ -144,46 +144,46 @@ Blackboard Client
     /reset_right     : not_done
     /reset_task      : not_done
 
-2024-02-22 15:43:20,702 - INFO - Before spinning ros node
-2024-02-22 15:43:20,702 - INFO - Before tree tick
-2024-02-22 15:43:20,702 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:20,702 - INFO - Update step start for behaviour: hold_left_sim current status: Status.INVALID
-2024-02-22 15:43:20,702 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:20,702 - INFO - Terminating: hold_left_sim with status: Status.INVALID
-2024-02-22 15:43:20,702 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:20,702 - INFO - Update step start for behaviour: hold_left_real current status: Status.RUNNING
-2024-02-22 15:43:20,702 - INFO - Received new request from gui: place_left
-2024-02-22 15:43:20,702 - INFO - place_left satus changed to request
-2024-02-22 15:43:21,704 - INFO - hold_left_real response: running
-2024-02-22 15:43:21,704 - DEBUG - HoldBehaviour.stop(Status.RUNNING->Status.SUCCESS)
-2024-02-22 15:43:21,705 - INFO - Terminating: hold_left_real with status: Status.SUCCESS
-2024-02-22 15:43:21,705 - DEBUG - GenericBehaviour.tick()
-2024-02-22 15:43:21,705 - INFO - Update step start for behaviour: place_left current status: Status.INVALID
-2024-02-22 15:43:22,707 - INFO - place_left response: success
-2024-02-22 15:43:22,707 - DEBUG - GenericBehaviour.stop(Status.INVALID->Status.SUCCESS)
-2024-02-22 15:43:22,707 - INFO - Terminating: place_left with status: Status.SUCCESS
-2024-02-22 15:43:22,707 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:22,707 - INFO - Update step start for behaviour: reset_left current status: Status.INVALID
-2024-02-22 15:43:22,707 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:22,707 - INFO - Terminating: reset_left with status: Status.INVALID
-2024-02-22 15:43:22,707 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:22,707 - INFO - Update step start for behaviour: hold_right_sim current status: Status.INVALID
-2024-02-22 15:43:22,707 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:22,707 - INFO - Terminating: hold_right_sim with status: Status.INVALID
-2024-02-22 15:43:22,707 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:22,707 - INFO - Update step start for behaviour: hold_right_real current status: Status.INVALID
-2024-02-22 15:43:22,707 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:22,707 - INFO - Terminating: hold_right_real with status: Status.INVALID
-2024-02-22 15:43:22,707 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:22,707 - INFO - Update step start for behaviour: reset_right current status: Status.INVALID
-2024-02-22 15:43:22,707 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:22,707 - INFO - Terminating: reset_right with status: Status.INVALID
-2024-02-22 15:43:22,707 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:22,707 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
-2024-02-22 15:43:22,707 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:22,707 - INFO - Terminating: reset_task with status: Status.INVALID
-2024-02-22 15:43:22,707 - INFO - Tree tip: None
-2024-02-22 15:43:22,707 - INFO - Behaviour tree:
+2024-02-22 18:01:10,741 - INFO - Before spinning ros node
+2024-02-22 18:01:10,741 - INFO - Before tree tick
+2024-02-22 18:01:10,741 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:10,741 - INFO - Update step start for behaviour: hold_left_sim current status: Status.INVALID
+2024-02-22 18:01:10,741 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:10,741 - INFO - Terminating: hold_left_sim with status: Status.INVALID
+2024-02-22 18:01:10,741 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:10,741 - INFO - Update step start for behaviour: hold_left_real current status: Status.RUNNING
+2024-02-22 18:01:10,741 - INFO - Received new request from gui: place_left
+2024-02-22 18:01:10,741 - INFO - place_left satus changed to request
+2024-02-22 18:01:11,743 - INFO - hold_left_real response: running
+2024-02-22 18:01:11,743 - DEBUG - HoldBehaviour.stop(Status.RUNNING->Status.SUCCESS)
+2024-02-22 18:01:11,744 - INFO - Terminating: hold_left_real with status: Status.SUCCESS
+2024-02-22 18:01:11,744 - DEBUG - GenericBehaviour.tick()
+2024-02-22 18:01:11,744 - INFO - Update step start for behaviour: place_left current status: Status.INVALID
+2024-02-22 18:01:12,745 - INFO - place_left response: success
+2024-02-22 18:01:12,746 - DEBUG - GenericBehaviour.stop(Status.INVALID->Status.SUCCESS)
+2024-02-22 18:01:12,746 - INFO - Terminating: place_left with status: Status.SUCCESS
+2024-02-22 18:01:12,746 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:12,746 - INFO - Update step start for behaviour: reset_left current status: Status.INVALID
+2024-02-22 18:01:12,746 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:12,746 - INFO - Terminating: reset_left with status: Status.INVALID
+2024-02-22 18:01:12,746 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:12,746 - INFO - Update step start for behaviour: hold_right_sim current status: Status.INVALID
+2024-02-22 18:01:12,746 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:12,746 - INFO - Terminating: hold_right_sim with status: Status.INVALID
+2024-02-22 18:01:12,746 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:12,746 - INFO - Update step start for behaviour: hold_right_real current status: Status.INVALID
+2024-02-22 18:01:12,746 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:12,746 - INFO - Terminating: hold_right_real with status: Status.INVALID
+2024-02-22 18:01:12,746 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:12,746 - INFO - Update step start for behaviour: reset_right current status: Status.INVALID
+2024-02-22 18:01:12,746 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:12,746 - INFO - Terminating: reset_right with status: Status.INVALID
+2024-02-22 18:01:12,746 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:12,746 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
+2024-02-22 18:01:12,746 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:12,746 - INFO - Terminating: reset_task with status: Status.INVALID
+2024-02-22 18:01:12,746 - INFO - Tree tip: None
+2024-02-22 18:01:12,746 - INFO - Behaviour tree:
 /_/ main [*]
     {-} task [*]
         /_/ placing_parts [*]
@@ -206,15 +206,15 @@ Blackboard Client
             --> place_joint [-]
     --> reset_task [-]
 
-2024-02-22 15:43:22,707 - INFO - Behaviour tree blackboard:
+2024-02-22 18:01:12,746 - INFO - Behaviour tree blackboard:
 Blackboard Client
   Client Data
-    unique_identifier : 24fa3b84-b96d-4896-8c45-0655d4eed1b6
-    write             : {'/place_right', '/reset_right', '/place_left', '/hold_right_sim', '/hold_left_real', '/hold_right_real', '/hold_joint_sim', '/place_joint', '/hold_joint_real', '/reset_left', '/reset_task', '/hold_left_sim'}
     exclusive         : set()
-    name              : Blackboard_client
-    namespace         : /
     read              : set()
+    write             : {'/hold_left_real', '/hold_joint_real', '/place_joint', '/hold_right_sim', '/reset_task', '/reset_right', '/hold_joint_sim', '/place_left', '/place_right', '/hold_left_sim', '/hold_right_real', '/reset_left'}
+    namespace         : /
+    name              : Blackboard_client
+    unique_identifier : f6b4b126-0a94-418d-ba7b-29bdb01c9ad7
   Variables
     /place_left      : success
     /place_right     : not_done
@@ -229,30 +229,30 @@ Blackboard Client
     /reset_right     : not_done
     /reset_task      : not_done
 
-2024-02-22 15:43:22,707 - INFO - Before spinning ros node
-2024-02-22 15:43:22,708 - INFO - Before tree tick
-2024-02-22 15:43:22,708 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:22,708 - INFO - Update step start for behaviour: reset_left current status: Status.INVALID
-2024-02-22 15:43:22,708 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:22,708 - INFO - Terminating: reset_left with status: Status.INVALID
-2024-02-22 15:43:22,708 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:22,708 - INFO - Update step start for behaviour: hold_right_sim current status: Status.INVALID
-2024-02-22 15:43:22,708 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:22,708 - INFO - Terminating: hold_right_sim with status: Status.INVALID
-2024-02-22 15:43:22,708 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:22,708 - INFO - Update step start for behaviour: hold_right_real current status: Status.INVALID
-2024-02-22 15:43:22,708 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:22,708 - INFO - Terminating: hold_right_real with status: Status.INVALID
-2024-02-22 15:43:22,708 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:22,708 - INFO - Update step start for behaviour: reset_right current status: Status.INVALID
-2024-02-22 15:43:22,708 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:22,708 - INFO - Terminating: reset_right with status: Status.INVALID
-2024-02-22 15:43:22,708 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:22,708 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
-2024-02-22 15:43:22,708 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:22,708 - INFO - Terminating: reset_task with status: Status.INVALID
-2024-02-22 15:43:22,708 - INFO - Tree tip: None
-2024-02-22 15:43:22,708 - INFO - Behaviour tree:
+2024-02-22 18:01:12,746 - INFO - Before spinning ros node
+2024-02-22 18:01:12,746 - INFO - Before tree tick
+2024-02-22 18:01:12,746 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:12,746 - INFO - Update step start for behaviour: reset_left current status: Status.INVALID
+2024-02-22 18:01:12,746 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:12,746 - INFO - Terminating: reset_left with status: Status.INVALID
+2024-02-22 18:01:12,746 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:12,746 - INFO - Update step start for behaviour: hold_right_sim current status: Status.INVALID
+2024-02-22 18:01:12,746 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:12,746 - INFO - Terminating: hold_right_sim with status: Status.INVALID
+2024-02-22 18:01:12,746 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:12,746 - INFO - Update step start for behaviour: hold_right_real current status: Status.INVALID
+2024-02-22 18:01:12,746 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:12,746 - INFO - Terminating: hold_right_real with status: Status.INVALID
+2024-02-22 18:01:12,746 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:12,746 - INFO - Update step start for behaviour: reset_right current status: Status.INVALID
+2024-02-22 18:01:12,746 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:12,746 - INFO - Terminating: reset_right with status: Status.INVALID
+2024-02-22 18:01:12,746 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:12,746 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
+2024-02-22 18:01:12,746 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:12,746 - INFO - Terminating: reset_task with status: Status.INVALID
+2024-02-22 18:01:12,747 - INFO - Tree tip: None
+2024-02-22 18:01:12,747 - INFO - Behaviour tree:
 /_/ main [*]
     {-} task [*]
         /_/ placing_parts [*]
@@ -275,15 +275,15 @@ Blackboard Client
             --> place_joint [-]
     --> reset_task [-]
 
-2024-02-22 15:43:22,708 - INFO - Behaviour tree blackboard:
+2024-02-22 18:01:12,747 - INFO - Behaviour tree blackboard:
 Blackboard Client
   Client Data
-    unique_identifier : 24fa3b84-b96d-4896-8c45-0655d4eed1b6
-    write             : {'/place_right', '/reset_right', '/place_left', '/hold_right_sim', '/hold_left_real', '/hold_right_real', '/hold_joint_sim', '/place_joint', '/hold_joint_real', '/reset_left', '/reset_task', '/hold_left_sim'}
     exclusive         : set()
-    name              : Blackboard_client
-    namespace         : /
     read              : set()
+    write             : {'/hold_left_real', '/hold_joint_real', '/place_joint', '/hold_right_sim', '/reset_task', '/reset_right', '/hold_joint_sim', '/place_left', '/place_right', '/hold_left_sim', '/hold_right_real', '/reset_left'}
+    namespace         : /
+    name              : Blackboard_client
+    unique_identifier : f6b4b126-0a94-418d-ba7b-29bdb01c9ad7
   Variables
     /place_left      : success
     /place_right     : not_done
@@ -298,30 +298,30 @@ Blackboard Client
     /reset_right     : not_done
     /reset_task      : not_done
 
-2024-02-22 15:43:22,708 - INFO - Before spinning ros node
-2024-02-22 15:43:22,708 - INFO - Before tree tick
-2024-02-22 15:43:22,708 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:22,708 - INFO - Update step start for behaviour: reset_left current status: Status.INVALID
-2024-02-22 15:43:22,708 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:22,708 - INFO - Terminating: reset_left with status: Status.INVALID
-2024-02-22 15:43:22,708 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:22,708 - INFO - Update step start for behaviour: hold_right_sim current status: Status.INVALID
-2024-02-22 15:43:22,708 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:22,708 - INFO - Terminating: hold_right_sim with status: Status.INVALID
-2024-02-22 15:43:22,708 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:22,708 - INFO - Update step start for behaviour: hold_right_real current status: Status.INVALID
-2024-02-22 15:43:22,708 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:22,708 - INFO - Terminating: hold_right_real with status: Status.INVALID
-2024-02-22 15:43:22,708 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:22,708 - INFO - Update step start for behaviour: reset_right current status: Status.INVALID
-2024-02-22 15:43:22,708 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:22,708 - INFO - Terminating: reset_right with status: Status.INVALID
-2024-02-22 15:43:22,708 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:22,708 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
-2024-02-22 15:43:22,708 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:22,708 - INFO - Terminating: reset_task with status: Status.INVALID
-2024-02-22 15:43:22,708 - INFO - Tree tip: None
-2024-02-22 15:43:22,708 - INFO - Behaviour tree:
+2024-02-22 18:01:12,747 - INFO - Before spinning ros node
+2024-02-22 18:01:12,747 - INFO - Before tree tick
+2024-02-22 18:01:12,747 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:12,747 - INFO - Update step start for behaviour: reset_left current status: Status.INVALID
+2024-02-22 18:01:12,747 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:12,747 - INFO - Terminating: reset_left with status: Status.INVALID
+2024-02-22 18:01:12,747 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:12,747 - INFO - Update step start for behaviour: hold_right_sim current status: Status.INVALID
+2024-02-22 18:01:12,747 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:12,747 - INFO - Terminating: hold_right_sim with status: Status.INVALID
+2024-02-22 18:01:12,747 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:12,747 - INFO - Update step start for behaviour: hold_right_real current status: Status.INVALID
+2024-02-22 18:01:12,747 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:12,747 - INFO - Terminating: hold_right_real with status: Status.INVALID
+2024-02-22 18:01:12,747 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:12,747 - INFO - Update step start for behaviour: reset_right current status: Status.INVALID
+2024-02-22 18:01:12,747 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:12,747 - INFO - Terminating: reset_right with status: Status.INVALID
+2024-02-22 18:01:12,747 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:12,747 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
+2024-02-22 18:01:12,747 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:12,747 - INFO - Terminating: reset_task with status: Status.INVALID
+2024-02-22 18:01:12,747 - INFO - Tree tip: None
+2024-02-22 18:01:12,747 - INFO - Behaviour tree:
 /_/ main [*]
     {-} task [*]
         /_/ placing_parts [*]
@@ -344,15 +344,15 @@ Blackboard Client
             --> place_joint [-]
     --> reset_task [-]
 
-2024-02-22 15:43:22,708 - INFO - Behaviour tree blackboard:
+2024-02-22 18:01:12,747 - INFO - Behaviour tree blackboard:
 Blackboard Client
   Client Data
-    unique_identifier : 24fa3b84-b96d-4896-8c45-0655d4eed1b6
-    write             : {'/place_right', '/reset_right', '/place_left', '/hold_right_sim', '/hold_left_real', '/hold_right_real', '/hold_joint_sim', '/place_joint', '/hold_joint_real', '/reset_left', '/reset_task', '/hold_left_sim'}
     exclusive         : set()
-    name              : Blackboard_client
-    namespace         : /
     read              : set()
+    write             : {'/hold_left_real', '/hold_joint_real', '/place_joint', '/hold_right_sim', '/reset_task', '/reset_right', '/hold_joint_sim', '/place_left', '/place_right', '/hold_left_sim', '/hold_right_real', '/reset_left'}
+    namespace         : /
+    name              : Blackboard_client
+    unique_identifier : f6b4b126-0a94-418d-ba7b-29bdb01c9ad7
   Variables
     /place_left      : success
     /place_right     : not_done
@@ -367,31 +367,31 @@ Blackboard Client
     /reset_right     : not_done
     /reset_task      : not_done
 
-2024-02-22 15:43:22,708 - INFO - Before spinning ros node
-2024-02-22 15:43:22,709 - INFO - Received new request from gui: hold_right_real
-2024-02-22 15:43:22,709 - INFO - hold_right_real satus changed to request
-2024-02-22 15:43:22,709 - INFO - Before tree tick
-2024-02-22 15:43:22,709 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:22,709 - INFO - Update step start for behaviour: reset_left current status: Status.INVALID
-2024-02-22 15:43:22,709 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:22,709 - INFO - Terminating: reset_left with status: Status.INVALID
-2024-02-22 15:43:22,709 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:22,709 - INFO - Update step start for behaviour: hold_right_sim current status: Status.INVALID
-2024-02-22 15:43:22,709 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:22,709 - INFO - Terminating: hold_right_sim with status: Status.INVALID
-2024-02-22 15:43:22,709 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:22,709 - INFO - Update step start for behaviour: hold_right_real current status: Status.INVALID
-2024-02-22 15:43:23,711 - INFO - hold_right_real response: running
-2024-02-22 15:43:23,711 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:23,711 - INFO - Update step start for behaviour: reset_right current status: Status.INVALID
-2024-02-22 15:43:23,711 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:23,711 - INFO - Terminating: reset_right with status: Status.INVALID
-2024-02-22 15:43:23,711 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:23,711 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
-2024-02-22 15:43:23,711 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:23,711 - INFO - Terminating: reset_task with status: Status.INVALID
-2024-02-22 15:43:23,711 - INFO - Tree tip: None
-2024-02-22 15:43:23,711 - INFO - Behaviour tree:
+2024-02-22 18:01:12,747 - INFO - Before spinning ros node
+2024-02-22 18:01:12,747 - INFO - Received new request from gui: hold_right_real
+2024-02-22 18:01:12,747 - INFO - hold_right_real satus changed to request
+2024-02-22 18:01:12,747 - INFO - Before tree tick
+2024-02-22 18:01:12,747 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:12,747 - INFO - Update step start for behaviour: reset_left current status: Status.INVALID
+2024-02-22 18:01:12,747 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:12,747 - INFO - Terminating: reset_left with status: Status.INVALID
+2024-02-22 18:01:12,747 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:12,747 - INFO - Update step start for behaviour: hold_right_sim current status: Status.INVALID
+2024-02-22 18:01:12,747 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:12,747 - INFO - Terminating: hold_right_sim with status: Status.INVALID
+2024-02-22 18:01:12,747 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:12,747 - INFO - Update step start for behaviour: hold_right_real current status: Status.INVALID
+2024-02-22 18:01:13,749 - INFO - hold_right_real response: running
+2024-02-22 18:01:13,750 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:13,750 - INFO - Update step start for behaviour: reset_right current status: Status.INVALID
+2024-02-22 18:01:13,750 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:13,750 - INFO - Terminating: reset_right with status: Status.INVALID
+2024-02-22 18:01:13,750 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:13,750 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
+2024-02-22 18:01:13,750 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:13,750 - INFO - Terminating: reset_task with status: Status.INVALID
+2024-02-22 18:01:13,750 - INFO - Tree tip: None
+2024-02-22 18:01:13,750 - INFO - Behaviour tree:
 /_/ main [*]
     {-} task [*]
         /_/ placing_parts [*]
@@ -414,15 +414,15 @@ Blackboard Client
             --> place_joint [-]
     --> reset_task [-]
 
-2024-02-22 15:43:23,712 - INFO - Behaviour tree blackboard:
+2024-02-22 18:01:13,750 - INFO - Behaviour tree blackboard:
 Blackboard Client
   Client Data
-    unique_identifier : 24fa3b84-b96d-4896-8c45-0655d4eed1b6
-    write             : {'/place_right', '/reset_right', '/place_left', '/hold_right_sim', '/hold_left_real', '/hold_right_real', '/hold_joint_sim', '/place_joint', '/hold_joint_real', '/reset_left', '/reset_task', '/hold_left_sim'}
     exclusive         : set()
-    name              : Blackboard_client
-    namespace         : /
     read              : set()
+    write             : {'/hold_left_real', '/hold_joint_real', '/place_joint', '/hold_right_sim', '/reset_task', '/reset_right', '/hold_joint_sim', '/place_left', '/place_right', '/hold_left_sim', '/hold_right_real', '/reset_left'}
+    namespace         : /
+    name              : Blackboard_client
+    unique_identifier : f6b4b126-0a94-418d-ba7b-29bdb01c9ad7
   Variables
     /place_left      : success
     /place_right     : not_done
@@ -437,46 +437,116 @@ Blackboard Client
     /reset_right     : not_done
     /reset_task      : not_done
 
-2024-02-22 15:43:23,712 - INFO - Before spinning ros node
-2024-02-22 15:43:23,712 - INFO - Before tree tick
-2024-02-22 15:43:23,712 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:23,712 - INFO - Update step start for behaviour: reset_left current status: Status.INVALID
-2024-02-22 15:43:23,712 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:23,712 - INFO - Terminating: reset_left with status: Status.INVALID
-2024-02-22 15:43:23,712 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:23,712 - INFO - Update step start for behaviour: hold_right_sim current status: Status.INVALID
-2024-02-22 15:43:23,712 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:23,712 - INFO - Terminating: hold_right_sim with status: Status.INVALID
-2024-02-22 15:43:23,712 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:23,712 - INFO - Update step start for behaviour: hold_right_real current status: Status.RUNNING
-2024-02-22 15:43:23,712 - INFO - Received new request from gui: place_right
-2024-02-22 15:43:23,712 - INFO - place_right satus changed to request
-2024-02-22 15:43:24,714 - INFO - hold_right_real response: running
-2024-02-22 15:43:24,714 - DEBUG - HoldBehaviour.stop(Status.RUNNING->Status.SUCCESS)
-2024-02-22 15:43:24,714 - INFO - Terminating: hold_right_real with status: Status.SUCCESS
-2024-02-22 15:43:24,714 - DEBUG - GenericBehaviour.tick()
-2024-02-22 15:43:24,714 - INFO - Update step start for behaviour: place_right current status: Status.INVALID
-2024-02-22 15:43:25,716 - INFO - place_right response: success
-2024-02-22 15:43:25,716 - DEBUG - GenericBehaviour.stop(Status.INVALID->Status.SUCCESS)
-2024-02-22 15:43:25,716 - INFO - Terminating: place_right with status: Status.SUCCESS
-2024-02-22 15:43:25,716 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:25,716 - INFO - Update step start for behaviour: reset_right current status: Status.INVALID
-2024-02-22 15:43:25,716 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:25,716 - INFO - Terminating: reset_right with status: Status.INVALID
-2024-02-22 15:43:25,717 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:25,717 - INFO - Update step start for behaviour: hold_joint_sim current status: Status.INVALID
-2024-02-22 15:43:25,717 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:25,717 - INFO - Terminating: hold_joint_sim with status: Status.INVALID
-2024-02-22 15:43:25,717 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:25,717 - INFO - Update step start for behaviour: hold_joint_real current status: Status.INVALID
-2024-02-22 15:43:25,717 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:25,717 - INFO - Terminating: hold_joint_real with status: Status.INVALID
-2024-02-22 15:43:25,717 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:25,717 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
-2024-02-22 15:43:25,717 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:25,717 - INFO - Terminating: reset_task with status: Status.INVALID
-2024-02-22 15:43:25,717 - INFO - Tree tip: None
-2024-02-22 15:43:25,717 - INFO - Behaviour tree:
+2024-02-22 18:01:13,750 - INFO - Before spinning ros node
+2024-02-22 18:01:13,750 - INFO - Before tree tick
+2024-02-22 18:01:13,750 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:13,750 - INFO - Update step start for behaviour: reset_left current status: Status.INVALID
+2024-02-22 18:01:13,750 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:13,750 - INFO - Terminating: reset_left with status: Status.INVALID
+2024-02-22 18:01:13,750 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:13,750 - INFO - Update step start for behaviour: hold_right_sim current status: Status.INVALID
+2024-02-22 18:01:13,750 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:13,750 - INFO - Terminating: hold_right_sim with status: Status.INVALID
+2024-02-22 18:01:13,750 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:13,750 - INFO - Update step start for behaviour: hold_right_real current status: Status.RUNNING
+2024-02-22 18:01:13,750 - INFO - Received new request from gui: hold_right_real
+2024-02-22 18:01:13,750 - INFO - hold_right_real satus changed to request
+2024-02-22 18:01:14,752 - INFO - hold_right_real response: running
+2024-02-22 18:01:14,752 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:14,752 - INFO - Update step start for behaviour: reset_right current status: Status.INVALID
+2024-02-22 18:01:14,752 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:14,753 - INFO - Terminating: reset_right with status: Status.INVALID
+2024-02-22 18:01:14,753 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:14,753 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
+2024-02-22 18:01:14,753 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:14,753 - INFO - Terminating: reset_task with status: Status.INVALID
+2024-02-22 18:01:14,753 - INFO - Tree tip: None
+2024-02-22 18:01:14,753 - INFO - Behaviour tree:
+/_/ main [*]
+    {-} task [*]
+        /_/ placing_parts [*]
+            {-} placing_left [✓]
+                /_/ hold_left [✓]
+                    --> hold_left_sim [-]
+                    --> hold_left_real [✓]
+                --> place_left [✓]
+            --> reset_left [-]
+            {-} placing_right [*]
+                /_/ hold_right [*]
+                    --> hold_right_sim [-]
+                    --> hold_right_real [*]
+                --> place_right [-]
+            --> reset_right [-]
+        {-} placing_joint [-]
+            /_/ hold_joint [-]
+                --> hold_joint_sim [-]
+                --> hold_joint_real [-]
+            --> place_joint [-]
+    --> reset_task [-]
+
+2024-02-22 18:01:14,753 - INFO - Behaviour tree blackboard:
+Blackboard Client
+  Client Data
+    exclusive         : set()
+    read              : set()
+    write             : {'/hold_left_real', '/hold_joint_real', '/place_joint', '/hold_right_sim', '/reset_task', '/reset_right', '/hold_joint_sim', '/place_left', '/place_right', '/hold_left_sim', '/hold_right_real', '/reset_left'}
+    namespace         : /
+    name              : Blackboard_client
+    unique_identifier : f6b4b126-0a94-418d-ba7b-29bdb01c9ad7
+  Variables
+    /place_left      : success
+    /place_right     : not_done
+    /place_joint     : not_done
+    /hold_left_sim   : not_done
+    /hold_left_real  : success
+    /hold_right_sim  : not_done
+    /hold_right_real : requested
+    /hold_joint_sim  : not_done
+    /hold_joint_real : not_done
+    /reset_left      : not_done
+    /reset_right     : not_done
+    /reset_task      : not_done
+
+2024-02-22 18:01:14,753 - INFO - Before spinning ros node
+2024-02-22 18:01:14,753 - INFO - Before tree tick
+2024-02-22 18:01:14,753 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:14,753 - INFO - Update step start for behaviour: reset_left current status: Status.INVALID
+2024-02-22 18:01:14,753 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:14,753 - INFO - Terminating: reset_left with status: Status.INVALID
+2024-02-22 18:01:14,753 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:14,753 - INFO - Update step start for behaviour: hold_right_sim current status: Status.INVALID
+2024-02-22 18:01:14,753 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:14,753 - INFO - Terminating: hold_right_sim with status: Status.INVALID
+2024-02-22 18:01:14,753 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:14,753 - INFO - Update step start for behaviour: hold_right_real current status: Status.RUNNING
+2024-02-22 18:01:14,753 - INFO - Received new request from gui: place_right
+2024-02-22 18:01:14,753 - INFO - place_right satus changed to request
+2024-02-22 18:01:15,755 - INFO - hold_right_real response: running
+2024-02-22 18:01:15,755 - DEBUG - HoldBehaviour.stop(Status.RUNNING->Status.SUCCESS)
+2024-02-22 18:01:15,755 - INFO - Terminating: hold_right_real with status: Status.SUCCESS
+2024-02-22 18:01:15,755 - DEBUG - GenericBehaviour.tick()
+2024-02-22 18:01:15,755 - INFO - Update step start for behaviour: place_right current status: Status.INVALID
+2024-02-22 18:01:16,757 - INFO - place_right response: success
+2024-02-22 18:01:16,757 - DEBUG - GenericBehaviour.stop(Status.INVALID->Status.SUCCESS)
+2024-02-22 18:01:16,758 - INFO - Terminating: place_right with status: Status.SUCCESS
+2024-02-22 18:01:16,758 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:16,758 - INFO - Update step start for behaviour: reset_right current status: Status.INVALID
+2024-02-22 18:01:16,758 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:16,758 - INFO - Terminating: reset_right with status: Status.INVALID
+2024-02-22 18:01:16,758 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:16,758 - INFO - Update step start for behaviour: hold_joint_sim current status: Status.INVALID
+2024-02-22 18:01:16,758 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:16,758 - INFO - Terminating: hold_joint_sim with status: Status.INVALID
+2024-02-22 18:01:16,758 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:16,758 - INFO - Update step start for behaviour: hold_joint_real current status: Status.INVALID
+2024-02-22 18:01:16,758 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:16,758 - INFO - Terminating: hold_joint_real with status: Status.INVALID
+2024-02-22 18:01:16,758 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:16,758 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
+2024-02-22 18:01:16,758 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:16,758 - INFO - Terminating: reset_task with status: Status.INVALID
+2024-02-22 18:01:16,758 - INFO - Tree tip: None
+2024-02-22 18:01:16,758 - INFO - Behaviour tree:
 /_/ main [*]
     {-} task [*]
         /_/ placing_parts [✓]
@@ -499,15 +569,15 @@ Blackboard Client
             --> place_joint [-]
     --> reset_task [-]
 
-2024-02-22 15:43:25,717 - INFO - Behaviour tree blackboard:
+2024-02-22 18:01:16,758 - INFO - Behaviour tree blackboard:
 Blackboard Client
   Client Data
-    unique_identifier : 24fa3b84-b96d-4896-8c45-0655d4eed1b6
-    write             : {'/place_right', '/reset_right', '/place_left', '/hold_right_sim', '/hold_left_real', '/hold_right_real', '/hold_joint_sim', '/place_joint', '/hold_joint_real', '/reset_left', '/reset_task', '/hold_left_sim'}
     exclusive         : set()
-    name              : Blackboard_client
-    namespace         : /
     read              : set()
+    write             : {'/hold_left_real', '/hold_joint_real', '/place_joint', '/hold_right_sim', '/reset_task', '/reset_right', '/hold_joint_sim', '/place_left', '/place_right', '/hold_left_sim', '/hold_right_real', '/reset_left'}
+    namespace         : /
+    name              : Blackboard_client
+    unique_identifier : f6b4b126-0a94-418d-ba7b-29bdb01c9ad7
   Variables
     /place_left      : success
     /place_right     : success
@@ -522,22 +592,22 @@ Blackboard Client
     /reset_right     : not_done
     /reset_task      : not_done
 
-2024-02-22 15:43:25,717 - INFO - Before spinning ros node
-2024-02-22 15:43:25,717 - INFO - Before tree tick
-2024-02-22 15:43:25,717 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:25,717 - INFO - Update step start for behaviour: hold_joint_sim current status: Status.INVALID
-2024-02-22 15:43:25,717 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:25,717 - INFO - Terminating: hold_joint_sim with status: Status.INVALID
-2024-02-22 15:43:25,717 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:25,717 - INFO - Update step start for behaviour: hold_joint_real current status: Status.INVALID
-2024-02-22 15:43:25,717 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:25,717 - INFO - Terminating: hold_joint_real with status: Status.INVALID
-2024-02-22 15:43:25,717 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:25,717 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
-2024-02-22 15:43:25,717 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:25,717 - INFO - Terminating: reset_task with status: Status.INVALID
-2024-02-22 15:43:25,717 - INFO - Tree tip: None
-2024-02-22 15:43:25,717 - INFO - Behaviour tree:
+2024-02-22 18:01:16,758 - INFO - Before spinning ros node
+2024-02-22 18:01:16,758 - INFO - Before tree tick
+2024-02-22 18:01:16,758 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:16,758 - INFO - Update step start for behaviour: hold_joint_sim current status: Status.INVALID
+2024-02-22 18:01:16,758 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:16,758 - INFO - Terminating: hold_joint_sim with status: Status.INVALID
+2024-02-22 18:01:16,758 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:16,758 - INFO - Update step start for behaviour: hold_joint_real current status: Status.INVALID
+2024-02-22 18:01:16,758 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:16,758 - INFO - Terminating: hold_joint_real with status: Status.INVALID
+2024-02-22 18:01:16,758 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:16,758 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
+2024-02-22 18:01:16,758 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:16,758 - INFO - Terminating: reset_task with status: Status.INVALID
+2024-02-22 18:01:16,758 - INFO - Tree tip: None
+2024-02-22 18:01:16,758 - INFO - Behaviour tree:
 /_/ main [*]
     {-} task [*]
         /_/ placing_parts [✓]
@@ -560,15 +630,15 @@ Blackboard Client
             --> place_joint [-]
     --> reset_task [-]
 
-2024-02-22 15:43:25,717 - INFO - Behaviour tree blackboard:
+2024-02-22 18:01:16,758 - INFO - Behaviour tree blackboard:
 Blackboard Client
   Client Data
-    unique_identifier : 24fa3b84-b96d-4896-8c45-0655d4eed1b6
-    write             : {'/place_right', '/reset_right', '/place_left', '/hold_right_sim', '/hold_left_real', '/hold_right_real', '/hold_joint_sim', '/place_joint', '/hold_joint_real', '/reset_left', '/reset_task', '/hold_left_sim'}
     exclusive         : set()
-    name              : Blackboard_client
-    namespace         : /
     read              : set()
+    write             : {'/hold_left_real', '/hold_joint_real', '/place_joint', '/hold_right_sim', '/reset_task', '/reset_right', '/hold_joint_sim', '/place_left', '/place_right', '/hold_left_sim', '/hold_right_real', '/reset_left'}
+    namespace         : /
+    name              : Blackboard_client
+    unique_identifier : f6b4b126-0a94-418d-ba7b-29bdb01c9ad7
   Variables
     /place_left      : success
     /place_right     : success
@@ -583,22 +653,22 @@ Blackboard Client
     /reset_right     : not_done
     /reset_task      : not_done
 
-2024-02-22 15:43:25,717 - INFO - Before spinning ros node
-2024-02-22 15:43:25,717 - INFO - Before tree tick
-2024-02-22 15:43:25,717 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:25,717 - INFO - Update step start for behaviour: hold_joint_sim current status: Status.INVALID
-2024-02-22 15:43:25,717 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:25,717 - INFO - Terminating: hold_joint_sim with status: Status.INVALID
-2024-02-22 15:43:25,717 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:25,718 - INFO - Update step start for behaviour: hold_joint_real current status: Status.INVALID
-2024-02-22 15:43:25,718 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:25,718 - INFO - Terminating: hold_joint_real with status: Status.INVALID
-2024-02-22 15:43:25,718 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:25,718 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
-2024-02-22 15:43:25,718 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:25,718 - INFO - Terminating: reset_task with status: Status.INVALID
-2024-02-22 15:43:25,718 - INFO - Tree tip: None
-2024-02-22 15:43:25,718 - INFO - Behaviour tree:
+2024-02-22 18:01:16,758 - INFO - Before spinning ros node
+2024-02-22 18:01:16,758 - INFO - Before tree tick
+2024-02-22 18:01:16,758 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:16,758 - INFO - Update step start for behaviour: hold_joint_sim current status: Status.INVALID
+2024-02-22 18:01:16,758 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:16,758 - INFO - Terminating: hold_joint_sim with status: Status.INVALID
+2024-02-22 18:01:16,758 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:16,758 - INFO - Update step start for behaviour: hold_joint_real current status: Status.INVALID
+2024-02-22 18:01:16,759 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:16,759 - INFO - Terminating: hold_joint_real with status: Status.INVALID
+2024-02-22 18:01:16,759 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:16,759 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
+2024-02-22 18:01:16,759 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:16,759 - INFO - Terminating: reset_task with status: Status.INVALID
+2024-02-22 18:01:16,759 - INFO - Tree tip: None
+2024-02-22 18:01:16,759 - INFO - Behaviour tree:
 /_/ main [*]
     {-} task [*]
         /_/ placing_parts [✓]
@@ -621,15 +691,15 @@ Blackboard Client
             --> place_joint [-]
     --> reset_task [-]
 
-2024-02-22 15:43:25,718 - INFO - Behaviour tree blackboard:
+2024-02-22 18:01:16,759 - INFO - Behaviour tree blackboard:
 Blackboard Client
   Client Data
-    unique_identifier : 24fa3b84-b96d-4896-8c45-0655d4eed1b6
-    write             : {'/place_right', '/reset_right', '/place_left', '/hold_right_sim', '/hold_left_real', '/hold_right_real', '/hold_joint_sim', '/place_joint', '/hold_joint_real', '/reset_left', '/reset_task', '/hold_left_sim'}
     exclusive         : set()
-    name              : Blackboard_client
-    namespace         : /
     read              : set()
+    write             : {'/hold_left_real', '/hold_joint_real', '/place_joint', '/hold_right_sim', '/reset_task', '/reset_right', '/hold_joint_sim', '/place_left', '/place_right', '/hold_left_sim', '/hold_right_real', '/reset_left'}
+    namespace         : /
+    name              : Blackboard_client
+    unique_identifier : f6b4b126-0a94-418d-ba7b-29bdb01c9ad7
   Variables
     /place_left      : success
     /place_right     : success
@@ -644,23 +714,23 @@ Blackboard Client
     /reset_right     : not_done
     /reset_task      : not_done
 
-2024-02-22 15:43:25,718 - INFO - Before spinning ros node
-2024-02-22 15:43:25,718 - INFO - Received new request from gui: hold_joint_real
-2024-02-22 15:43:25,718 - INFO - hold_joint_real satus changed to request
-2024-02-22 15:43:25,718 - INFO - Before tree tick
-2024-02-22 15:43:25,718 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:25,718 - INFO - Update step start for behaviour: hold_joint_sim current status: Status.INVALID
-2024-02-22 15:43:25,718 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:25,718 - INFO - Terminating: hold_joint_sim with status: Status.INVALID
-2024-02-22 15:43:25,718 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:25,718 - INFO - Update step start for behaviour: hold_joint_real current status: Status.INVALID
-2024-02-22 15:43:26,720 - INFO - hold_joint_real response: running
-2024-02-22 15:43:26,720 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:26,720 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
-2024-02-22 15:43:26,720 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:26,720 - INFO - Terminating: reset_task with status: Status.INVALID
-2024-02-22 15:43:26,720 - INFO - Tree tip: None
-2024-02-22 15:43:26,721 - INFO - Behaviour tree:
+2024-02-22 18:01:16,759 - INFO - Before spinning ros node
+2024-02-22 18:01:16,759 - INFO - Received new request from gui: hold_joint_real
+2024-02-22 18:01:16,759 - INFO - hold_joint_real satus changed to request
+2024-02-22 18:01:16,759 - INFO - Before tree tick
+2024-02-22 18:01:16,759 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:16,759 - INFO - Update step start for behaviour: hold_joint_sim current status: Status.INVALID
+2024-02-22 18:01:16,759 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:16,759 - INFO - Terminating: hold_joint_sim with status: Status.INVALID
+2024-02-22 18:01:16,759 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:16,759 - INFO - Update step start for behaviour: hold_joint_real current status: Status.INVALID
+2024-02-22 18:01:17,761 - INFO - hold_joint_real response: running
+2024-02-22 18:01:17,761 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:17,761 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
+2024-02-22 18:01:17,761 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:17,761 - INFO - Terminating: reset_task with status: Status.INVALID
+2024-02-22 18:01:17,761 - INFO - Tree tip: None
+2024-02-22 18:01:17,762 - INFO - Behaviour tree:
 /_/ main [*]
     {-} task [*]
         /_/ placing_parts [✓]
@@ -683,15 +753,15 @@ Blackboard Client
             --> place_joint [-]
     --> reset_task [-]
 
-2024-02-22 15:43:26,721 - INFO - Behaviour tree blackboard:
+2024-02-22 18:01:17,762 - INFO - Behaviour tree blackboard:
 Blackboard Client
   Client Data
-    unique_identifier : 24fa3b84-b96d-4896-8c45-0655d4eed1b6
-    write             : {'/place_right', '/reset_right', '/place_left', '/hold_right_sim', '/hold_left_real', '/hold_right_real', '/hold_joint_sim', '/place_joint', '/hold_joint_real', '/reset_left', '/reset_task', '/hold_left_sim'}
     exclusive         : set()
-    name              : Blackboard_client
-    namespace         : /
     read              : set()
+    write             : {'/hold_left_real', '/hold_joint_real', '/place_joint', '/hold_right_sim', '/reset_task', '/reset_right', '/hold_joint_sim', '/place_left', '/place_right', '/hold_left_sim', '/hold_right_real', '/reset_left'}
+    namespace         : /
+    name              : Blackboard_client
+    unique_identifier : f6b4b126-0a94-418d-ba7b-29bdb01c9ad7
   Variables
     /place_left      : success
     /place_right     : success
@@ -706,30 +776,30 @@ Blackboard Client
     /reset_right     : not_done
     /reset_task      : not_done
 
-2024-02-22 15:43:26,721 - INFO - Before spinning ros node
-2024-02-22 15:43:26,721 - INFO - Before tree tick
-2024-02-22 15:43:26,721 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:26,721 - INFO - Update step start for behaviour: hold_joint_sim current status: Status.INVALID
-2024-02-22 15:43:26,721 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:26,721 - INFO - Terminating: hold_joint_sim with status: Status.INVALID
-2024-02-22 15:43:26,721 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:26,721 - INFO - Update step start for behaviour: hold_joint_real current status: Status.RUNNING
-2024-02-22 15:43:26,721 - INFO - Received new request from gui: place_joint
-2024-02-22 15:43:26,721 - INFO - place_joint satus changed to request
-2024-02-22 15:43:27,722 - INFO - hold_joint_real response: running
-2024-02-22 15:43:27,722 - DEBUG - HoldBehaviour.stop(Status.RUNNING->Status.SUCCESS)
-2024-02-22 15:43:27,722 - INFO - Terminating: hold_joint_real with status: Status.SUCCESS
-2024-02-22 15:43:27,722 - DEBUG - GenericBehaviour.tick()
-2024-02-22 15:43:27,722 - INFO - Update step start for behaviour: place_joint current status: Status.INVALID
-2024-02-22 15:43:28,725 - INFO - place_joint response: success
-2024-02-22 15:43:28,725 - DEBUG - GenericBehaviour.stop(Status.INVALID->Status.SUCCESS)
-2024-02-22 15:43:28,725 - INFO - Terminating: place_joint with status: Status.SUCCESS
-2024-02-22 15:43:28,725 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:28,725 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
-2024-02-22 15:43:28,725 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:28,725 - INFO - Terminating: reset_task with status: Status.INVALID
-2024-02-22 15:43:28,725 - INFO - Tree tip: <enhancing_robot_performance_through_hrc.behaviours.GenericBehaviour object at 0x7feee7b54850>
-2024-02-22 15:43:28,725 - INFO - Behaviour tree:
+2024-02-22 18:01:17,762 - INFO - Before spinning ros node
+2024-02-22 18:01:17,762 - INFO - Before tree tick
+2024-02-22 18:01:17,762 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:17,762 - INFO - Update step start for behaviour: hold_joint_sim current status: Status.INVALID
+2024-02-22 18:01:17,762 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:17,762 - INFO - Terminating: hold_joint_sim with status: Status.INVALID
+2024-02-22 18:01:17,762 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:17,762 - INFO - Update step start for behaviour: hold_joint_real current status: Status.RUNNING
+2024-02-22 18:01:17,762 - INFO - Received new request from gui: place_joint
+2024-02-22 18:01:17,762 - INFO - place_joint satus changed to request
+2024-02-22 18:01:18,764 - INFO - hold_joint_real response: running
+2024-02-22 18:01:18,764 - DEBUG - HoldBehaviour.stop(Status.RUNNING->Status.SUCCESS)
+2024-02-22 18:01:18,764 - INFO - Terminating: hold_joint_real with status: Status.SUCCESS
+2024-02-22 18:01:18,764 - DEBUG - GenericBehaviour.tick()
+2024-02-22 18:01:18,764 - INFO - Update step start for behaviour: place_joint current status: Status.INVALID
+2024-02-22 18:01:19,766 - INFO - place_joint response: success
+2024-02-22 18:01:19,766 - DEBUG - GenericBehaviour.stop(Status.INVALID->Status.SUCCESS)
+2024-02-22 18:01:19,766 - INFO - Terminating: place_joint with status: Status.SUCCESS
+2024-02-22 18:01:19,766 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:19,766 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
+2024-02-22 18:01:19,766 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:19,766 - INFO - Terminating: reset_task with status: Status.INVALID
+2024-02-22 18:01:19,766 - INFO - Tree tip: <enhancing_robot_performance_through_hrc.behaviours.GenericBehaviour object at 0x7f0593d58850>
+2024-02-22 18:01:19,766 - INFO - Behaviour tree:
 /_/ main [✓]
     {-} task [✓]
         /_/ placing_parts [✓]
@@ -752,15 +822,15 @@ Blackboard Client
             --> place_joint [✓]
     --> reset_task [-]
 
-2024-02-22 15:43:28,725 - INFO - Behaviour tree blackboard:
+2024-02-22 18:01:19,766 - INFO - Behaviour tree blackboard:
 Blackboard Client
   Client Data
-    unique_identifier : 24fa3b84-b96d-4896-8c45-0655d4eed1b6
-    write             : {'/place_right', '/reset_right', '/place_left', '/hold_right_sim', '/hold_left_real', '/hold_right_real', '/hold_joint_sim', '/place_joint', '/hold_joint_real', '/reset_left', '/reset_task', '/hold_left_sim'}
     exclusive         : set()
-    name              : Blackboard_client
-    namespace         : /
     read              : set()
+    write             : {'/hold_left_real', '/hold_joint_real', '/place_joint', '/hold_right_sim', '/reset_task', '/reset_right', '/hold_joint_sim', '/place_left', '/place_right', '/hold_left_sim', '/hold_right_real', '/reset_left'}
+    namespace         : /
+    name              : Blackboard_client
+    unique_identifier : f6b4b126-0a94-418d-ba7b-29bdb01c9ad7
   Variables
     /place_left      : success
     /place_right     : success
@@ -775,50 +845,50 @@ Blackboard Client
     /reset_right     : not_done
     /reset_task      : not_done
 
-2024-02-22 15:43:28,725 - INFO - Before spinning ros node
-2024-02-22 15:43:28,725 - INFO - Before tree tick
-2024-02-22 15:43:28,725 - DEBUG - HoldBehaviour.stop(Status.SUCCESS->Status.INVALID)
-2024-02-22 15:43:28,725 - INFO - Terminating: hold_left_real with status: Status.INVALID
-2024-02-22 15:43:28,725 - DEBUG - GenericBehaviour.stop(Status.SUCCESS->Status.INVALID)
-2024-02-22 15:43:28,725 - INFO - Terminating: place_left with status: Status.INVALID
-2024-02-22 15:43:28,725 - DEBUG - HoldBehaviour.stop(Status.SUCCESS->Status.INVALID)
-2024-02-22 15:43:28,725 - INFO - Terminating: hold_right_real with status: Status.INVALID
-2024-02-22 15:43:28,725 - DEBUG - GenericBehaviour.stop(Status.SUCCESS->Status.INVALID)
-2024-02-22 15:43:28,725 - INFO - Terminating: place_right with status: Status.INVALID
-2024-02-22 15:43:28,725 - DEBUG - HoldBehaviour.stop(Status.SUCCESS->Status.INVALID)
-2024-02-22 15:43:28,725 - INFO - Terminating: hold_joint_real with status: Status.INVALID
-2024-02-22 15:43:28,725 - DEBUG - GenericBehaviour.stop(Status.SUCCESS->Status.INVALID)
-2024-02-22 15:43:28,725 - INFO - Terminating: place_joint with status: Status.INVALID
-2024-02-22 15:43:28,725 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:28,725 - INFO - Update step start for behaviour: hold_left_sim current status: Status.INVALID
-2024-02-22 15:43:28,725 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:28,725 - INFO - Terminating: hold_left_sim with status: Status.INVALID
-2024-02-22 15:43:28,725 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:28,725 - INFO - Update step start for behaviour: hold_left_real current status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:28,726 - INFO - Terminating: hold_left_real with status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:28,726 - INFO - Update step start for behaviour: reset_left current status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:28,726 - INFO - Terminating: reset_left with status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:28,726 - INFO - Update step start for behaviour: hold_right_sim current status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:28,726 - INFO - Terminating: hold_right_sim with status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:28,726 - INFO - Update step start for behaviour: hold_right_real current status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:28,726 - INFO - Terminating: hold_right_real with status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:28,726 - INFO - Update step start for behaviour: reset_right current status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:28,726 - INFO - Terminating: reset_right with status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:28,726 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:28,726 - INFO - Terminating: reset_task with status: Status.INVALID
-2024-02-22 15:43:28,726 - INFO - Tree tip: None
-2024-02-22 15:43:28,726 - INFO - Behaviour tree:
+2024-02-22 18:01:19,766 - INFO - Before spinning ros node
+2024-02-22 18:01:19,766 - INFO - Before tree tick
+2024-02-22 18:01:19,766 - DEBUG - HoldBehaviour.stop(Status.SUCCESS->Status.INVALID)
+2024-02-22 18:01:19,766 - INFO - Terminating: hold_left_real with status: Status.INVALID
+2024-02-22 18:01:19,766 - DEBUG - GenericBehaviour.stop(Status.SUCCESS->Status.INVALID)
+2024-02-22 18:01:19,766 - INFO - Terminating: place_left with status: Status.INVALID
+2024-02-22 18:01:19,766 - DEBUG - HoldBehaviour.stop(Status.SUCCESS->Status.INVALID)
+2024-02-22 18:01:19,766 - INFO - Terminating: hold_right_real with status: Status.INVALID
+2024-02-22 18:01:19,766 - DEBUG - GenericBehaviour.stop(Status.SUCCESS->Status.INVALID)
+2024-02-22 18:01:19,766 - INFO - Terminating: place_right with status: Status.INVALID
+2024-02-22 18:01:19,766 - DEBUG - HoldBehaviour.stop(Status.SUCCESS->Status.INVALID)
+2024-02-22 18:01:19,766 - INFO - Terminating: hold_joint_real with status: Status.INVALID
+2024-02-22 18:01:19,766 - DEBUG - GenericBehaviour.stop(Status.SUCCESS->Status.INVALID)
+2024-02-22 18:01:19,766 - INFO - Terminating: place_joint with status: Status.INVALID
+2024-02-22 18:01:19,766 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:19,766 - INFO - Update step start for behaviour: hold_left_sim current status: Status.INVALID
+2024-02-22 18:01:19,766 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:19,766 - INFO - Terminating: hold_left_sim with status: Status.INVALID
+2024-02-22 18:01:19,766 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:19,766 - INFO - Update step start for behaviour: hold_left_real current status: Status.INVALID
+2024-02-22 18:01:19,766 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:19,766 - INFO - Terminating: hold_left_real with status: Status.INVALID
+2024-02-22 18:01:19,766 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:19,766 - INFO - Update step start for behaviour: reset_left current status: Status.INVALID
+2024-02-22 18:01:19,766 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:19,766 - INFO - Terminating: reset_left with status: Status.INVALID
+2024-02-22 18:01:19,766 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:19,766 - INFO - Update step start for behaviour: hold_right_sim current status: Status.INVALID
+2024-02-22 18:01:19,766 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:19,767 - INFO - Terminating: hold_right_sim with status: Status.INVALID
+2024-02-22 18:01:19,767 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:19,767 - INFO - Update step start for behaviour: hold_right_real current status: Status.INVALID
+2024-02-22 18:01:19,767 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:19,767 - INFO - Terminating: hold_right_real with status: Status.INVALID
+2024-02-22 18:01:19,767 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:19,767 - INFO - Update step start for behaviour: reset_right current status: Status.INVALID
+2024-02-22 18:01:19,767 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:19,767 - INFO - Terminating: reset_right with status: Status.INVALID
+2024-02-22 18:01:19,767 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:19,767 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
+2024-02-22 18:01:19,767 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:19,767 - INFO - Terminating: reset_task with status: Status.INVALID
+2024-02-22 18:01:19,767 - INFO - Tree tip: None
+2024-02-22 18:01:19,767 - INFO - Behaviour tree:
 /_/ main [*]
     {-} task [*]
         /_/ placing_parts [*]
@@ -841,15 +911,15 @@ Blackboard Client
             --> place_joint [-]
     --> reset_task [-]
 
-2024-02-22 15:43:28,726 - INFO - Behaviour tree blackboard:
+2024-02-22 18:01:19,767 - INFO - Behaviour tree blackboard:
 Blackboard Client
   Client Data
-    unique_identifier : 24fa3b84-b96d-4896-8c45-0655d4eed1b6
-    write             : {'/place_right', '/reset_right', '/place_left', '/hold_right_sim', '/hold_left_real', '/hold_right_real', '/hold_joint_sim', '/place_joint', '/hold_joint_real', '/reset_left', '/reset_task', '/hold_left_sim'}
     exclusive         : set()
-    name              : Blackboard_client
-    namespace         : /
     read              : set()
+    write             : {'/hold_left_real', '/hold_joint_real', '/place_joint', '/hold_right_sim', '/reset_task', '/reset_right', '/hold_joint_sim', '/place_left', '/place_right', '/hold_left_sim', '/hold_right_real', '/reset_left'}
+    namespace         : /
+    name              : Blackboard_client
+    unique_identifier : f6b4b126-0a94-418d-ba7b-29bdb01c9ad7
   Variables
     /place_left      : success
     /place_right     : success
@@ -864,38 +934,38 @@ Blackboard Client
     /reset_right     : not_done
     /reset_task      : not_done
 
-2024-02-22 15:43:28,726 - INFO - Before spinning ros node
-2024-02-22 15:43:28,726 - INFO - Before tree tick
-2024-02-22 15:43:28,726 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:28,726 - INFO - Update step start for behaviour: hold_left_sim current status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:28,726 - INFO - Terminating: hold_left_sim with status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:28,726 - INFO - Update step start for behaviour: hold_left_real current status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:28,726 - INFO - Terminating: hold_left_real with status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:28,726 - INFO - Update step start for behaviour: reset_left current status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:28,726 - INFO - Terminating: reset_left with status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:28,726 - INFO - Update step start for behaviour: hold_right_sim current status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:28,726 - INFO - Terminating: hold_right_sim with status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:28,726 - INFO - Update step start for behaviour: hold_right_real current status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:28,726 - INFO - Terminating: hold_right_real with status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:28,726 - INFO - Update step start for behaviour: reset_right current status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:28,726 - INFO - Terminating: reset_right with status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:28,726 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
-2024-02-22 15:43:28,726 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:28,726 - INFO - Terminating: reset_task with status: Status.INVALID
-2024-02-22 15:43:28,726 - INFO - Tree tip: None
-2024-02-22 15:43:28,727 - INFO - Behaviour tree:
+2024-02-22 18:01:19,767 - INFO - Before spinning ros node
+2024-02-22 18:01:19,767 - INFO - Before tree tick
+2024-02-22 18:01:19,767 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:19,767 - INFO - Update step start for behaviour: hold_left_sim current status: Status.INVALID
+2024-02-22 18:01:19,767 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:19,767 - INFO - Terminating: hold_left_sim with status: Status.INVALID
+2024-02-22 18:01:19,767 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:19,767 - INFO - Update step start for behaviour: hold_left_real current status: Status.INVALID
+2024-02-22 18:01:19,767 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:19,767 - INFO - Terminating: hold_left_real with status: Status.INVALID
+2024-02-22 18:01:19,767 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:19,767 - INFO - Update step start for behaviour: reset_left current status: Status.INVALID
+2024-02-22 18:01:19,767 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:19,767 - INFO - Terminating: reset_left with status: Status.INVALID
+2024-02-22 18:01:19,767 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:19,767 - INFO - Update step start for behaviour: hold_right_sim current status: Status.INVALID
+2024-02-22 18:01:19,767 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:19,767 - INFO - Terminating: hold_right_sim with status: Status.INVALID
+2024-02-22 18:01:19,767 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:19,767 - INFO - Update step start for behaviour: hold_right_real current status: Status.INVALID
+2024-02-22 18:01:19,767 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:19,767 - INFO - Terminating: hold_right_real with status: Status.INVALID
+2024-02-22 18:01:19,767 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:19,767 - INFO - Update step start for behaviour: reset_right current status: Status.INVALID
+2024-02-22 18:01:19,767 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:19,767 - INFO - Terminating: reset_right with status: Status.INVALID
+2024-02-22 18:01:19,767 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:19,767 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
+2024-02-22 18:01:19,767 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:19,767 - INFO - Terminating: reset_task with status: Status.INVALID
+2024-02-22 18:01:19,767 - INFO - Tree tip: None
+2024-02-22 18:01:19,767 - INFO - Behaviour tree:
 /_/ main [*]
     {-} task [*]
         /_/ placing_parts [*]
@@ -918,15 +988,15 @@ Blackboard Client
             --> place_joint [-]
     --> reset_task [-]
 
-2024-02-22 15:43:28,727 - INFO - Behaviour tree blackboard:
+2024-02-22 18:01:19,767 - INFO - Behaviour tree blackboard:
 Blackboard Client
   Client Data
-    unique_identifier : 24fa3b84-b96d-4896-8c45-0655d4eed1b6
-    write             : {'/place_right', '/reset_right', '/place_left', '/hold_right_sim', '/hold_left_real', '/hold_right_real', '/hold_joint_sim', '/place_joint', '/hold_joint_real', '/reset_left', '/reset_task', '/hold_left_sim'}
     exclusive         : set()
-    name              : Blackboard_client
-    namespace         : /
     read              : set()
+    write             : {'/hold_left_real', '/hold_joint_real', '/place_joint', '/hold_right_sim', '/reset_task', '/reset_right', '/hold_joint_sim', '/place_left', '/place_right', '/hold_left_sim', '/hold_right_real', '/reset_left'}
+    namespace         : /
+    name              : Blackboard_client
+    unique_identifier : f6b4b126-0a94-418d-ba7b-29bdb01c9ad7
   Variables
     /place_left      : success
     /place_right     : success
@@ -941,40 +1011,40 @@ Blackboard Client
     /reset_right     : not_done
     /reset_task      : not_done
 
-2024-02-22 15:43:28,727 - INFO - Before spinning ros node
-2024-02-22 15:43:28,727 - INFO - Received new request from gui: quit
-2024-02-22 15:43:28,727 - INFO - Quit request: True
-2024-02-22 15:43:28,727 - INFO - Before tree tick
-2024-02-22 15:43:28,727 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:28,727 - INFO - Update step start for behaviour: hold_left_sim current status: Status.INVALID
-2024-02-22 15:43:28,727 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:28,727 - INFO - Terminating: hold_left_sim with status: Status.INVALID
-2024-02-22 15:43:28,727 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:28,727 - INFO - Update step start for behaviour: hold_left_real current status: Status.INVALID
-2024-02-22 15:43:28,727 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:28,727 - INFO - Terminating: hold_left_real with status: Status.INVALID
-2024-02-22 15:43:28,727 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:28,727 - INFO - Update step start for behaviour: reset_left current status: Status.INVALID
-2024-02-22 15:43:28,727 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:28,727 - INFO - Terminating: reset_left with status: Status.INVALID
-2024-02-22 15:43:28,727 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:28,727 - INFO - Update step start for behaviour: hold_right_sim current status: Status.INVALID
-2024-02-22 15:43:28,727 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:28,727 - INFO - Terminating: hold_right_sim with status: Status.INVALID
-2024-02-22 15:43:28,727 - DEBUG - HoldBehaviour.tick()
-2024-02-22 15:43:28,727 - INFO - Update step start for behaviour: hold_right_real current status: Status.INVALID
-2024-02-22 15:43:28,727 - DEBUG - HoldBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:28,727 - INFO - Terminating: hold_right_real with status: Status.INVALID
-2024-02-22 15:43:28,727 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:28,727 - INFO - Update step start for behaviour: reset_right current status: Status.INVALID
-2024-02-22 15:43:28,727 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:28,727 - INFO - Terminating: reset_right with status: Status.INVALID
-2024-02-22 15:43:28,727 - DEBUG - ResetBehaviour.tick()
-2024-02-22 15:43:28,727 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
-2024-02-22 15:43:28,727 - DEBUG - ResetBehaviour.stop(Status.INVALID)
-2024-02-22 15:43:28,727 - INFO - Terminating: reset_task with status: Status.INVALID
-2024-02-22 15:43:28,727 - INFO - Tree tip: None
-2024-02-22 15:43:28,727 - INFO - Behaviour tree:
+2024-02-22 18:01:19,767 - INFO - Before spinning ros node
+2024-02-22 18:01:19,767 - INFO - Received new request from gui: quit
+2024-02-22 18:01:19,768 - INFO - Quit request: True
+2024-02-22 18:01:19,768 - INFO - Before tree tick
+2024-02-22 18:01:19,768 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:19,768 - INFO - Update step start for behaviour: hold_left_sim current status: Status.INVALID
+2024-02-22 18:01:19,768 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:19,768 - INFO - Terminating: hold_left_sim with status: Status.INVALID
+2024-02-22 18:01:19,768 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:19,768 - INFO - Update step start for behaviour: hold_left_real current status: Status.INVALID
+2024-02-22 18:01:19,768 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:19,768 - INFO - Terminating: hold_left_real with status: Status.INVALID
+2024-02-22 18:01:19,768 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:19,768 - INFO - Update step start for behaviour: reset_left current status: Status.INVALID
+2024-02-22 18:01:19,768 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:19,768 - INFO - Terminating: reset_left with status: Status.INVALID
+2024-02-22 18:01:19,768 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:19,768 - INFO - Update step start for behaviour: hold_right_sim current status: Status.INVALID
+2024-02-22 18:01:19,768 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:19,768 - INFO - Terminating: hold_right_sim with status: Status.INVALID
+2024-02-22 18:01:19,768 - DEBUG - HoldBehaviour.tick()
+2024-02-22 18:01:19,768 - INFO - Update step start for behaviour: hold_right_real current status: Status.INVALID
+2024-02-22 18:01:19,768 - DEBUG - HoldBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:19,768 - INFO - Terminating: hold_right_real with status: Status.INVALID
+2024-02-22 18:01:19,768 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:19,768 - INFO - Update step start for behaviour: reset_right current status: Status.INVALID
+2024-02-22 18:01:19,768 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:19,768 - INFO - Terminating: reset_right with status: Status.INVALID
+2024-02-22 18:01:19,768 - DEBUG - ResetBehaviour.tick()
+2024-02-22 18:01:19,768 - INFO - Update step start for behaviour: reset_task current status: Status.INVALID
+2024-02-22 18:01:19,768 - DEBUG - ResetBehaviour.stop(Status.INVALID)
+2024-02-22 18:01:19,768 - INFO - Terminating: reset_task with status: Status.INVALID
+2024-02-22 18:01:19,768 - INFO - Tree tip: None
+2024-02-22 18:01:19,768 - INFO - Behaviour tree:
 /_/ main [*]
     {-} task [*]
         /_/ placing_parts [*]
@@ -997,15 +1067,15 @@ Blackboard Client
             --> place_joint [-]
     --> reset_task [-]
 
-2024-02-22 15:43:28,728 - INFO - Behaviour tree blackboard:
+2024-02-22 18:01:19,768 - INFO - Behaviour tree blackboard:
 Blackboard Client
   Client Data
-    unique_identifier : 24fa3b84-b96d-4896-8c45-0655d4eed1b6
-    write             : {'/place_right', '/reset_right', '/place_left', '/hold_right_sim', '/hold_left_real', '/hold_right_real', '/hold_joint_sim', '/place_joint', '/hold_joint_real', '/reset_left', '/reset_task', '/hold_left_sim'}
     exclusive         : set()
-    name              : Blackboard_client
-    namespace         : /
     read              : set()
+    write             : {'/hold_left_real', '/hold_joint_real', '/place_joint', '/hold_right_sim', '/reset_task', '/reset_right', '/hold_joint_sim', '/place_left', '/place_right', '/hold_left_sim', '/hold_right_real', '/reset_left'}
+    namespace         : /
+    name              : Blackboard_client
+    unique_identifier : f6b4b126-0a94-418d-ba7b-29bdb01c9ad7
   Variables
     /place_left      : success
     /place_right     : success
@@ -1020,5 +1090,5 @@ Blackboard Client
     /reset_right     : not_done
     /reset_task      : not_done
 
-2024-02-22 15:43:28,728 - INFO - Come out of main loop
-2024-02-22 15:43:28,731 - INFO - Turning off
+2024-02-22 18:01:19,768 - INFO - Come out of main loop
+2024-02-22 18:01:19,771 - INFO - Turning off

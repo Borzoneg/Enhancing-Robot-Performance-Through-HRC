@@ -6,6 +6,7 @@ from .send_str_clt import SendStrClient
 from .log_manager import CustomLogger
 import os
 import re
+import sys
 
 class BehaviourTree(pt.trees.BehaviourTree):
     def __init__(self):

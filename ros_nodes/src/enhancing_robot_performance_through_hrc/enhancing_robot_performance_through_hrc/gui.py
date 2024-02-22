@@ -4,13 +4,18 @@ import rclpy
 from rclpy.node import Node
 from .send_str_clt import SendStrClient
 from custom_interfaces.srv import String
-
+from .log_manager import CustomLogger
+import os
+import sys
 
 class Gui(Node):
-    def __init__(self):
+    def __init__(self, filename):
         super().__init__('gui_node')
+        # self.logger = CustomLogger("Tree", os.path.expanduser('~') + 
+        #                            "/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/logs/tree.log",
+        #                            overwrite=True)
         self.send_button_clt = SendStrClient("send_button_code")
-
+        
         self.x, self.y, self.z = 0, 0, 0
         self.roll , self.pitch, self.yaw = 0, 0, 0
         self.left_placed, self.right_placed = False, False
@@ -332,7 +337,7 @@ class Gui(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    gui = Gui()
+    gui = Gui(sys.argv[1])
     gui.window.mainloop()
 
 if __name__ == '__main__':

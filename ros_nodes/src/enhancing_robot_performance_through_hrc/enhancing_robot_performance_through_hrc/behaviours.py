@@ -1,5 +1,4 @@
 import py_trees as pt
-import rclpy 
 from .send_str_clt import SendStrClient
 
 """

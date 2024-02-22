@@ -5,7 +5,7 @@ import time
 
 class SendPoseServer(Node):
     def __init__(self):
-        super().__init__('send_pose_server')        
+        super().__init__('services_place_holder')        
         self.hold_left_sim_srv = self.create_service(String, "hold_left_sim", self.string_callback_runnning)
         self.hold_left_real_srv = self.create_service(String, "hold_left_real", self.string_callback_runnning)
         self.hold_right_sim_srv = self.create_service(String, "hold_right_sim", self.string_callback_runnning)
@@ -34,9 +34,7 @@ class SendPoseServer(Node):
 def main(args=None):
     rclpy.init(args=args)
     send_pose_server = SendPoseServer()
-
     rclpy.spin(send_pose_server)
-
     rclpy.shutdown()
 
 
