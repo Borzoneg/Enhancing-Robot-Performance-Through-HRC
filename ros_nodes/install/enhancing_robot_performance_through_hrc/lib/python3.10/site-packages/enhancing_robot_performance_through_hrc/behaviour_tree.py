@@ -2,6 +2,7 @@ import py_trees as pt
 import rclpy
 from .behaviours import *
 from custom_interfaces.srv import String
+from .send_str_clt import SendStrClient
 from .log_manager import CustomLogger
 import os
 import re
@@ -11,13 +12,14 @@ class BehaviourTree(pt.trees.BehaviourTree):
         self.logger = CustomLogger("Tree", os.path.expanduser('~') + 
                                    "/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/logs/tree.log",
                                    overwrite=True)
-    
-        self.logger.info("Starting init behavior tree")
+        self.logger.info("="*10 + "Starting init behavior tree" + "="*10)
+        
         self.updating_bb_node = rclpy.create_node("updating_bb_node")
         self.updating_bb_node.create_service(String, "send_button_code", self.update_bb)
+
         self.logger.info("Created service send_button_code")
         
-        self.generic_behaviours_names = ["place_left", "place_right", "complete_task"]
+        self.generic_behaviours_names = ["place_left", "place_right", "place_joint"]
         self.hold_behaviours_names = ["hold_left_sim",   "hold_left_real",
                                       "hold_right_sim",  "hold_right_real",
                                       "hold_joint_sim",  "hold_joint_real"]
@@ -45,19 +47,22 @@ class BehaviourTree(pt.trees.BehaviourTree):
         hold_left = pt.composites.Parallel(name="hold_left",
                                            policy=pt.common.ParallelPolicy.SuccessOnSelected([self.behaviours['hold_left_real']]),
                                            children=[self.behaviours['hold_left_sim'], self.behaviours['hold_left_real']])
-        placing_left = pt.composites.Sequence(name="placing_left", memory=False, 
+        placing_left = pt.composites.Sequence(name="placing_left", memory=True, 
                                               children=[hold_left, self.behaviours['place_left']])
         hold_right = pt.composites.Parallel(name="hold_right",
                                             policy=pt.common.ParallelPolicy.SuccessOnSelected([self.behaviours['hold_right_real']]),
                                             children=[self.behaviours['hold_right_sim'], self.behaviours['hold_right_real']])
-        placing_right = pt.composites.Sequence(name="placing_right", memory=False, 
+        placing_right = pt.composites.Sequence(name="placing_right", memory=True, 
                                               children=[hold_right, self.behaviours['place_right']])
         placing_parts = pt.composites.Parallel(name="placing_parts", 
                                                policy=pt.common.ParallelPolicy.SuccessOnSelected([placing_left, placing_right]),
                                                children=[placing_left, self.behaviours['reset_left'], placing_right, self.behaviours['reset_right']])
-        placing_joint = pt.composites.Sequence(name="placing_joint", memory=False,
-                                               children=[self.behaviours['hold_joint_sim'], self.behaviours['hold_joint_real'], self.behaviours['complete_task']])
-        task = pt.composites.Sequence(name="task", memory=False,
+        hold_joint = pt.composites.Parallel(name="hold_joint",
+                                            policy=pt.common.ParallelPolicy.SuccessOnSelected([self.behaviours['hold_joint_real']]),
+                                            children=[self.behaviours['hold_joint_sim'], self.behaviours['hold_joint_real']])
+        placing_joint = pt.composites.Sequence(name="placing_joint", memory=True,
+                                               children=[hold_joint, self.behaviours['place_joint']])
+        task = pt.composites.Sequence(name="task", memory=True,
                                       children=[placing_parts, placing_joint])
         root = pt.composites.Parallel(name = "main", 
                                       policy=pt.common.ParallelPolicy.SuccessOnSelected([task]),
@@ -66,7 +71,7 @@ class BehaviourTree(pt.trees.BehaviourTree):
         
         self.quit_request = False
         super(BehaviourTree, self).__init__(root)
-        self.logger.info("Ending tree init")
+        self.logger.info("="*10 + "Ending tree init" + "="*10)
 
     def update_bb(self, request, response):
         # possible request string: 
@@ -105,8 +110,8 @@ class BehaviourTree(pt.trees.BehaviourTree):
     
     def get_clean_tree_string(self):
         unicode_tree = pt.display.unicode_tree(root=self.root,show_status=True)
-        clean_tree = re.sub(r'.\[0m', '', unicode_tree)
-        clean_tree = re.sub(r'.\[\d\dm', '', clean_tree)
+        clean_tree = re.sub(r'.\[\dm', '', unicode_tree)
+        clean_tree = re.sub(r'.\[\d\dm', '', clean_tree)        
         return clean_tree
 
     def get_clean_blackboard_string(self):
@@ -130,7 +135,6 @@ def main(args=None):
         tree.logger.info("Tree tip: " + str(tree.tip()))
         tree.logger.info("Behaviour tree:\n" + tree.get_clean_tree_string())
         tree.logger.info("Behaviour tree blackboard:\n" + tree.get_clean_blackboard_string())
-
     tree.logger.info("Come out of main loop")
     rclpy.shutdown()
     tree.logger.info("Turning off")

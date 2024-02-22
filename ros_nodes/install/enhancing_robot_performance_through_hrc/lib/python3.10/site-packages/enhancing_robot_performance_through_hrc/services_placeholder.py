@@ -15,9 +15,9 @@ class SendPoseServer(Node):
         self.placed_right_srv = self.create_service(String, "place_right", self.string_callback)
         self.placed_right_srv = self.create_service(String, "reset_right", self.string_callback)
         self.hold_joint_sim_srv = self.create_service(String, "hold_joint_sim", self.string_callback)
-        self.hold_joint_real_srv = self.create_service(String, "hold_joint_real", self.string_callback)
+        self.hold_joint_real_srv = self.create_service(String, "hold_joint_real", self.string_callback_runnning)
         self.task_done_srv = self.create_service(String, "reset_task", self.string_callback)
-        self.task_done_srv = self.create_service(String, "complete_task", self.string_callback)
+        self.task_done_srv = self.create_service(String, "place_joint", self.string_callback)
 
     def string_callback(self, request, response):
         print("Request: ", request)

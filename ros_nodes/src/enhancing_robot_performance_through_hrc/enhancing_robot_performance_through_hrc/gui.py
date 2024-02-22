@@ -2,12 +2,15 @@ import tkinter as tk
 from tkinter import messagebox
 import rclpy
 from rclpy.node import Node
-# from .send_str_clt import SendStrClient
+from .send_str_clt import SendStrClient
+from custom_interfaces.srv import String
+
 
 class Gui(Node):
     def __init__(self):
         super().__init__('gui_node')
-        # self.send_button_clt = SendStrClient("send_button_code")
+        self.send_button_clt = SendStrClient("send_button_code")
+
         self.x, self.y, self.z = 0, 0, 0
         self.roll , self.pitch, self.yaw = 0, 0, 0
         self.left_placed, self.right_placed = False, False
@@ -32,7 +35,7 @@ class Gui(Node):
 
     def configure_frames(self):
         self.left_window = tk.Frame(self.window, bg='grey')
-        self.mid_window = tk.Frame(self.window, bg='yellow')
+        self.mid_window = tk.Frame(self.window, bg='grey')
         self.right_window = tk.Frame(self.window, bg='grey')
 
         self.left_window.grid(row=1, column=0, sticky=tk.N+tk.S+tk.E+tk.W)
@@ -299,7 +302,7 @@ class Gui(Node):
         self.complete_task_btn.grid()
 
     def complete_task(self):
-        self.send_ros_request("complete_task")
+        self.send_ros_request("place_joint")
         self.reset_task(only_reset_gui=True)
 
     def reset_task(self, only_reset_gui=False):
@@ -318,9 +321,10 @@ class Gui(Node):
         self.hold_joint_real_btn.grid()
         self.hold_joint_sim_btn.configure(state='disabled')
         self.hold_joint_real_btn.configure(state='disabled')
-        
-    def on_closing(self):
-        self.send_ros_request("quit")
+
+    def on_closing(self, only_close_gui=False):
+        if not only_close_gui:
+            self.send_ros_request("quit")
         self.window.destroy()
         self.to_close = True
         self.destroy_node()
