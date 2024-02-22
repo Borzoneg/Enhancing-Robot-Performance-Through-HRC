@@ -6,7 +6,7 @@ from rclpy.node import Node
 
 class Gui(Node):
     def __init__(self):
-        super().__init__('dmp_node')
+        super().__init__('gui_node')
         # self.send_button_clt = SendStrClient("send_button_code")
         self.x, self.y, self.z = 0, 0, 0
         self.roll , self.pitch, self.yaw = 0, 0, 0
@@ -21,7 +21,7 @@ class Gui(Node):
 
         self.to_close = False
         self.window.protocol("WM_DELETE_WINDOW", self.on_closing)
-        self.window.mainloop()
+        # self.window.mainloop()
 
     def configure_window(self):
         self.window.columnconfigure(0, weight=4, minsize=400)
@@ -32,7 +32,7 @@ class Gui(Node):
 
     def configure_frames(self):
         self.left_window = tk.Frame(self.window, bg='grey')
-        self.mid_window = tk.Frame(self.window, bg='grey')
+        self.mid_window = tk.Frame(self.window, bg='yellow')
         self.right_window = tk.Frame(self.window, bg='grey')
 
         self.left_window.grid(row=1, column=0, sticky=tk.N+tk.S+tk.E+tk.W)
@@ -56,8 +56,8 @@ class Gui(Node):
         self.mid_window.rowconfigure(2, weight=1, minsize=100)
         self.mid_window.columnconfigure(1, weight=1)
 
-        self.left_hold_frame = tk.Frame(self.left_window, background="yellow")
-        self.right_hold_frame = tk.Frame(self.right_window, background="yellow")
+        self.left_hold_frame = tk.Frame(self.left_window)
+        self.right_hold_frame = tk.Frame(self.right_window)
         self.left_hold_frame.grid(row=1, column=1, sticky=tk.N+tk.S+tk.E+tk.W, padx=10)
         self.right_hold_frame.grid(row=1, column=0, sticky=tk.N+tk.S+tk.E+tk.W, padx=10)
         self.left_hold_frame.columnconfigure(0, weight=1, minsize=200)
@@ -66,7 +66,12 @@ class Gui(Node):
         self.right_hold_frame.columnconfigure(0, weight=1, minsize=200)
         self.right_hold_frame.columnconfigure(1, weight=1, minsize=200)
         self.right_hold_frame.rowconfigure(0, weight=1, minsize=20)
-    
+        
+        self.joint_hold_frame = tk.Frame(self.mid_window)
+        self.joint_hold_frame.grid(row=1, column=1, sticky=tk.N+tk.S+tk.E+tk.W)
+        self.joint_hold_frame.columnconfigure(0, weight=1)
+        self.joint_hold_frame.rowconfigure(0, weight=1, minsize=20)
+        self.joint_hold_frame.rowconfigure(1, weight=1, minsize=20)
 
     def configure_buttons(self):
         self.reset_button = tk.Button(self.window, text="Reset task", font=("Times New Roman", 15), bg="light yellow", 
@@ -92,11 +97,16 @@ class Gui(Node):
         self.place_right_btn = tk.Button(self.right_hold_frame, text="Place right",
                                      command=lambda: self.pr(),
                                      font=("Times New Roman", 20), state="active")
-        #TODO: joint has to be sim and real as well
-        self.joint_button = tk.Button(self.mid_window, text="Hold joint", 
-                                      command=lambda: self.hold_joint(),
-                                      font=("Times New Roman", 20), state="disabled")
         
+        self.hold_joint_sim_btn = tk.Button(self.joint_hold_frame, text="Hold joint sim", 
+                                      command=lambda: self.holdjs(),
+                                      font=("Times New Roman", 20), state="disabled")
+        self.hold_joint_real_btn = tk.Button(self.joint_hold_frame, text="Hold joint real", 
+                                      command=lambda: self.holdjr(),
+                                      font=("Times New Roman", 20), state="disabled")
+        self.complete_task_btn = tk.Button(self.joint_hold_frame, text="Complete task", 
+                                      command=lambda: self.complete_task(),
+                                      font=("Times New Roman", 20), state="active")
         
         self.hold_left_sim_btn.grid(row=0, column=0, sticky=tk.N+tk.S+tk.E+tk.W)
         self.hold_left_real_btn.grid(row=0, column=1, sticky=tk.N+tk.S+tk.E+tk.W)
@@ -106,7 +116,11 @@ class Gui(Node):
         self.place_right_btn.grid(row=0, column=0, columnspan=2, sticky=tk.N+tk.S+tk.E+tk.W)
         self.place_left_btn.grid_remove()
         self.place_right_btn.grid_remove()
-        self.joint_button.grid(sticky=tk.N+tk.S+tk.E+tk.W, row=1, column=1)
+        
+        self.hold_joint_sim_btn.grid (row=0, column=0, sticky=tk.N+tk.S+tk.E+tk.W)
+        self.hold_joint_real_btn.grid(row=1, column=0, sticky=tk.N+tk.S+tk.E+tk.W)
+        self.complete_task_btn.grid  (row=0, column=0, rowspan=2, sticky=tk.N+tk.S+tk.E+tk.W)
+        self.complete_task_btn.grid_remove()
 
     def configure_labels(self):
         label_str = f"X: {self.x:05.2f}, Y: {self.x:05.2f}, Z: {self.x:05.2f}\nRoll: {self.x:05.2f}, Pitch: {self.x:05.2f}, Yaw: {self.x:05.2f}"
@@ -201,6 +215,7 @@ class Gui(Node):
         self.hold_right_sim_btn.configure(state='disabled')
         self.hold_right_real_btn.configure(state='disabled')
         self.place_left_btn.grid()
+        self.place_left_btn.configure(state='active')
 
     def pl(self):
         self.send_ros_request("place_left")
@@ -208,7 +223,13 @@ class Gui(Node):
         self.place_left_btn.configure(text="Reset", command=lambda: self.resetl())
         self.hold_right_sim_btn.configure(state='active')
         self.hold_right_real_btn.configure(state='active')
-    
+        self.left_placed = True
+        if self.right_placed:
+            self.hold_joint_sim_btn.configure(state='active')
+            self.hold_joint_real_btn.configure(state='active')
+            self.place_left_btn.configure(state='disabled')
+            self.place_right_btn.configure(state='disabled')
+   
     def resetl(self, only_reset_gui=False):
         if not only_reset_gui:
             self.send_ros_request("reset_left")
@@ -218,6 +239,7 @@ class Gui(Node):
         self.hold_left_real_btn.grid()
         self.hold_left_sim_btn.grid()
         self.hold_left_sim_btn.configure(state='active')
+        self.left_placed = False
             
     def hrs(self):
         self.send_ros_request("hold_right_sim")
@@ -234,6 +256,7 @@ class Gui(Node):
         self.hold_right_real_btn.grid_remove()
         self.hold_right_sim_btn.grid_remove()
         self.place_right_btn.grid()
+        self.place_right_btn.configure(state='active')
     
     def pr(self):
         self.send_ros_request("place_right")
@@ -241,6 +264,12 @@ class Gui(Node):
         self.place_right_btn.configure(text="Reset", command=lambda: self.resetr())
         self.hold_left_sim_btn.configure(state='active')
         self.hold_left_real_btn.configure(state='active')
+        self.right_placed = True
+        if self.left_placed:
+            self.hold_joint_sim_btn.configure(state='active')
+            self.hold_joint_real_btn.configure(state='active')
+            self.place_left_btn.configure(state='disabled')
+            self.place_right_btn.configure(state='disabled')
     
     def resetr(self, only_reset_gui=False):
         if not only_reset_gui:
@@ -251,15 +280,44 @@ class Gui(Node):
         self.hold_right_real_btn.grid()
         self.hold_right_sim_btn.grid()
         self.hold_right_sim_btn.configure(state='active')
+        self.right_placed = False
 
-    def reset_task(self):
-        self.send_ros_request("reset_task")
+    def holdjs(self):
+        self.send_ros_request("hold_joint_sim")
+        self.mid_window.configure(bg="light blue")
+        self.place_right_btn.configure(state='disabled')
+        self.place_left_btn.configure(state='disabled')
+        self.hold_joint_sim_btn.configure(state='disabled')
+
+    def holdjr(self):
+        self.send_ros_request("hold_joint_real")
+        self.mid_window.configure(bg="blue")
+        self.hold_left_sim_btn.configure(state='disabled')
+        self.hold_left_real_btn.configure(state='disabled')
+        self.hold_joint_real_btn.grid_remove()
+        self.hold_joint_sim_btn.grid_remove()
+        self.complete_task_btn.grid()
+
+    def complete_task(self):
+        self.send_ros_request("complete_task")
+        self.reset_task(only_reset_gui=True)
+
+    def reset_task(self, only_reset_gui=False):
+        if not only_reset_gui:
+            self.send_ros_request("reset_task")
         self.resetl(only_reset_gui=True)
         self.resetr(only_reset_gui=True)
         self.hold_left_sim_btn.configure(state='active')
         self.hold_left_real_btn.configure(state='active')
         self.hold_right_sim_btn.configure(state='active')
         self.hold_right_real_btn.configure(state='active')
+        
+        self.mid_window.configure(bg="grey")
+        self.complete_task_btn.grid_remove()
+        self.hold_joint_sim_btn.grid()
+        self.hold_joint_real_btn.grid()
+        self.hold_joint_sim_btn.configure(state='disabled')
+        self.hold_joint_real_btn.configure(state='disabled')
         
     def on_closing(self):
         self.send_ros_request("quit")
@@ -271,11 +329,7 @@ class Gui(Node):
 def main(args=None):
     rclpy.init(args=args)
     gui = Gui()
-    # while not gui.to_close:
-    #     rclpy.spin_once(gui)
-    #     gui.window.mainloop()
-    # gui.destroy_node()
-    # rclpy.shutdown()
+    gui.window.mainloop()
 
 if __name__ == '__main__':
     main()
