@@ -18,6 +18,9 @@ class BehaviourTree(pt.trees.BehaviourTree):
         self.updating_bb_node = rclpy.create_node("updating_bb_node")
         self.updating_bb_node.create_service(String, "send_button_code", self.update_bb)
 
+        self.quit_sim = SendStrClient("quit_sim")
+        self.quit_real = SendStrClient("quit_real")
+
         self.logger.info("Created service send_button_code")
         
         self.generic_behaviours_names = ["place_left", "place_right", "place_joint"]
@@ -121,6 +124,12 @@ class BehaviourTree(pt.trees.BehaviourTree):
         clean_bb = re.sub(r'.\[\d\dm', '', clean_bb)
         return clean_bb
 
+    def quit_nodes(self):
+        self.logger.info("Shutting down sim node")
+        self.quit_sim.send_request("")
+        self.logger.info("Shutting down real node")
+        self.quit_real.send_request("")
+
 
 def main(args=None):
     rclpy.init(args=args)    
@@ -137,6 +146,7 @@ def main(args=None):
         tree.logger.info("Behaviour tree:\n" + tree.get_clean_tree_string())
         tree.logger.info("Behaviour tree blackboard:\n" + tree.get_clean_blackboard_string())
     tree.logger.info("Come out of main loop")
+    tree.quit_nodes()
     rclpy.shutdown()
     tree.logger.info("Turning off")
 
