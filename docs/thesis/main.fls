@@ -1,9 +1,9 @@
-PWD /home/gu/.local/share/ov/pkg/isaac_sim-2023.1.1/thesis/docs/thesis
+PWD /home/gu/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/docs/thesis
 INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /home/gu/.local/share/ov/pkg/isaac_sim-2023.1.1/thesis/docs/thesis/main.tex
+INPUT /home/gu/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/docs/thesis/main.tex
 OUTPUT main.log
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
@@ -280,6 +280,7 @@ INPUT chapters/methods.tex
 INPUT ./chapters/methods.tex
 INPUT ./chapters/methods.tex
 INPUT chapters/methods.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm
 INPUT ./chapters/results.tex
 INPUT ./chapters/results.tex
 INPUT ./chapters/results.tex
@@ -307,6 +308,7 @@ INPUT ./main.bbl
 INPUT main.bbl
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT main.aux
+INPUT /home/gu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb

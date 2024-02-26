@@ -55,7 +55,7 @@ class ThesisSim(Node):
 
         self.left_hold_pose = np.array([6.1565105e-02, -7.8946501e-01,  1.0186660e+00, -1.7937291e+00, 4.7132058e+00, -5.8202195e+00])
 
-        self.perform_traj_srv = self.create_service(JointPoses, 'perform_traj', self.perform_traj)
+        # self.perform_traj_srv = self.create_service(String, 'perform_traj', self.perform_traj)
     # ---------------- ISAAC ---------------- #
     def setup_world(self):
         """

@@ -1,20 +1,22 @@
 # Fdb version 3
-["bibtex main"] 1707399071 "main.aux" "main.bbl" "main" 1707399071
+["bibtex main"] 1708941094 "main.aux" "main.bbl" "main" 1708941097
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "bibliography.bib" 1706174792 266 42685f7fe0eaf7254c6db067726e28a4 ""
-  "main.aux" 1707399071 393 e598fe0e831a018aba46c74625adf179 "pdflatex"
+  "main.aux" 1708941097 393 e598fe0e831a018aba46c74625adf179 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
-["makeindex main.idx"] 1707399071 "main.idx" "main.ind" "main" 1707399071
-  "main.idx" 1707399071 25 9d9e8b361eae52801682bb56cff0578c "pdflatex"
+["makeindex main.idx"] 1708941094 "main.idx" "main.ind" "main" 1708941097
+  "main.idx" 1708941097 25 9d9e8b361eae52801682bb56cff0578c "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
-["pdflatex"] 1707399071 "/home/gu/.local/share/ov/pkg/isaac_sim-2023.1.1/thesis/docs/thesis/main.tex" "main.pdf" "main" 1707399071
+["pdflatex"] 1708941096 "/home/gu/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/docs/thesis/main.tex" "main.pdf" "main" 1708941097
   "/etc/texmf/web2c/texmf.cnf" 1706173524 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/gu/.local/share/ov/pkg/isaac_sim-2023.1.1/thesis/docs/thesis/main.tex" 1706178837 838 4a6f1ff381eba9ea174ddaa21a7fa91f ""
+  "/home/gu/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/docs/thesis/main.tex" 1706178837 838 4a6f1ff381eba9ea174ddaa21a7fa91f ""
+  "/home/gu/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk" 1706173732 11524 e10bd66a7bdde22112a00add5393f0e6 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm" 1136768653 1532 9162035f4e7176612125649e348e2195 ""
@@ -67,14 +69,14 @@
   "chapters/discussion.tex" 1706178581 21 aa0044eac29102108c154d5c80e4b349 ""
   "chapters/introduction.tex" 1707399071 1648 cd243f123507a99d7040292c0801a464 ""
   "chapters/literature_review.tex" 1706178072 82 5d487a0d0db50ade769a02f7e669f2ba ""
-  "chapters/methods.tex" 1706178588 20 b1469cebe6c9fb12fdd4d90b99846c96 ""
+  "chapters/methods.tex" 1708941096 915 ccc9ce326ed3bd1c927658c347309d8a ""
   "chapters/results.tex" 1706178594 18 60fcfff2288599fb0b381fc1294f0266 ""
   "figs/quack.jpg" 1699960858 286556 86f83f871e00d2d1ea7e4ee6ef40c997 ""
-  "main.aux" 1707399071 393 e598fe0e831a018aba46c74625adf179 "pdflatex"
-  "main.bbl" 1707399071 280 1d6001f1ea2c1796acf8e94532c64eb1 "bibtex main"
-  "main.ind" 1707399071 54 02f17b07335a10428a753f69dcd08e98 "makeindex main.idx"
+  "main.aux" 1708941097 393 e598fe0e831a018aba46c74625adf179 "pdflatex"
+  "main.bbl" 1708941094 280 1d6001f1ea2c1796acf8e94532c64eb1 "bibtex main"
+  "main.ind" 1708941094 54 02f17b07335a10428a753f69dcd08e98 "makeindex main.idx"
   "main.tex" 1706178837 838 4a6f1ff381eba9ea174ddaa21a7fa91f ""
-  "main.toc" 1707399071 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.toc" 1708941097 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.aux"
   "main.idx"

@@ -2,6 +2,7 @@
 from custom_interfaces.srv import String
 import rclpy
 from rclpy.node import Node
+import sys
 
 class SendStrClient(Node):
     def __init__(self, name=None):
@@ -19,3 +20,15 @@ class SendStrClient(Node):
         self.future = self.cli.call_async(self.req)
         rclpy.spin_until_future_complete(self, self.future)
         return self.future.result()
+
+def main():
+    rclpy.init()
+    print(len(sys.argv))
+    if len(sys.argv) != 3:
+        print("Usage: ros2 run <package> <exe> service_name string_data")
+        return
+    clt = SendStrClient(sys.argv[1])
+    clt.send_request(sys.argv[2])
+
+if __name__ == '__main__':
+    main()

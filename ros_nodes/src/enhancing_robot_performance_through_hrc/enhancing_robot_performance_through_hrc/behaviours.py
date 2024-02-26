@@ -41,13 +41,13 @@ class GenericBehaviour(pt.behaviour.Behaviour):
         self.logger.info("Terminating: " + self.name + " with status: " + str(new_status))
         if new_status == pt.common.Status.SUCCESS:
             self.status = new_status
-            self.blackboard.set(self.name, "success")
+            self.blackboard.set(self.name, "not_requested")
         elif new_status == pt.common.Status.FAILURE:
             self.status = new_status
-            self.blackboard.set(self.name, "failure")
+            self.blackboard.set(self.name, "not_requested")
         elif new_status == pt.common.Status.RUNNING:
             self.status = new_status
-            self.blackboard.set(self.name, "running")
+            # self.blackboard.set(self.name, "running")
 
 
 class ResetBehaviour(GenericBehaviour):
@@ -60,7 +60,8 @@ class ResetBehaviour(GenericBehaviour):
         if new_status == pt.common.Status.SUCCESS:
             for behaviour in self.reset_behaviours:
                 self.logger.info("Reseting: " + behaviour.name)
-                self.blackboard.set(behaviour.name, 'not_done')
+                self.blackboard.set(behaviour.name, 'not_requested')
+                behaviour.status = pt.common.Status.INVALID
         return pt.common.Status.INVALID # it may be ok to set it to success as well, it should reset auotmatically
     
 

@@ -26,6 +26,7 @@ setup(
             'gui = enhancing_robot_performance_through_hrc.gui:main',
             'tree = enhancing_robot_performance_through_hrc.behaviour_tree:main',
             'srvs = enhancing_robot_performance_through_hrc.services_placeholder:main',
+            'str_clt = enhancing_robot_performance_through_hrc.send_str_clt:main',
         ],
     },
 )

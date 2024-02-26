@@ -1,2 +1,18 @@
 \chapter*{Methods}
 
+\section*{Behaviour tree}
+Behavior tree are a method to organize the decision making of a system, they have find usage particularly in A.I for
+video games and chatbot. They can be considered as an extension of finite state machine [1] \marginpar{[1]:paper}. 
+
+The tree is  composed by different type of leaf: 
+\begin{itemize}
+    \item Behaviour: behaviours are the leaf of the tree, they represent an action that the robot has to perform 
+                     to coplete the task
+    \item Composites: composites are sets of behaviour, that will suceed based on the results of the children behaviour 
+\end{itemize}
+
+
+
+In later year they have been used also in robotics as control system for various reasons: they support reactivity, 
+particular important for task where human robot collaboration is involved, modularity is improved by having 
+behaviour that manage one aspect of the entire task 

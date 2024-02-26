@@ -36,7 +36,7 @@ class BehaviourTree(pt.trees.BehaviourTree):
         self.logger.info("Creating blackboard")
         for behaviour_name in self.generic_behaviours_names + self.hold_behaviours_names + list(self.reset_behaviours_name.keys()):
             self.blackboard.register_key(key=behaviour_name, access=pt.common.Access.WRITE)
-            self.blackboard.set(behaviour_name, "not_done")
+            self.blackboard.set(behaviour_name, "not_requested")
 
         self.behaviours = {}
         for behaviour_name in self.generic_behaviours_names:
