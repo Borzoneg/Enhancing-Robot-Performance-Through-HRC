@@ -40,8 +40,12 @@ class Ur5e(Robot):
     # def get_joint_positions(self, joint_indices: List | ndarray | None = None) -> ndarray:
     #     return super().get_joint_positions(joint_indices)[:6]
     
-    def get_tcp_pose(self):
-        tcp_pose = self.rmpflow.get_end_effector_pose(self.get_joint_positions()[:6])
+    def get_tcp_pose(self, q=None):
+        if q is None:
+            tcp_pose = self.rmpflow.get_end_effector_pose(self.get_joint_positions()[:6])
+        else:
+            tcp_pose = self.rmpflow.get_end_effector_pose(q)
+
         return[tcp_pose[0], rot_utils.rot_matrices_to_quats(tcp_pose[1])]
 
     def close_gripper(self):
@@ -97,17 +101,20 @@ class Ur5e(Robot):
     def grab_object(self, obj_pose, use_jspace=False):
         self.open_gripper()
         if not use_jspace:
+            self.move_to_cart_position(obj_pose[0] + np.array([0, 0, 0.1]), obj_pose[1])
             self.move_to_cart_position(obj_pose[0], obj_pose[1])
         else:
             self.move_to_joint_position(obj_pose)
-        print(self.get_joint_positions())
+            current_pose_tcp = self.get_tcp_pose(obj_pose)
+            self.move_to_cart_position(current_pose_tcp[0] - np.array([0, 0, 0.1]), current_pose_tcp[1])
         self.close_gripper()
-        current_pose = self.get_tcp_pose()
-        self.move_to_cart_position(current_pose[0] + np.array([0, 0, 0.1]), current_pose[1])
+        current_pose_tcp = self.get_tcp_pose()
+        self.move_to_cart_position(current_pose_tcp[0] + np.array([0, 0, 0.1]), current_pose_tcp[1])
     
-    def hold_object(self, obj_pose, hold_pose, use_jspace=False):
-        self.grab_object(obj_pose, use_jspace=use_jspace)
-        if not use_jspace:
+    def hold_object(self, obj_pose, hold_pose, use_jspace_obj=False, use_jspace_hold=False):
+        self.grab_object(obj_pose, use_jspace=use_jspace_obj)
+        if not use_jspace_hold:
+            print(hold_pose[0], hold_pose[1])
             self.move_to_cart_position(hold_pose[0], hold_pose[1])
         else:
             self.move_to_joint_position(hold_pose)
