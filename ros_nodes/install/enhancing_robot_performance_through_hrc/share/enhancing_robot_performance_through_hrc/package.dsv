@@ -1,6 +1,0 @@
-source;share/enhancing_robot_performance_through_hrc/hook/pythonpath.ps1
-source;share/enhancing_robot_performance_through_hrc/hook/pythonpath.dsv
-source;share/enhancing_robot_performance_through_hrc/hook/pythonpath.sh
-source;share/enhancing_robot_performance_through_hrc/hook/ament_prefix_path.ps1
-source;share/enhancing_robot_performance_through_hrc/hook/ament_prefix_path.dsv
-source;share/enhancing_robot_performance_through_hrc/hook/ament_prefix_path.sh
