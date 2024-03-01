@@ -10,7 +10,8 @@ from omni.isaac.core.utils.types import ArticulationAction
 import roboticstoolbox as rbt
 
 class Ur5e(Robot):
-    def __init__(self, name, world, translation=[0,0,0], prim_path=None):
+    def __init__(self, name, world, translation=[0,0,0], prim_path=None, orientation=None):
+        self.phys_queue = []
         self.gripper_options = {'open': np.array([0, 0]), 'closed': np.array([0.4, 0.4])}
         self.gripper_status = 'open'
         # self.gripper_status = np.array([0, 0])
@@ -32,9 +33,11 @@ class Ur5e(Robot):
                         end_effector_frame_name="tool0",
                         maximum_substep_size=1/300,
         )
+        if orientation is not None:
+            self.set_world_pose(orientation=orientation)
+
         robot_base_translation, robot_base_orientation = self.get_world_pose()
         self.rmpflow.set_robot_base_pose(robot_base_translation, robot_base_orientation)
-
         self.lula_solver = self.rmpflow.get_kinematics_solver()
 
     # def get_joint_positions(self, joint_indices: List | ndarray | None = None) -> ndarray:
@@ -119,3 +122,10 @@ class Ur5e(Robot):
         else:
             self.move_to_joint_position(hold_pose)
 
+
+    def physisc_step(self):
+        try:
+            req_j = self.phys_queue.pop(0)
+            self.set_joint_positions(req_j)
+        except IndexError:
+            print("No trajectory in queue")
