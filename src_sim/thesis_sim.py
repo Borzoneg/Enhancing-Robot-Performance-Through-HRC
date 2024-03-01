@@ -14,7 +14,7 @@ parser.add_argument(
 )
 args, unknown = parser.parse_known_args()
 simulation_app = SimulationApp({"headless": False, "window_width": 2000, "window_height":1500, "active_gpu":0, "physics_gpu":0 })
-omni.usd.get_context().open_stage("./Enhancing-Robot-Performance-Through-HRC/props/scene.usd")
+omni.usd.get_context().open_stage("./Enhancing-Robot-Performance-Through-HRC/props/scene_.usd")
 # omni.usd.get_context().open_stage("./Enhancing-Robot-Performance-Through-HRC/props/flat_scene.usd")
 simulation_app.update()
 
@@ -52,6 +52,8 @@ class ThesisSim(Node):
         
         self.setup_world()
         self.world.reset()
+
+        self.done = False
         # part 1
         # cartesian:  [array([0.17888019, 0.47636152, 1.00502915]), array([-9.99220787e-04,  4.42089397e-05,  9.99999497e-01,  7.00350582e-05])]
         # joint:  [ 0.985967  -1.1072518  1.5933292  1.0867094  1.571023  -1.7541112]
@@ -93,25 +95,24 @@ class ThesisSim(Node):
         """
         nothing happens here, everything triggers trough ros2 from the bt
         """
-        done = False
         self.timeline.play()
-        # self.robot.move_to_joint_position(self.part1_pose)
         while simulation_app.is_running():
             self.world.step(render=True)
             rclpy.spin_once(self, timeout_sec=0.0)
             if self.world.is_playing():
-                if not done:
-                    # self.robot.move_to_target(self.target_pose)
+                if not self.done:
                     # self.robot.hold_object(self.part1_pose_joint, self.left_hold_pose_joint, use_jspace_obj=True, use_jspace_hold=True)
-                    self.robot.move_to_joint_position(self.left_hold_pose_joint)
-                    done = True
-                    current_pose = self.robot.get_tcp_pose()
-                    self.target_pose.set_world_pose(position=current_pose[0])
-                else:
+                    self.done = True
                     self.robot.move_to_target(self.target_pose)
-                    
-                print("cartesian: ", self.robot.get_tcp_pose())
-                print("joint: ", self.robot.get_joint_positions()[:6])
+                    last_pos_target = self.target_pose.get_world_pose()[0]
+                
+                if np.linalg.norm(self.target_pose.get_world_pose()[0] - last_pos_target) > 0.0:
+                    self.robot.move_to_target(self.target_pose)
+                last_pos_target = self.target_pose.get_world_pose()[0]
+
+                self.robot.physisc_step()
+                # print("cartesian: ", self.robot.get_tcp_pose())
+                # print("joint: ", self.robot.get_joint_positions()[:6])
         self.timeline.stop()
         self.destroy_node()
         simulation_app.close()

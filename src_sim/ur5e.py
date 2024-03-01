@@ -45,7 +45,10 @@ class Ur5e(Robot):
     
     def get_tcp_pose(self, q=None):
         if q is None:
-            tcp_pose = self.rmpflow.get_end_effector_pose(self.get_joint_positions()[:6])
+            if len(self.phys_queue) == 0:
+                tcp_pose = self.rmpflow.get_end_effector_pose(self.get_joint_positions()[:6])
+            else:
+                tcp_pose = self.rmpflow.get_end_effector_pose(self.phys_queue[-1][:6])
         else:
             tcp_pose = self.rmpflow.get_end_effector_pose(q)
 
@@ -53,12 +56,20 @@ class Ur5e(Robot):
 
     def close_gripper(self):
         self.gripper_status = 'closed'
-        self.move_to_joint_position(np.hstack((self.get_joint_positions()[:6], 
+        if len(self.phys_queue) == 0:
+            starting_j_pos = self.get_joint_positions()[:6]
+        else:
+            starting_j_pos = self.phys_queue[-1][:6]
+        self.move_to_joint_position(np.hstack((starting_j_pos, 
                                                self.gripper_options[self.gripper_status])))
 
     def open_gripper(self):
         self.gripper_status = 'open'
-        self.move_to_joint_position(np.hstack((self.get_joint_positions()[:6], 
+        if len(self.phys_queue) == 0:
+            starting_j_pos = self.get_joint_positions()[:6]
+        else:
+            starting_j_pos = self.phys_queue[-1][:6]  
+        self.move_to_joint_position(np.hstack((starting_j_pos, 
                                                self.gripper_options[self.gripper_status])))
 
     def move_to_joint_position(self, q, t=200):
@@ -74,45 +85,60 @@ class Ur5e(Robot):
         q = np.array(q)
         if q.shape[0] == 6:
             q = np.hstack((q, self.gripper_options[self.gripper_status]))
-        traj = rbt.jtraj(self.get_joint_positions(), q, t)
+        if len(self.phys_queue) == 0:
+            starting_j_pos = self.get_joint_positions()
+        else:
+            starting_j_pos = self.phys_queue[-1]
+        traj = rbt.jtraj(starting_j_pos, q, t)
+        # self.phys_queue.append(q for q in traj.q)
         for q in traj.q:
-            # q = np.hstack((q, self.gripper_options[self.gripper_status]))
-            action = ArticulationAction(joint_positions=q)
-            self.manipulator_controller.apply_action(action)
-            self.world.step(render=True)
+              self.phys_queue.append(q)
+        #     action = ArticulationAction(joint_positions=q)
+        #     self.manipulator_controller.apply_action(action)
+        #     self.world.step(render=True)
 
-    def move_to_cart_position(self, target_pos, target_orient=None):
-        joint_tool = self.get_joint_positions()[:6]
-        target_pos += np.array([0, 0, 0.12])
-        if target_orient is None:
-            target_orient = rot_utils.rot_matrices_to_quats(self.rmpflow.get_end_effector_pose(joint_tool)[1])
+    def move_to_cart_position(self, target_pose, t=200):
+        if len(self.phys_queue) == 0:
+            starting_j_pos = self.get_joint_positions()[:6]
+        else:
+            starting_j_pos = self.phys_queue[-1][:6]
+        target_pose[0] += np.array([0, 0, 0.12])
         joint_pos, reachable = self.lula_solver.compute_inverse_kinematics(
-                                                                        frame_name="tool0",
-                                                                        warm_start=joint_tool,
-                                                                        target_position=target_pos,
-                                                                        target_orientation=target_orient
-                                                                    )
+                                                                            frame_name="tool0",
+                                                                            warm_start=starting_j_pos,
+                                                                            target_position=target_pose[0],
+                                                                            target_orientation=target_pose[1])
         if reachable:
-            self.move_to_joint_position(np.hstack((joint_pos, self.gripper_options[self.gripper_status])))
+            self.move_to_joint_position(np.hstack((joint_pos, self.gripper_options[self.gripper_status])), t=t)
         return reachable
 
     def move_to_target(self, frame):
-        target_pos = frame.get_world_pose()[0]
-        target_orient = frame.get_world_pose()[1]
-        self.move_to_cart_position(target_pos, target_orient)
+        # distance = np.linalg.norm(self.get_tcp_pose()[0] - frame.get_world_pose()[0])
+        # if distance > 0.2:
+        #     print("distance: ", distance)
+        #     self.move_to_cart_position(list(frame.get_world_pose()), t=2)
+        self.move_to_cart_position(list(frame.get_world_pose()), t=2)
+
 
     def grab_object(self, obj_pose, use_jspace=False):
         self.open_gripper()
         if not use_jspace:
-            self.move_to_cart_position(obj_pose[0] + np.array([0, 0, 0.1]), obj_pose[1])
-            self.move_to_cart_position(obj_pose[0], obj_pose[1])
+            # move over the target to approach from atop
+            obj_pose[0] += np.array([0, 0, 0.1])
+            self.move_to_cart_position(obj_pose)
+            # move on the object
+            obj_pose[0] -= np.array([0, 0, 0.1])
+            self.move_to_cart_position(obj_pose)
         else:
             self.move_to_joint_position(obj_pose)
             current_pose_tcp = self.get_tcp_pose(obj_pose)
-            self.move_to_cart_position(current_pose_tcp[0] - np.array([0, 0, 0.1]), current_pose_tcp[1])
+            current_pose_tcp[0] -= np.array([0, 0, 0.1])
+            self.move_to_cart_position(current_pose_tcp)
         self.close_gripper()
         current_pose_tcp = self.get_tcp_pose()
-        self.move_to_cart_position(current_pose_tcp[0] + np.array([0, 0, 0.1]), current_pose_tcp[1])
+        # move up to lift the object
+        current_pose_tcp[0] += np.array([0, 0, 0.1])
+        self.move_to_cart_position(current_pose_tcp)
     
     def hold_object(self, obj_pose, hold_pose, use_jspace_obj=False, use_jspace_hold=False):
         self.grab_object(obj_pose, use_jspace=use_jspace_obj)
@@ -122,10 +148,11 @@ class Ur5e(Robot):
         else:
             self.move_to_joint_position(hold_pose)
 
-
     def physisc_step(self):
         try:
             req_j = self.phys_queue.pop(0)
-            self.set_joint_positions(req_j)
+            action = ArticulationAction(joint_positions=req_j)
+            self.manipulator_controller.apply_action(action)
         except IndexError:
-            print("No trajectory in queue")
+            # print("No trajectory in queue")
+            pass
