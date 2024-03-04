@@ -6,7 +6,7 @@ import os
 import argparse
 import sys
 
-sys.path.append("/home/fluently/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/ros_nodes/src/enhancing_robot_performance_through_hrc/enhancing_robot_performance_through_hrc/behaviours.py")
+sys.path.append("/home/fluently/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/ros_nodes/src/enhancing_robot_performance_through_hrc/enhancing_robot_performance_through_hrc/")
 
 parser = argparse.ArgumentParser(description="Ros2 Bridge Sample")
 parser.add_argument(
@@ -97,7 +97,7 @@ class ThesisSim(Node):
         """
         self.timeline = omni.timeline.get_timeline_interface()
         self.world = World(stage_units_in_meters=1.0)
-        self.world.get_physics_context().enable_gpu_dynamics(True)
+        # self.world.get_physics_context().enable_gpu_dynamics(True)
         self.stage = omni.usd.get_context().get_stage()
         
         self.robot = Ur5e("ur5e", self.world, orientation=rot_utils.euler_angles_to_quats([0, 0, -67], degrees=True))
