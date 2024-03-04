@@ -4,6 +4,9 @@ import omni
 from omni.isaac.kit import SimulationApp
 import os
 import argparse
+import sys
+
+sys.path.append("/home/fluently/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/ros_nodes/src/enhancing_robot_performance_through_hrc/enhancing_robot_performance_through_hrc/behaviours.py")
 
 parser = argparse.ArgumentParser(description="Ros2 Bridge Sample")
 parser.add_argument(
@@ -30,8 +33,10 @@ from omni.isaac.core.utils.extensions import enable_extension
 from omni.isaac.core import World
 from omni.isaac.core.objects import VisualSphere
 import omni.isaac.core.utils.numpy.rotations as rot_utils
+from omni.isaac.core.prims import XFormPrim
 import numpy as np
 from ur5e import Ur5e
+from log_manager import CustomLogger
 
 enable_extension(args.ros2_bridge)
 import rclpy
@@ -40,8 +45,6 @@ from custom_interfaces.srv import String
 
 data_path = os.getcwd() + "./Enhancing-Robot-Performance-Through-HRC/data/"
 
-# physics_context = PhysicsContext()
-# physics_context.enable_gpu_dynamics(True)
 
 class ThesisSim(Node):
     def __init__(self):
@@ -50,6 +53,11 @@ class ThesisSim(Node):
         self.timeline = None
         self.world = None
         
+        self.logger = CustomLogger("Simulation", os.path.expanduser('~') + 
+                                   "/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/logs/sim.log",
+                                   overwrite=True)
+        self.logger.info("="*10 + "Starting simulation" + "="*10)
+
         self.setup_world()
         self.world.reset()
 
@@ -68,10 +76,20 @@ class ThesisSim(Node):
         # self.part1_pose_joint = np.array([7.6579368e-01, -2.1491818e+00, 2.6174536e+00, -2.0349963e+00, 4.7113948e+00, -5.07814e+00])
         self.part1_pose_joint = np.array([0.9641214, -1.5162885,  2.1554742, -2.2067714,  4.712087,  -4.917703])
         self.part2_pose_joint = np.array([9.0818042e-01, -1.7856942e+00, 2.4241664e+00, -2.2065356e+00, 4.7122583e+00, -4.9737353e+00])
+        self.available_parts = [[self.part1_pose_joint, True], [self.part2_pose_joint, True]]
 
         self.left_hold_pose_joint = np.array([6.1565105e-02, -7.8946501e-01, 1.0186660e+00, -1.7937291e+00, 4.7132058e+00, -5.8202195e+00])
 
-        # self.perform_traj_srv = self.create_service(String, 'perform_traj', self.perform_traj)
+        # self.world.get_physics_context().enable_gpu_dynamics(True)
+        self.hold_left_sim_srv = self.create_service(String, 'hold_left_sim', self.hold_left)
+        self.place_left_srv = self.create_service(String, 'place_left', self.place_left)
+        self.reset_left_srv = self.create_service(String, 'reset_left', self.reset_left)
+        self.hold_right_sim_srv = self.create_service(String, 'hold_right_sim', self.hold_right)
+        self.place_right_srv = self.create_service(String, 'place_right', self.place_right)
+        self.reset_right_srv = self.create_service(String, 'reset_right', self.reset_right)
+        self.hold_joint_sim_srv = self.create_service(String, 'hold_joint_sim', self.hold_joint)
+        self.reset_task_srv = self.create_service(String, 'reset_task', self.reset_task)
+    
     # ---------------- ISAAC ---------------- #
     def setup_world(self):
         """
@@ -79,7 +97,7 @@ class ThesisSim(Node):
         """
         self.timeline = omni.timeline.get_timeline_interface()
         self.world = World(stage_units_in_meters=1.0)
-
+        self.world.get_physics_context().enable_gpu_dynamics(True)
         self.stage = omni.usd.get_context().get_stage()
         
         self.robot = Ur5e("ur5e", self.world, orientation=rot_utils.euler_angles_to_quats([0, 0, -67], degrees=True))
@@ -87,19 +105,78 @@ class ThesisSim(Node):
                                                              translation=np.array([0.2, 0, 1]), 
                                                              orientation=rot_utils.euler_angles_to_quats([0, np.pi, 0]),
                                                              scale=np.array([0.01, 0.01, 0.01]), visible=True))
+        self.part1 = self.world.scene.add(XFormPrim(prim_path="/World/Thesis_part", name="Thesis_part", scale=[0.01, 0.01, 0.01]))
         self.world.scene.add(self.robot)
-        # self.world.get_physics_context().enable_gpu_dynamics(True)
+    
+    # ----------------- ROS ----------------- #
+    def hold_left(self, request, response):
+        self.logger.info("Received request for hold left service " + str(request))
+        for part in self.available_parts:
+            if part[1]: # if the part is available
+                self.robot.hold_object(part[0], self.left_hold_pose_joint, use_jspace_hold=True, use_jspace_obj=True)
+                part[1] = False
+        response.ans = "success"
+        return response
+    
+    def place_left(self, request, response):
+        self.logger.info("Received request for place left service " + str(request))
+        response.ans = "success"
+        return response
+    
+    def reset_left(self, request, response):
+        self.logger.info("Received request for reset left service " + str(request))
+        response.ans = "success"
+        return response
+    
+    def hold_right(self, request, response):
+        self.logger.info("Received request for hold right service " + str(request))
+        print("Request: ", request)
+        for part in self.available_parts:
+            if part[1]: # if the part is available
+                self.robot.hold_object(part[0], self.right_hold_pose_joint, use_jspace_hold=True, use_jspace_obj=True)
+                part[1]= False
+        response.ans = "success"
+        return response
 
-    # ---------------- MAIN SIMULATION ---------------- #
+    def place_right(self, request, response):
+        self.logger.info("Received request for place right service " + str(request))
+        response.ans = "success"
+        return response
+   
+    def reset_right(self, request, response):
+        self.logger.info("Received request for reset right service " + str(request))
+        response.ans = "success"
+        return response
+   
+    def hold_joint(self, request, response):
+        self.logger.info("Received request for hold joint service " + str(request))
+        response.ans = "success"
+        return response
+   
+    def place_joint(self, request, response):
+        self.logger.info("Received request for place joint service " + str(request))
+        response.ans = "success"
+        return response
+   
+    def reset_task(self, request, response):
+        self.logger.info("Received request for reset joint service " + str(request))
+        response.ans = "success"
+        return response
+   
+    def quit(self, request, response):
+        self.logger.info("Received request for quit service " + str(request))
+        response.ans = "success"
+        return response
+   
+    # ----------- MAIN SIMULATION ----------- #
     def run_simulation(self):
-        """
-        nothing happens here, everything triggers trough ros2 from the bt
-        """
         self.timeline.play()
         while simulation_app.is_running():
             self.world.step(render=True)
             rclpy.spin_once(self, timeout_sec=0.0)
             if self.world.is_playing():
+                if self.world.current_time_step_index == 300:
+                    self.part1.set_world_pose(position=[0,0,12])
                 if not self.done:
                     # self.robot.hold_object(self.part1_pose_joint, self.left_hold_pose_joint, use_jspace_obj=True, use_jspace_hold=True)
                     self.done = True
