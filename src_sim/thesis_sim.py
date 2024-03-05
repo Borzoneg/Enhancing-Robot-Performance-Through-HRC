@@ -1,22 +1,12 @@
-import carb
 import carb.events
 import omni
 from omni.isaac.kit import SimulationApp
 import os
-import argparse
 import sys
 
 sys.path.append("/home/fluently/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/ros_nodes/src/enhancing_robot_performance_through_hrc/enhancing_robot_performance_through_hrc/")
 
-parser = argparse.ArgumentParser(description="Ros2 Bridge Sample")
-parser.add_argument(
-    "--ros2_bridge",
-    default="omni.isaac.ros2_bridge",
-    nargs="?",
-    choices=["omni.isaac.ros2_bridge", "omni.isaac.ros2_bridge-humble"],
-)
-args, unknown = parser.parse_known_args()
-simulation_app = SimulationApp({"headless": False, "window_width": 2000, "window_height":1500, "active_gpu":0, "physics_gpu":0 })
+simulation_app = SimulationApp({"headless": False, "window_width": 2000, "window_height":1500})
 omni.usd.get_context().open_stage("./Enhancing-Robot-Performance-Through-HRC/props/scene_.usd")
 # omni.usd.get_context().open_stage("./Enhancing-Robot-Performance-Through-HRC/props/flat_scene.usd")
 simulation_app.update()
@@ -28,8 +18,6 @@ while is_stage_loading():
 
 import omni
 from omni.isaac.core import PhysicsContext
-from omni.isaac.core.robots import Robot
-from omni.isaac.core.utils.extensions import enable_extension
 from omni.isaac.core import World
 from omni.isaac.core.objects import VisualSphere
 import omni.isaac.core.utils.numpy.rotations as rot_utils
@@ -38,7 +26,6 @@ import numpy as np
 from ur5e import Ur5e
 from log_manager import CustomLogger
 
-enable_extension(args.ros2_bridge)
 import rclpy
 from rclpy.node import Node
 from custom_interfaces.srv import String
@@ -73,7 +60,6 @@ class ThesisSim(Node):
         # hold left
         
         self.part1_pose = [np.array([-0.0235979 , 0.46189392, 0.98592044]), np.array([-5.20024701e-03, 2.25993284e-02, 9.99730923e-01, -5.55867726e-04])]
-        # self.part1_pose_joint = np.array([7.6579368e-01, -2.1491818e+00, 2.6174536e+00, -2.0349963e+00, 4.7113948e+00, -5.07814e+00])
         self.part1_pose_joint = np.array([0.9641214, -1.5162885,  2.1554742, -2.2067714,  4.712087,  -4.917703])
         self.part2_pose_joint = np.array([9.0818042e-01, -1.7856942e+00, 2.4241664e+00, -2.2065356e+00, 4.7122583e+00, -4.9737353e+00])
         self.available_parts = [[self.part1_pose_joint, True], [self.part2_pose_joint, True]]
@@ -172,24 +158,16 @@ class ThesisSim(Node):
     def run_simulation(self):
         self.timeline.play()
         while simulation_app.is_running():
-            self.world.step(render=True)
             rclpy.spin_once(self, timeout_sec=0.0)
             if self.world.is_playing():
-                if self.world.current_time_step_index == 300:
-                    self.part1.set_world_pose(position=[0,0,12])
-                if not self.done:
-                    # self.robot.hold_object(self.part1_pose_joint, self.left_hold_pose_joint, use_jspace_obj=True, use_jspace_hold=True)
-                    self.done = True
-                    self.robot.move_to_target(self.target_pose)
-                    last_pos_target = self.target_pose.get_world_pose()[0]
-                
-                if np.linalg.norm(self.target_pose.get_world_pose()[0] - last_pos_target) > 0.0:
-                    self.robot.move_to_target(self.target_pose)
-                last_pos_target = self.target_pose.get_world_pose()[0]
-
+                self.world.step(render=True)
                 self.robot.physisc_step()
-                # print("cartesian: ", self.robot.get_tcp_pose())
-                # print("joint: ", self.robot.get_joint_positions()[:6])
+                if self.world.current_time_step_index == 300:
+                    self.robot.hold_object(self.part1_pose_joint, self.left_hold_pose_joint, use_jspace_obj=True, use_jspace_hold=True)
+                # if self.world.current_time_step_index > 300:
+                    # self.robot.move_to_target(self.target_pose)
+                print("cartesian: ", self.robot.get_tcp_pose())
+                print("joint: ", self.robot.get_joint_positions()[:6])
         self.timeline.stop()
         self.destroy_node()
         simulation_app.close()

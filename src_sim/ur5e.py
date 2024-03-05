@@ -1,4 +1,4 @@
-from typing import List
+# from typing import List
 from numpy import ndarray
 from omni.isaac.core.robots import Robot
 import numpy as np
@@ -10,9 +10,13 @@ from omni.isaac.core.utils.types import ArticulationAction
 import roboticstoolbox as rbt
 
 class Ur5e(Robot):
-    def __init__(self, name, world, translation=[0,0,0], prim_path=None, orientation=None):
+    def __init__(self, name, world, has_gripper=True,translation=[0,0,0], prim_path=None, orientation=None):
         self.phys_queue = []
-        self.gripper_options = {'open': np.array([0, 0]), 'closed': np.array([0.4, 0.4]), 'tight_closed': np.array([0.8, 0.8])}
+        self.has_gripper = has_gripper
+        if self.has_gripper:
+            self.gripper_options = {'open': np.array([0, 0]), 'closed': np.array([0.4, 0.4]), 'tight_closed': np.array([0.8, 0.8])}
+        else:
+            self.gripper_options = {'open': np.array([]), 'closed': np.array([]), 'tight_closed': np.array([])}
         self.gripper_status = 'open'
         # self.gripper_status = np.array([0, 0])
         # self.gripper_open = np.array([0, 0])
@@ -39,10 +43,10 @@ class Ur5e(Robot):
         robot_base_translation, robot_base_orientation = self.get_world_pose()
         self.rmpflow.set_robot_base_pose(robot_base_translation, robot_base_orientation)
         self.lula_solver = self.rmpflow.get_kinematics_solver()
+        
+        self.last_target_pose = None
 
-    # def get_joint_positions(self, joint_indices: List | ndarray | None = None) -> ndarray:
-    #     return super().get_joint_positions(joint_indices)[:6]
-    
+   
     def get_tcp_pose(self, q=None):
         if q is None:
             if len(self.phys_queue) == 0:
@@ -105,7 +109,8 @@ class Ur5e(Robot):
             starting_j_pos = self.get_joint_positions()[:6]
         else:
             starting_j_pos = self.phys_queue[-1][:6]
-        target_pose[0] += np.array([0, 0, 0.12])
+        if self.has_gripper:
+            target_pose[0] += np.array([0, 0, 0.12])
         joint_pos, reachable = self.lula_solver.compute_inverse_kinematics(
                                                                             frame_name="tool0",
                                                                             warm_start=starting_j_pos,
@@ -116,11 +121,12 @@ class Ur5e(Robot):
         return reachable
 
     def move_to_target(self, frame):
-        # distance = np.linalg.norm(self.get_tcp_pose()[0] - frame.get_world_pose()[0])
-        # if distance > 0.2:
-        #     print("distance: ", distance)
-        #     self.move_to_cart_position(list(frame.get_world_pose()), t=2)
-        self.move_to_cart_position(list(frame.get_world_pose()), t=2)
+        try:
+            if not ((frame.get_world_pose()[0] == self.last_target_pose[0]).all() and (frame.get_world_pose()[1] == self.last_target_pose[1]).all()):
+                self.move_to_cart_position(list(frame.get_world_pose()), t=2)
+        except TypeError:
+            self.move_to_cart_position(list(frame.get_world_pose()))
+        self.last_target_pose = frame.get_world_pose()
 
 
     def grab_object(self, obj_pose, use_jspace=False, tight=False):
