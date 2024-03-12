@@ -8,6 +8,7 @@ from omni.isaac.motion_generation.lula import RmpFlow
 import omni.isaac.core.utils.numpy.rotations as rot_utils
 from omni.isaac.core.utils.types import ArticulationAction
 import roboticstoolbox as rbt
+import spatialmath as sm
 
 class Ur5e(Robot):
     def __init__(self, name, world, has_gripper=True,translation=[0,0,0], prim_path=None, orientation=None):
@@ -57,6 +58,16 @@ class Ur5e(Robot):
             tcp_pose = self.rmpflow.get_end_effector_pose(q)
 
         return[tcp_pose[0], rot_utils.rot_matrices_to_quats(tcp_pose[1])]
+    
+    def from_world_to_base_frame(self, pose):
+        """
+        given a pose in form of [position, quaternion] gives basck the pose in base frame of the robot
+        """
+        T_obj_world = sm.SE3.Rt(rot_utils.quats_to_rot_matrices(pose[1]), pose[0])
+        T_robot_world = sm.SE3.Rt(rot_utils.quats_to_rot_matrices(self.get_world_pose()[1]), self.get_world_pose()[0])
+        T_obj_robot = T_obj_world * T_robot_world
+        pose_obj_robot = [T_obj_robot.t, rot_utils.rot_matrices_to_quats(T_obj_robot.R)]
+        return pose_obj_robot
 
     def close_gripper(self, tight=False):
         if tight:
@@ -133,22 +144,21 @@ class Ur5e(Robot):
         self.open_gripper()
         if not use_jspace:
             # move over the target to approach from atop
-            obj_pose[0] += np.array([0, 0, 0.1])
+            obj_pose[0] += np.array([0, 0, 0.3])
             self.move_to_cart_position(obj_pose)
             # move on the object
-            obj_pose[0] -= np.array([0, 0, 0.1])
-            self.move_to_cart_position(obj_pose, t=50)
+            obj_pose[0] -= np.array([0, 0, 0.3])
+            self.move_to_cart_position(obj_pose)
         else:
             self.move_to_joint_position(obj_pose)
             self.move_to_cart_position([self.get_tcp_pose()[0] - np.array([0, 0, 0.3]), self.get_tcp_pose()[1]])
         self.close_gripper(tight=tight)
         # move up to lift the object
-        self.move_to_cart_position([self.get_tcp_pose()[0] + np.array([0, 0, 0.3]), self.get_tcp_pose()[1]])
+        self.move_to_cart_position([self.get_tcp_pose()[0] + np.array([0, 0, 0.2]), self.get_tcp_pose()[1]])
     
     def hold_object(self, obj_pose, hold_pose, use_jspace_obj=False, use_jspace_hold=False, tight=False):
         self.grab_object(obj_pose, use_jspace=use_jspace_obj, tight=tight)
         if not use_jspace_hold:
-            print(hold_pose[0], hold_pose[1])
             self.move_to_cart_position(hold_pose)
         else:
             self.move_to_joint_position(hold_pose)
