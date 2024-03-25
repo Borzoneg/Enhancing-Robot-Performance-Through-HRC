@@ -3,8 +3,7 @@ import omni
 from omni.isaac.kit import SimulationApp
 import os
 import sys
-
-sys.path.append("/home/fluently/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/ros_nodes/src/enhancing_robot_performance_through_hrc/enhancing_robot_performance_through_hrc/")
+sys.path.append(os.path.expanduser("~") + "/.local/share/ov/pkg/isaac_sim-2023.1.1/Enhancing-Robot-Performance-Through-HRC/ros_nodes/src/enhancing_robot_performance_through_hrc/enhancing_robot_performance_through_hrc/")
 
 simulation_app = SimulationApp({"headless": False, "window_width": 2000, "window_height":1500})
 omni.usd.get_context().open_stage("./Enhancing-Robot-Performance-Through-HRC/props/scene_.usd")

@@ -2,11 +2,11 @@ import py_trees as pt
 from .send_str_clt import SendStrClient
 
 """
-=======================BEHAVIOURS FOR THE TREE=======================
-hold_left_sim     hold_left_real      reset_left      place_left    |
-hold_right_sim    hold_right_real     reset_right     place_right   |
-hold_joint_sim    hold_joint_real     complete_task   reset_task    |
-=====================================================================
+==========================BEHAVIOURS FOR THE TREE=======================
+|  hold_left_sim     hold_left_real      reset_left      place_left    |
+|  hold_right_sim    hold_right_real     reset_right     place_right   |
+|  hold_joint_sim    hold_joint_real     complete_task   reset_task    |
+========================================================================
 """
 class GenericBehaviour(pt.behaviour.Behaviour):
     """
