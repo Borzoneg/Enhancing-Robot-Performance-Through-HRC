@@ -165,6 +165,10 @@ class Ur5e(Robot):
         else:
             self.move_to_joint_position(hold_pose)
 
+    def move_to_home_position(self):
+        self.open_gripper()
+        self.move_to_joint_position(np.array([1.17, -np.pi/2, np.pi/2, -np.pi/2, -np.pi/2, np.pi/2]))
+
     def physisc_step(self):
         try:
             req_j = self.phys_queue.pop(0)
