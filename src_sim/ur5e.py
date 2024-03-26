@@ -11,17 +11,18 @@ import roboticstoolbox as rbt
 import spatialmath as sm
 
 class Ur5e(Robot):
-    def __init__(self, name, world, has_gripper=True,translation=[0,0,0], prim_path=None, orientation=None):
+    def __init__(self, name, world, position=None, prim_path=None, orientation=None, gripper_articulation=2):
         self.phys_queue = []
-        self.has_gripper = has_gripper
-        if self.has_gripper:
-            self.gripper_options = {'open': np.array([0, 0]), 'closed': np.array([0.4, 0.4]), 'tight_closed': np.array([0.8, 0.8])}
-        else:
+        closed = 0.4
+        closed_tight = 2
+        self.has_gripper = True if (not gripper_articulation == 0) else False
+        if gripper_articulation == 2:
+            self.gripper_options = {'open': np.array([0, 0]), 'closed': np.array([closed, closed]), 'tight_closed': np.array([closed_tight, closed_tight])}
+        if gripper_articulation == 4:
+            self.gripper_options = {'open': np.array([0, 0, 0, 0]), 'closed': np.array([closed, closed, closed, closed]), 'tight_closed': np.array([closed_tight, closed_tight, closed_tight, closed_tight])}
+        elif gripper_articulation == 0:
             self.gripper_options = {'open': np.array([]), 'closed': np.array([]), 'tight_closed': np.array([])}
         self.gripper_status = 'open'
-        # self.gripper_status = np.array([0, 0])
-        # self.gripper_open = np.array([0, 0])
-        # self.gripper_closed = np.array([0.4, 0.4])
         self.world = world
         self.holding_obj = False
 
@@ -38,6 +39,8 @@ class Ur5e(Robot):
                         end_effector_frame_name="tool0",
                         maximum_substep_size=1/300,
         )
+        if position is not None:
+            self.set_world_pose(position=position)
         if orientation is not None:
             self.set_world_pose(orientation=orientation)
 
@@ -56,8 +59,10 @@ class Ur5e(Robot):
                 tcp_pose = self.rmpflow.get_end_effector_pose(self.phys_queue[-1][:6])
         else:
             tcp_pose = self.rmpflow.get_end_effector_pose(q)
-
-        return[tcp_pose[0], rot_utils.rot_matrices_to_quats(tcp_pose[1])]
+        actual_tcp_pose = [tcp_pose[0], rot_utils.rot_matrices_to_quats(tcp_pose[1])]
+        if self.has_gripper:
+            actual_tcp_pose[0] -= np.array([0, 0, 0.12])
+        return actual_tcp_pose
     
     def from_world_to_base_frame(self, pose):
         """
@@ -108,12 +113,8 @@ class Ur5e(Robot):
         else:
             starting_j_pos = self.phys_queue[-1]
         traj = rbt.jtraj(starting_j_pos, q, t)
-        # self.phys_queue.append(q for q in traj.q)
         for q in traj.q:
               self.phys_queue.append(q)
-        #     action = ArticulationAction(joint_positions=q)
-        #     self.manipulator_controller.apply_action(action)
-        #     self.world.step(render=True)
 
     def move_to_cart_position(self, target_pose, t=200):
         if len(self.phys_queue) == 0:
@@ -139,16 +140,17 @@ class Ur5e(Robot):
             self.move_to_cart_position(list(frame.get_world_pose()))
         self.last_target_pose = frame.get_world_pose()
 
+    def move_up(self, offset):
+        self.move_to_cart_position([self.get_tcp_pose()[0] + np.array([0, 0, offset]), self.get_tcp_pose()[1]])
 
     def grab_object(self, obj_pose, use_jspace=False, tight=False):
         self.open_gripper()
         if not use_jspace:
             # move over the target to approach from atop
-            obj_pose[0] += np.array([0, 0, 0.3])
+            obj_pose[0] += np.array([0, 0, 0.1])
             self.move_to_cart_position(obj_pose)
             # move on the object
-            obj_pose[0] -= np.array([0, 0, 0.3])
-            self.move_to_cart_position(obj_pose)
+            self.move_up(-0.1)
         else:
             self.move_to_joint_position(obj_pose)
             self.move_to_cart_position([self.get_tcp_pose()[0] - np.array([0, 0, 0.3]), self.get_tcp_pose()[1]])

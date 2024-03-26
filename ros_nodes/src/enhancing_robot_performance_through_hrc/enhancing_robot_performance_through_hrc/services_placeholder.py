@@ -3,7 +3,7 @@ import rclpy
 from rclpy.node import Node
 import time
 
-class SendPoseServer(Node):
+class ServicesPlaceholder(Node):
     def __init__(self):
         super().__init__('services_place_holder')        
         self.hold_left_sim_srv = self.create_service(String, "hold_left_sim", self.string_callback_runnning)
@@ -51,7 +51,7 @@ class SendPoseServer(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    send_pose_server = SendPoseServer()
+    send_pose_server = ServicesPlaceholder()
     while not (send_pose_server.quit_req_sim and send_pose_server.quit_req_real):
         rclpy.spin_once(send_pose_server)
     rclpy.shutdown()

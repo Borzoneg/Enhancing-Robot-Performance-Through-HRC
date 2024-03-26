@@ -1,2 +1,4 @@
-2024-03-05 14:45:34,110 - INFO - NEW RUN
-2024-03-05 14:45:34,110 - INFO - ==========Starting simulation==========
+2024-03-26 15:41:15,549 - INFO - NEW RUN
+2024-03-26 15:41:15,549 - INFO - ==========Starting simulation==========
+2024-03-26 15:41:24,933 - INFO - Received request for hold left service custom_interfaces.srv.String_Request(data='')
+2024-03-26 15:41:43,272 - INFO - Received request for place left service custom_interfaces.srv.String_Request(data='')
