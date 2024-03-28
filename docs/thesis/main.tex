@@ -5,13 +5,17 @@
 \usepackage{subcaption} 
 \usepackage{float} 
 \usepackage{subfloat}
-\usepackage{algpseudocode}
+\usepackage{algorithm2e}
+\RestyleAlgo{ruled}
+% \usepackage{algpseudocode}
 \usepackage[margin=3cm]{geometry}
 \usepackage{natbib}
 \usepackage{graphicx}
 \usepackage{makeidx}
+\usepackage{xcolor}
 
-
+\newcommand{\gucomment}[1]{\textcolor{red}{#1}}
+\newcommand{\gumargin}[2]{\gucomment{[#1]} \marginpar{[#1]#2}} 
 
 \pagestyle{plain} % 'plain' page style includes page numbers in the footer
 \bibliographystyle{plain}
