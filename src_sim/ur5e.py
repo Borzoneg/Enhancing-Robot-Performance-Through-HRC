@@ -13,16 +13,9 @@ import spatialmath as sm
 class Ur5e(Robot):
     def __init__(self, name, world, position=None, prim_path=None, orientation=None, gripper_articulation=2):
         self.phys_queue = []
-        closed = 0.4
-        closed_tight = 2
         self.has_gripper = True if (not gripper_articulation == 0) else False
-        if gripper_articulation == 2:
-            self.gripper_options = {'open': np.array([0, 0]), 'closed': np.array([closed, closed]), 'tight_closed': np.array([closed_tight, closed_tight])}
-        if gripper_articulation == 4:
-            self.gripper_options = {'open': np.array([0, 0, 0, 0]), 'closed': np.array([closed, closed, closed, closed]), 'tight_closed': np.array([closed_tight, closed_tight, closed_tight, closed_tight])}
-        elif gripper_articulation == 0:
-            self.gripper_options = {'open': np.array([]), 'closed': np.array([]), 'tight_closed': np.array([])}
-        self.gripper_status = 'open'
+        self.gripper_articulation = gripper_articulation
+        self.gripper_status = np.full(self.gripper_articulation, 0)
         self.world = world
         self.holding_obj = False
 
@@ -74,26 +67,25 @@ class Ur5e(Robot):
         pose_obj_robot = [T_obj_robot.t, rot_utils.rot_matrices_to_quats(T_obj_robot.R)]
         return pose_obj_robot
 
-    def close_gripper(self, tight=False):
-        if tight:
-            self.gripper_status = 'tight_closed'
-        else:
-            self.gripper_status = 'closed'
+    def close_gripper(self, force=None):
+        if force is None:
+            force = 0.5
         if len(self.phys_queue) == 0:
             starting_j_pos = self.get_joint_positions()[:6]
         else:
             starting_j_pos = self.phys_queue[-1][:6]
+        self.gripper_status = np.full(self.gripper_articulation, force)
         self.move_to_joint_position(np.hstack((starting_j_pos, 
-                                               self.gripper_options[self.gripper_status])), t=50)
+                                               self.gripper_status)), t=10)
 
     def open_gripper(self):
-        self.gripper_status = 'open'
         if len(self.phys_queue) == 0:
             starting_j_pos = self.get_joint_positions()[:6]
         else:
             starting_j_pos = self.phys_queue[-1][:6]  
+        self.gripper_status = np.full(self.gripper_articulation, 0)
         self.move_to_joint_position(np.hstack((starting_j_pos, 
-                                               self.gripper_options[self.gripper_status])), t=50)
+                                               self.gripper_status)), t=10)
 
     def move_to_joint_position(self, q, t=200):
         """
@@ -106,30 +98,31 @@ class Ur5e(Robot):
             t (int, optional): step in the traj. Defaults to 100.
         """
         q = np.array(q)
-        if q.shape[0] == 6:
-            q = np.hstack((q, self.gripper_options[self.gripper_status]))
         if len(self.phys_queue) == 0:
             starting_j_pos = self.get_joint_positions()
         else:
             starting_j_pos = self.phys_queue[-1]
+        if q.shape[0] == 6:
+            q = np.hstack((q, self.gripper_status))
         traj = rbt.jtraj(starting_j_pos, q, t)
         for q in traj.q:
               self.phys_queue.append(q)
 
-    def move_to_cart_position(self, target_pose, t=200):
+    def move_to_cart_position(self, target_pose, t=200):       
+        target_pose_copy = [np.copy(target_pose[0]), np.copy(target_pose[1])]
         if len(self.phys_queue) == 0:
             starting_j_pos = self.get_joint_positions()[:6]
         else:
             starting_j_pos = self.phys_queue[-1][:6]
         if self.has_gripper:
-            target_pose[0] += np.array([0, 0, 0.12])
+            target_pose_copy[0] += np.array([0, 0, 0.12])
         joint_pos, reachable = self.lula_solver.compute_inverse_kinematics(
                                                                             frame_name="tool0",
                                                                             warm_start=starting_j_pos,
-                                                                            target_position=target_pose[0],
-                                                                            target_orientation=target_pose[1])
+                                                                            target_position=target_pose_copy[0],
+                                                                            target_orientation=target_pose_copy[1])
         if reachable:
-            self.move_to_joint_position(np.hstack((joint_pos, self.gripper_options[self.gripper_status])), t=t)
+            self.move_to_joint_position((joint_pos), t=t)
         return reachable
 
     def move_to_target(self, frame):
@@ -141,25 +134,25 @@ class Ur5e(Robot):
         self.last_target_pose = frame.get_world_pose()
 
     def move_up(self, offset):
-        self.move_to_cart_position([self.get_tcp_pose()[0] + np.array([0, 0, offset]), self.get_tcp_pose()[1]])
+        return self.move_to_cart_position([self.get_tcp_pose()[0] + np.array([0, 0, offset]), self.get_tcp_pose()[1]])
 
-    def grab_object(self, obj_pose, use_jspace=False, tight=False):
+    def grab_object(self, obj_pose, use_jspace=False, force=None):
         self.open_gripper()
         if not use_jspace:
             # move over the target to approach from atop
-            obj_pose[0] += np.array([0, 0, 0.1])
-            self.move_to_cart_position(obj_pose)
+            self.move_to_cart_position([obj_pose[0] + np.array([0, 0, 0.1]), obj_pose[1]])
             # move on the object
             self.move_up(-0.1)
         else:
             self.move_to_joint_position(obj_pose)
             self.move_to_cart_position([self.get_tcp_pose()[0] - np.array([0, 0, 0.3]), self.get_tcp_pose()[1]])
-        self.close_gripper(tight=tight)
+        self.close_gripper(force=force)
         # move up to lift the object
         self.move_to_cart_position([self.get_tcp_pose()[0] + np.array([0, 0, 0.2]), self.get_tcp_pose()[1]])
     
-    def hold_object(self, obj_pose, hold_pose, use_jspace_obj=False, use_jspace_hold=False, tight=False):
-        self.grab_object(obj_pose, use_jspace=use_jspace_obj, tight=tight)
+    def hold_object(self, obj_pose, hold_pose, use_jspace_obj=False, use_jspace_hold=False, force=None):
+        self.grab_object(obj_pose, use_jspace=use_jspace_obj, force=force)
+        
         if not use_jspace_hold:
             self.move_to_cart_position(hold_pose)
         else:
@@ -168,6 +161,9 @@ class Ur5e(Robot):
     def move_to_home_position(self):
         self.open_gripper()
         self.move_to_joint_position(np.array([1.17, -np.pi/2, np.pi/2, -np.pi/2, -np.pi/2, np.pi/2]))
+
+    def flush_queue(self):
+        self.phys_queue = []
 
     def physisc_step(self):
         try:

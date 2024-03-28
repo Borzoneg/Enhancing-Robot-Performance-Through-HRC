@@ -9,7 +9,6 @@ simulation_app = SimulationApp({"headless": False, "window_width": 2000, "window
 omni.usd.get_context().open_stage("./Enhancing-Robot-Performance-Through-HRC/props/scene.usd")
 simulation_app.update()
 
-print("Loading stage...")
 from omni.isaac.core.utils.stage import is_stage_loading
 while is_stage_loading():
     simulation_app.update()
@@ -45,16 +44,16 @@ class ThesisSim(Node):
         self.part1_grab_pose = ([np.array([0.25,  0.50, 0.9]), rot_utils.euler_angles_to_quats([np.pi, 0, np.pi])])
         self.part2_grab_pose = ([np.array([0.10,  0.50, 0.9]), rot_utils.euler_angles_to_quats([np.pi, 0, np.pi])])
 
-        self.left_hold_pose =   ([np.array([0.25, -0.25, 1.0]), rot_utils.euler_angles_to_quats([np.pi, 0, np.pi])])
-        self.right_hold_pose =  ([np.array([0.25, -0.05, 1.0]), rot_utils.euler_angles_to_quats([np.pi, 0, np.pi])])
+        self.left_hold_pose =   ([np.array([0.25, -0.25, 1.0]), rot_utils.euler_angles_to_quats([np.pi, 0,       np.pi])])
+        self.right_hold_pose =  ([np.array([0.25, -0.05, 1.0]), rot_utils.euler_angles_to_quats([np.pi, 0, (np.pi - np.pi/4)])])
+        
+        self.left_placed_pose =   ([np.array([0.25, -0.3, 0.76]), rot_utils.euler_angles_to_quats([np.pi/2, 0, 0])])
+        self.right_placed_pose =  ([np.array([0.25,  0.0, 0.76]), rot_utils.euler_angles_to_quats([np.pi/2, 0, -np.pi/4])])
 
         self.setup_world()
         self.world.reset()
 
         self.quit_request = False
-
-
-       
 
         self.hold_left_sim_srv = self.create_service(String, 'hold_left_sim', self.hold_left)
         self.place_left_srv = self.create_service(String, 'place_left', self.place_left)
@@ -83,7 +82,8 @@ class ThesisSim(Node):
                                                              scale=np.array([0.01, 0.01, 0.01]), visible=True))
         self.part1 = self.world.scene.add(XFormPrim(prim_path="/World/Thesis_part_01", name="Thesis_part_01"))
         self.part2 = self.world.scene.add(XFormPrim(prim_path="/World/Thesis_part_02", name="Thesis_part_02"))
-         
+        print(self.part1.get_world_pose())
+        print(rot_utils.quats_to_euler_angles(np.array([0.70710677, 0.70710677, 0., 0.])))
         self.parts_state = [{'obj': self.part1, 'starting_pose': self.part1.get_world_pose(), 'grab_pose': self.part1_grab_pose, 'state': 'start'},
                             {'obj': self.part2, 'starting_pose': self.part2.get_world_pose(), 'grab_pose': self.part2_grab_pose, 'state': 'start'}]
                             
@@ -94,7 +94,7 @@ class ThesisSim(Node):
         self.logger.info("Received request for hold left service " + str(request))
         for part in self.parts_state:
             if part['state'] == "start": # if the part is available
-                self.robot.hold_object(part['grab_pose'], self.left_hold_pose, tight=True)
+                self.robot.hold_object(part['grab_pose'], self.left_hold_pose, force=1.0)
                 part['state'] = "left"
                 break
         response.ans = "success"
@@ -102,17 +102,23 @@ class ThesisSim(Node):
     
     def place_left(self, request, response):
         self.logger.info("Received request for place left service " + str(request))
-        self.robot.move_up(-0.1)
-        self.robot.open_gripper()
+        # self.robot.move_up(-0.02)
+        # self.robot.open_gripper()
+        for part in self.parts_state:
+            if part['state'] == "left": # if the part is right
+                part['obj'].set_world_pose(position=self.left_placed_pose[0], orientation=self.left_placed_pose[1])
+                break
+        # self.robot.move_up(0.04)
         self.robot.move_to_home_position()
         response.ans = "success"
         return response
     
     def reset_left(self, request, response):
         self.logger.info("Received request for reset left service " + str(request))
+        self.robot.flush_queue()
+        self.robot.move_to_home_position()
         for part in self.parts_state:
             if part['state'] == "left": # if the part is left
-                print(part['starting_pose'])
                 part['obj'].set_world_pose(position=part['starting_pose'][0], orientation=part['starting_pose'][1])
                 part['state'] = "start"
                 break
@@ -121,10 +127,9 @@ class ThesisSim(Node):
     
     def hold_right(self, request, response):
         self.logger.info("Received request for hold right service " + str(request))
-        print("Request: ", request)
         for part in self.parts_state:
             if part['state'] == "start": # if the part is available
-                self.robot.hold_object(part['grab_pose'], self.right_hold_pose, tight=True)
+                self.robot.hold_object(part['grab_pose'], self.right_hold_pose, force=1.0)
                 part['state'] = "right"
                 break
         response.ans = "success"
@@ -132,14 +137,21 @@ class ThesisSim(Node):
 
     def place_right(self, request, response):
         self.logger.info("Received request for place right service " + str(request))
-        self.robot.move_up(-0.1)
+        self.robot.move_up(-0.02)
         self.robot.open_gripper()
+        for part in self.parts_state:
+            if part['state'] == "right": # if the part is right
+                part['obj'].set_world_pose(position=self.right_placed_pose[0], orientation=self.right_placed_pose[1])
+                break
+        self.robot.move_up(0.04)
         self.robot.move_to_home_position()
         response.ans = "success"
         return response
    
     def reset_right(self, request, response):
         self.logger.info("Received request for reset right service " + str(request))
+        self.robot.flush_queue()
+        self.robot.move_to_home_position()
         for part in self.parts_state:
             if part['state'] == "right": # if the part is right
                 part['obj'].set_world_pose(position=part['starting_pose'][0], orientation=part['starting_pose'][1])
@@ -160,6 +172,11 @@ class ThesisSim(Node):
    
     def reset_task(self, request, response):
         self.logger.info("Received request for reset joint service " + str(request))
+        self.robot.flush_queue()
+        self.robot.move_to_home_position()
+        for part in self.parts_state:
+            part['obj'].set_world_pose(position=part['starting_pose'][0], orientation=part['starting_pose'][1])
+            part['state'] = "start"
         response.ans = "success"
         return response
    
@@ -179,13 +196,10 @@ class ThesisSim(Node):
                 self.robot.physisc_step()
                 if self.world.current_time_step_index == 100:
                     pass
-                    
-                
                 if self.world.current_time_step_index > 300:
-                    # self.robot.move_to_target(self.target_pose)
                     pass
-                
-                # print("joint: ", self.robot.get_joint_positions()[:6])
+                    # self.robot.move_to_target(self.target_pose)      
+                # print("joint: ", self.robot.get_joint_positions())
         self.timeline.stop()
         self.destroy_node()
         simulation_app.close()
